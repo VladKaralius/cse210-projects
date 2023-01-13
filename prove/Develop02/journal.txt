@@ -1,0 +1,4 @@
+2023-01-13|If I had one thing I could do over today, what would it be?|teast1
+2023-01-13|What made me smile today?|teast2
+2023-01-13|Who was the most interesting person I interacted with today?|teast3
+2023-01-13|What was the strongest emotion I felt today?|text4

@@ -1,18 +1,13 @@
 using System;
+using System.IO;
 
 class Program
 {
     static void Main(string[] args)
     {
-        List<string> prompts = new List<string>();
-        prompts.Add("Who was the most interesting person I interacted with today?");
-        prompts.Add("What was the best part of my day?");
-        prompts.Add("How did I see the hand of the Lord in my life today?");
-        prompts.Add("What was the strongest emotion I felt today?");
-        prompts.Add("If I had one thing I could do over today, what would it be?");
 
-        Random random = new Random();
-        string entry = "";
+        PromptGenerator prompt = new PromptGenerator();
+        Journal journal = new Journal();
 
         int choice = 0;
         do {
@@ -29,11 +24,34 @@ class Program
 
             if (choice == 1)
             {
-                int index = random.Next(prompts.Count);
-                Console.WriteLine(prompts[index]);
+                string currentPrompt = prompt.GetPrompt();
+                Console.WriteLine(currentPrompt);
                 Console.Write("> ");
-                entry = Console.ReadLine();
+                string record = Console.ReadLine();
 
+                Entry entry = new Entry();
+                DateTime currentTime = DateTime.Now;
+                string dateText = currentTime.ToShortDateString();
+                entry._date = dateText;
+                entry._prompt = currentPrompt;
+                entry._record = record;
+
+                journal._entries.Add(entry);
+            }
+
+            else if (choice == 2)
+            {
+                journal.DisplayEntries();
+            }
+
+            else if (choice == 3)
+            {
+                journal.LoadFile();
+            }
+
+            else if (choice == 4)
+            {
+                journal.SaveFile();
             }
 
         } while (choice != 5);
