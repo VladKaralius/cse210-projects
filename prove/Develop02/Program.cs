@@ -9,15 +9,17 @@ class Program
         Journal journal = new Journal();
 
         int choice = 0;
+        
         do {
         
             Console.WriteLine("Welcome to the Journal Program!");
             Console.WriteLine("Please select one of the following choices:");
-            Console.WriteLine("1. Write a new entry");
-            Console.WriteLine("2. Display journal");
-            Console.WriteLine("3. Load a text file");
-            Console.WriteLine("4. Save a text file");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine("1. Write a new entry (get prompt)");
+            Console.WriteLine("2. Write a new entry (your own topic)");
+            Console.WriteLine("3. Display journal");
+            Console.WriteLine("4. Load a text file");
+            Console.WriteLine("5. Save a text file");
+            Console.WriteLine("6. Quit");
             Console.Write("What would you like to do? ");
             choice = int.Parse(Console.ReadLine());
 
@@ -38,21 +40,21 @@ class Program
                 journal._entries.Add(entry);
             }
 
-            else if (choice == 2)
+            else if (choice == 3)
             {
                 journal.DisplayEntries();
             }
 
-            else if (choice == 3)
+            else if (choice == 4)
             {
                 journal.LoadFile();
             }
 
-            else if (choice == 4)
+            else if (choice == 5)
             {
                 journal.SaveFile();
             }
 
-        } while (choice != 5);
+        } while (choice != 6);
     }
 }
