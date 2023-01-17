@@ -34,7 +34,27 @@ class Program
                 DateTime currentTime = DateTime.Now;
                 string dateText = currentTime.ToShortDateString();
                 entry._date = dateText;
-                entry._prompt = currentPrompt;
+                entry._heading = $"Prompt: {currentPrompt}";
+                entry._record = record;
+
+                journal._entries.Add(entry);
+            }
+
+            if (choice == 2)
+            {
+                Console.WriteLine("Enter your topic");
+                Console.Write("> ");
+                string currentTopic = Console.ReadLine();
+
+                Console.WriteLine("Write your text");
+                Console.Write("> ");
+                string record = Console.ReadLine();
+
+                Entry entry = new Entry();
+                DateTime currentTime = DateTime.Now;
+                string dateText = currentTime.ToShortDateString();
+                entry._date = dateText;
+                entry._heading = $"Topic: {currentTopic}";
                 entry._record = record;
 
                 journal._entries.Add(entry);

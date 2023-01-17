@@ -26,7 +26,7 @@
                 string[] parts = line.Split("|");
                 Entry entry = new Entry();
                 entry._date = parts[0];
-                entry._prompt = parts[1];
+                entry._heading = parts[1];
                 entry._record = parts[2];
                 _entries.Add(entry);
             }
@@ -40,7 +40,7 @@
             {
                 foreach (Entry entry in _entries)
                 {
-                    outputFile.WriteLine($"{entry._date}|{entry._prompt}|{entry._record}");
+                    outputFile.WriteLine($"{entry._date}|{entry._heading}|{entry._record}");
                 }
             }
         }
