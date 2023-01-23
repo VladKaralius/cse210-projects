@@ -1,0 +1,6 @@
+Moses|1|39
+Proverbs|3|5|6
+1 Corinthians|15|20|22
+2 Nephi|2|25
+Alma|37|35
+D&C|58|42|43
