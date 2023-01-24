@@ -4,10 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
+        ReferenceGenerator masteryList = new ReferenceGenerator();
+        string[] referenceLine = masteryList.GetReference();
 
+        if (referenceLine.Length == 3)
+        {
+            
+        }
 
-        ReferenceGenerator test = new ReferenceGenerator();
-
+        
         string reference = "Proverbs 3:5-6";
         string verse = "Trust in the Lord with all thine heart; and lean not unto thine own understanding. " +
         "In all thy ways acknowledge him, and he shall direct thy paths.";
