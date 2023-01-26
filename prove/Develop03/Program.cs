@@ -4,25 +4,35 @@ class Program
 {
     static void Main(string[] args)
     {
+        string fullReference = "";
+        string verseTextFull = "";
         ReferenceGenerator masteryList = new ReferenceGenerator();
         string[] referenceLine = masteryList.GetReference();
 
+        string book = referenceLine[0];
+        int chapter = int.Parse(referenceLine[1]);
+        int verse = int.Parse(referenceLine[2]);
+
         if (referenceLine.Length == 3)
         {
-            
+            Reference reference = new Reference(book, chapter, verse);
+            fullReference = reference.GetFullReference();
+            verseTextFull = reference.GetVerseTextFull();
+        }
+        else
+        {
+            int verseEnd = int.Parse(referenceLine[3]);
+            Reference reference = new Reference(book, chapter, verse, verseEnd);
+            fullReference = reference.GetFullReference();
+            verseTextFull = reference.GetVerseTextFull();
         }
 
-        
-        string reference = "Proverbs 3:5-6";
-        string verse = "Trust in the Lord with all thine heart; and lean not unto thine own understanding. " +
-        "In all thy ways acknowledge him, and he shall direct thy paths.";
-
-        Scripture scripture = new Scripture(reference, verse);
+        Scripture scripture = new Scripture(fullReference, verseTextFull);
 
         string input = "";
         do {
 
-            //Console.Clear();
+            Console.Clear();
             Console.WriteLine(scripture.GetText());
             Console.WriteLine();
             Console.WriteLine("Press enter to continue or type 'quit' to finish:");
