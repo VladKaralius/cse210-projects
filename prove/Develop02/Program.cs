@@ -9,7 +9,7 @@ class Program
         Journal journal = new Journal();
 
         int choice = 0;
-        
+   
         while (choice != 6)
         {
         
