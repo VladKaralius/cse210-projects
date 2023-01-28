@@ -7,8 +7,11 @@ class Program
         string fullReference = "";
         string verseTextFull = "";
         ReferenceGenerator masteryList = new ReferenceGenerator();
+        // It could also be created using a file name:
+        // ReferenceGenerator masteryList = new ReferenceGenerator("myFilename.txt");
         string[] referenceLine = masteryList.GetReference();
 
+        // 
         string book = referenceLine[0];
         int chapter = int.Parse(referenceLine[1]);
         int verse = int.Parse(referenceLine[2]);
