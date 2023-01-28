@@ -8,12 +8,13 @@ class Program
         PromptGenerator prompt = new PromptGenerator();
         Journal journal = new Journal();
 
+        Console.WriteLine("Welcome to the Journal Program!");
+
         int choice = 0;
-        
+       
         while (choice != 6)
         {
         
-            Console.WriteLine("Welcome to the Journal Program!");
             Console.WriteLine("Please select one of the following choices:");
             Console.WriteLine("1. Write a new entry (get prompt)");
             Console.WriteLine("2. Write a new entry (your own topic)");
