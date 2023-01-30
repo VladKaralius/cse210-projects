@@ -11,7 +11,7 @@ class Program
         // ReferenceGenerator masteryList = new ReferenceGenerator("myFilename.txt");
         string[] referenceLine = masteryList.GetReference();
 
-        // 
+        
         string book = referenceLine[0];
         int chapter = int.Parse(referenceLine[1]);
         int verse = int.Parse(referenceLine[2]);
@@ -36,7 +36,7 @@ class Program
         do {
 
             Console.Clear();
-            Console.WriteLine(scripture.GetText());
+            Console.WriteLine(scripture.GetRenderedText());
             Console.WriteLine();
             Console.WriteLine("Press enter to continue or type 'quit' to finish:");
             input = Console.ReadLine();
