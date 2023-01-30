@@ -15,7 +15,7 @@
             _fullReference = $"{_book} {_chapter}:{_verse}";
 
             VerseLibrary verseLibrary = new VerseLibrary();
-            _verseTextFull = verseLibrary.GetVerse(_book, _chapter, _verse);
+            _verseTextFull = verseLibrary.GetVerseText(_book, _chapter, _verse);
         }
 
         public Reference(string book, int chapter, int verse, int verseEnd)
@@ -25,12 +25,12 @@
             _verse = verse;
             _verseEnd = verseEnd;
             
-            _fullReference = $"{_book} {_chapter}:{_verse}";
+            _fullReference = $"{_book} {_chapter}:{_verse}-{_verseEnd}";
 
             VerseLibrary verseLibrary = new VerseLibrary();
             for (int i = _verse; i <= _verseEnd; i++)
             {
-                string verseText = verseLibrary.GetVerse(_book, _chapter, i);
+                string verseText = verseLibrary.GetVerseText(_book, _chapter, i);
                 _verseTextFull += verseText + " ";
             }
         }

@@ -1,7 +1,6 @@
     public class Scripture
     {
         private string _reference;
-        private string _verse;
         private List<Word> _words;
         private List<int> _wordsDisplayed;
         private bool _isFullyHidden;
@@ -20,6 +19,8 @@
                 _words.Add(word);
             }
 
+            // Create a list that keeps track of displayed words
+            // It contains indexes of the _words list
             _wordsDisplayed = new List<int>();
 
             for (int i = 0; i < _words.Count(); i++)
@@ -30,15 +31,15 @@
             _isFullyHidden = false;
         }
 
-        public string GetText()
+        public string GetRenderedText()
         {
-            _verse = "";
+            string renderedText = "";
             foreach (Word word in _words)
             {
-                _verse += word.GetWord() + " ";
+                renderedText += word.GetWord() + " ";
             }
 
-            return _verse;
+            return renderedText;
         }
 
         public void HideWords()
@@ -52,7 +53,7 @@
                 int index = _wordsDisplayed[choice];
                 // Hide the corresponding word
                 _words[index].Hide();
-                // Remove the used item from the list
+                // Remove the hidden item from the list
                 _wordsDisplayed.RemoveAt(choice);
                 // If everything is hidden, set the attribute and end the loop
                 if(_wordsDisplayed.Count() == 0)

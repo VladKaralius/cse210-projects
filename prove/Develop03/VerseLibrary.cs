@@ -19,16 +19,9 @@
                 string verseText = parts[3];
                 _verseLibrary.Add((book, chapter, verse), verseText);
             }
-
         }
 
-        public VerseLibrary(string fileName)
-        {
-            _fileName = fileName;
-            string[] verseList = System.IO.File.ReadAllLines(_fileName);
-        }
-
-        public string GetVerse(string book, int chapter, int verse)
+        public string GetVerseText(string book, int chapter, int verse)
         {
             string verseText = _verseLibrary[(book, chapter, verse)];
             return verseText;
