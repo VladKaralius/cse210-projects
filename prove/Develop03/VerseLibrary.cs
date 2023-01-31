@@ -26,5 +26,4 @@
             string verseText = _verseLibrary[(book, chapter, verse)];
             return verseText;
         }
-
     }
