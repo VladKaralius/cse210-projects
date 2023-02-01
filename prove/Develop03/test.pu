@@ -1,18 +1,38 @@
-@startuml name Test
+@startuml test
 hide circle
+skinparam classAttributeIconSize 0
+<style>
+classDiagram {
+  class {
+      ' attributes and methods
+      FontColor black
+      BackgroundColor lightgray
+      ' class name
+      header {
+        ' FontSize 20
+        BackgroundColor yellow
+        FontColor green
+        FontStyle bold
+      }
+  }
+}
+</style>
 
-
-class Class1 {
-isHidden : bool
-GetText() : string
+SkinParam {
+    NodeSep 200 ' horizontal spacing
+    RankSep 200 ' vertical spacing
 }
 
-class Class2 {
-isHidden : bool
-GetText() : string
+class Class1
+{
+    + check : int
 }
 
-Class1 <.. Class2
+class Class2
+{
+    + check : int
+}
 
+Class1 <|-- Class2
 
 @enduml

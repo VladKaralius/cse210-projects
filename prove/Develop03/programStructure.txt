@@ -1,10 +1,10 @@
 The program stores a list of references that we want to memorize in a file "mastery.txt".
 Each entry can contain just one verse (like Moses 1:39),or it could contain several verses
-(like Proverbs 3:5-6). ReferenceGenerator class is responsible for reading this file and
+(like Proverbs 3:5-6). RefereceGenerator class is responsible for reading this file and
 returning a random reference for further processing.
 
 Verses are stored in a separate file "verses.txt" one in a line. VerseLibrary class reads that file
-and stores its contents in a dictionary. Then any verse could be requested by a book name,
+and stores its contents in a dictionary. Then any verse could be requested using a book name,
 and chapter and verse numbers.
 
 Reference class uses the data obtained from the ReferenceGenerator to get the corresponding verse
@@ -13,7 +13,7 @@ or verses from the VerseLibrary and to create a formatted reference string.
 The formatted reference and the verse text are passed to Scripture class. This class splits
 the verse text into separate word and turns those words into a list of Word objects.
 The Scripture class is also responsible for hiding the words and displaying the verse text
-with some words hidden. It hides three words a time. It also keeps track of displayed and hidden
+with some words hidden. It hides three words at a time. It also keeps track of displayed and hidden
 words. When all words are hidden the Scripture object changes its state to "FullyHidden".
 
 Word object stores the word text and can be set as hidden. It has a method that returns the
