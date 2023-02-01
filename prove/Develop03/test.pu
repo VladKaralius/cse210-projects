@@ -1,4 +1,4 @@
-@startuml
+@startuml test
 hide circle
 skinparam classAttributeIconSize 0
 <style>
@@ -27,14 +27,12 @@ class Class1
 {
     + check : int
 }
-diamond         diamond
-<>              diamond_short_form
-entity          entity
-enum            enum
-exception       exception
-interface       interface
-metaclass       metaclass
-protocol        protocol
-stereotype      stereotype
-struct          struct
+
+class Class2
+{
+    + check : int
+}
+
+Class1 <|-- Class2
+
 @enduml
