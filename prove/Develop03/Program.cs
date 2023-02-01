@@ -33,8 +33,8 @@ class Program
         Scripture scripture = new Scripture(fullReference, verseTextFull);
 
         string input = "";
-        do {
-
+        while (input != "quit")
+        {
             Console.Clear();
             Console.WriteLine(scripture.GetRenderedText());
             Console.WriteLine();
@@ -54,6 +54,6 @@ class Program
                 
             }
 
-        } while (input != "quit");
+        }
     }
 }
