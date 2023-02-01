@@ -1,5 +1,5 @@
 The program stores a list of references that we want to memorize in a file "mastery.txt".
-Each entry can contain just one verse (like Moses 1:39),or it could contain several verses
+Each entry can contain just one verse (like Moses 1:39), or it could contain several verses
 (like Proverbs 3:5-6). ReferenceGenerator class is responsible for reading this file and
 returning a random reference for further processing.
 
