@@ -4,15 +4,18 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning04 World!");
+    Assignment testBase = new Assignment("Samuel Bennet", "Multiplication");
+    Console.WriteLine(testBase.GetSummary());
 
+    MathAssignment testMath = new MathAssignment("Roberto Rodriguez",
+        "Fractions", "Section 7.3", "Problems 8-19");
+    Console.WriteLine(testMath.GetSummary());
+    Console.WriteLine(testMath.GetHomeworkList());
 
-    Student student = new Student("Brigham", "234");
-    string name = student.GetName();
-    string number = student.GetNumber();
-    Console.WriteLine(name);
-    Console.WriteLine(number);
-
+    WritingAssignment testWriting = new WritingAssignment("Mary Waters",
+        "European History", "The Causes of World War II");
+    Console.WriteLine(testWriting.GetSummary());
+    Console.WriteLine(testWriting.GetWritingInformation());
        
     }
 
