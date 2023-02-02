@@ -8,7 +8,7 @@ class Program
     Console.WriteLine(testBase.GetSummary());
 
     MathAssignment testMath = new MathAssignment("Roberto Rodriguez",
-        "Fractions", "Section 7.3", "Problems 8-19");
+        "Fractions", "7.3", "8-19");
     Console.WriteLine(testMath.GetSummary());
     Console.WriteLine(testMath.GetHomeworkList());
 
