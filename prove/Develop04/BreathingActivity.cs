@@ -9,10 +9,6 @@ public class BreathingActivity : Activity
 
     public void RunActivity()
     {
-        Console.Clear();
-        Console.WriteLine("Get ready...");
-        _animation.Display(5);
-
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_duration);
 

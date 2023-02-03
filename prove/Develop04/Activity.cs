@@ -18,6 +18,9 @@ public class Activity
         Console.WriteLine($"{_description}\n");
         Console.Write("How long, in seconds, would you like for your session? ");
         _duration = int.Parse(Console.ReadLine());
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        _animation.Display(5);
     }
 
     public void DisplayEndingMessage()

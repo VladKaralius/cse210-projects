@@ -15,20 +15,25 @@ public class ReflectionActivity : Activity
 
     public void RunActivity()
     {
+        Console.WriteLine("Consider the following prompt:\n");
+        string prompt = _reflectionPromptGenerator.GetPrompt();
+        Console.WriteLine($" --- {prompt} ---");
+        Console.WriteLine("\nWhen you have something in mind, press enter to continue.");
+        Console.ReadLine();
+        Console.WriteLine("Now ponder of each of the following questions " +
+            "as they related to this experience");
+        Console.Write("You may begin in: ");
+        _countdown.Display(5);
         Console.Clear();
-        Console.WriteLine("Get ready...");
-        _animation.Display(5);
-
+    
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_duration);
-
-        Console.WriteLine("Consider the following prompt:\n");
-        Console.WriteLine(_reflectionPromptGenerator.GetPrompt());
-        Console.WriteLine(_reflectionQuestionGenerator.GetQuestion());
-        
+                
         while (DateTime.Now < endTime)
         {
-
+            string question = _reflectionQuestionGenerator.GetQuestion();
+            Console.Write($"> {question} ");
+            _animation.Display(16);
         }
     }
 }
