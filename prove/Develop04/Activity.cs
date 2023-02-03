@@ -12,8 +12,6 @@ public class Activity
         _countdown = new Countdown();
     }
 
-
-
     public void DisplayStartingMessage()
     {
         Console.WriteLine($"Welcome to the {_name} Activity.\n");
@@ -22,12 +20,12 @@ public class Activity
         _duration = int.Parse(Console.ReadLine());
     }
 
-
-
     public void DisplayEndingMessage()
     {
-        string endingMessage = $"You have completed another {_duration} " +
-            $"seconds of the {_name}";
-        Console.WriteLine(endingMessage);
+        Console.WriteLine("\nWell done!!");
+        _animation.Display(5);
+       Console.WriteLine($"You have completed another {_duration} " +
+            $"seconds of the {_name} Activity.");
+        _animation.Display(5);
     }
 }
