@@ -29,6 +29,15 @@ class Program
                 breathingActivity.DisplayEndingMessage();
             }
 
+            else if (choice == 2)
+            {
+                Console.Clear();
+                ReflectionActivity reflectionActivity = new ReflectionActivity();
+                reflectionActivity.DisplayStartingMessage();
+                reflectionActivity.RunActivity();
+                reflectionActivity.DisplayEndingMessage();                
+            }
+
 
         }
 
