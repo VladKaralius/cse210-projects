@@ -20,6 +20,6 @@ public class Animation
             Thread.Sleep(500);
         }
 
-        Console.Write("\b \b");
+        Console.Write("\b \b\n");
     }
 }
