@@ -38,6 +38,14 @@ class Program
                 reflectionActivity.DisplayEndingMessage();                
             }
 
+            else if (choice == 3)
+            {
+                Console.Clear();
+                ListingActivity listingActivity = new ListingActivity();
+                listingActivity.DisplayStartingMessage();
+                listingActivity.RunActivity();
+                listingActivity.DisplayEndingMessage();                
+            }
 
         }
 

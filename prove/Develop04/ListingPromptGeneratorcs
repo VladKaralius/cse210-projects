@@ -1,10 +1,10 @@
-public class ReflectionPromptGenerator
+public class ListingPromptGenerator
 {
-    private List<string> _reflectionPrompts;
+    private List<string> _listingPrompts;
         
-    public ReflectionPromptGenerator()
+    public ListingPromptGenerator()
     {
-        _reflectionPrompts = new List<string>
+        _listingPrompts = new List<string>
             {
                 "Think of a time when you stood up for someone else.",
                 "Think of a time when you did something really difficult.",
@@ -16,7 +16,7 @@ public class ReflectionPromptGenerator
     public string GetPrompt()
     {
         Random random = new Random();
-        int index = random.Next(_reflectionPrompts.Count);
-        return _reflectionPrompts[index];
+        int index = random.Next(_listingPrompts.Count);
+        return _listingPrompts[index];
     }
 }
