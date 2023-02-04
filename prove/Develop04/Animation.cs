@@ -13,13 +13,13 @@ public class Animation
         for (int i = 0; i < cycles; i++)
         {
             Console.Write("\b \b-");
-            Thread.Sleep(300);
+            Thread.Sleep(250);
             Console.Write("\b \b\\");
-            Thread.Sleep(200);
+            Thread.Sleep(250);
             Console.Write("\b \b|");
-            Thread.Sleep(200);
+            Thread.Sleep(250);
             Console.Write("\b \b/");
-            Thread.Sleep(300);
+            Thread.Sleep(250);
         }
 
         Console.Write("\b \b\n");

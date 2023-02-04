@@ -5,7 +5,6 @@ class Program
     static void Main(string[] args)
     {
 
-        
         int choice = 0;
         while(choice != 4)
         {
@@ -17,8 +16,6 @@ class Program
             Console.WriteLine("  4. Quit");
             Console.Write("Select a choice from the menu: ");
             choice = int.Parse(Console.ReadLine());
-
-
 
             if (choice == 1)
             {
@@ -46,9 +43,6 @@ class Program
                 listingActivity.RunActivity();
                 listingActivity.DisplayEndingMessage();                
             }
-
         }
-
-
     }
 }
