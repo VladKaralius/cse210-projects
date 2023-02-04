@@ -1,6 +1,6 @@
 @startuml test
 hide circle
-skinparam classAttributeIconSize 0
+'skinparam classAttributeIconSize 0
 <style>
 classDiagram {
   class {
@@ -26,6 +26,8 @@ SkinParam {
 class Class1
 {
     + check : int
+    - test : string
+    # buh : float
 }
 
 class Class2
