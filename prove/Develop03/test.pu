@@ -1,40 +1,71 @@
 @startuml test
 hide circle
+hide empty members
 'skinparam classAttributeIconSize 0
+skinparam style strictuml
+'skinparam groupInheritance 2
+'skinparam linetype ortho
 <style>
 classDiagram {
   class {
-      ' attributes and methods
-      FontColor black
-      BackgroundColor lightgray
-      ' class name
-      header {
-        ' FontSize 20
-        BackgroundColor yellow
-        FontColor green
-        FontStyle bold
-      }
+    'attributes and methods
+    'FontSize 14
+    'FontColor black
+    'BackgroundColor #fefece
+    BackgroundColor #f0fff0
+    'RoundCorner 0
+    'class name
+    header {
+      'FontSize 12
+      BackgroundColor YellowGreen
+      'FontColor Black
+       FontStyle bold
+    }
+  }
+  note {
+    BackgroundColor Yellow
   }
 }
 </style>
 
-SkinParam {
-    NodeSep 200 ' horizontal spacing
-    RankSep 200 ' vertical spacing
+'note "Test1" as Note1
+'note "Test2" as Note2
+'Note1 .. Class1
+'Note1 . Class2
+
+class Class1 {
+  - check : int
+  + test : string
+  # buh : float
 }
 
-class Class1
-{
-    + check : int
-    - test : string
-    # buh : float
+note left : Test3
+
+class Class2 {
+  + check : int
 }
 
-class Class2
-{
-    + check : int
+class Class3 {
+  - test()
+  + test()
+  # test()
+}
+
+class Class4 {
+  - test : float
 }
 
 Class1 <|-- Class2
+Class1 <|-- Class3
+Class1 <|-- Class4
+
+
+class Animal
+together {
+  class Dog
+  class Cat
+}
+Animal <|-- Cat
+Dog - (Animal, Cat)
 
 @enduml
