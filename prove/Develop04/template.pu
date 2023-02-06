@@ -5,6 +5,7 @@ hide empty members
 skinparam style strictuml
 skinparam groupInheritance 2
 'skinparam linetype ortho
+'skinparam Handwritten true
 <style>
 classDiagram {
   class {
@@ -28,9 +29,11 @@ classDiagram {
 }
 </style>
 
+header 2023-02-16
+title Unit 04 Develop
 
 legend top left
-  class Class as "Class"
+  Contstructors without parameters are ommited in this diagram
 endlegend
 
 note "Test1" as Note1
@@ -76,6 +79,6 @@ together {
   }
 }
 Animal <|-down- Cat
-Dog -- (Animal, Cat)
+Animal <|-- Dog
 
 @enduml

@@ -6,6 +6,9 @@ skinparam style strictuml
 skinparam groupInheritance 2
 'skinparam linetype ortho
 'skinparam linetype polyline
+'skinparam Nodesep 40
+'skinparam Ranksep 25
+'left to right direction
 <style>
 classDiagram {
   class {
@@ -29,14 +32,13 @@ classDiagram {
 }
 </style>
 
+header 2023-02-16
+title Unit 04 Develop: Mindfulness Program (Inheritance - Design Activity)
+
 legend top left
   Contstructors without parameters are ommited in this diagram
 endlegend
 
-''note "Test1" as Note1
-'note "Test2" as Note2
-'Note1 .. Class1
-'Note1 . Class2
 
 class Activity {
   # _name : string
@@ -48,19 +50,18 @@ class Activity {
   + DisplayEndingMessage() : void
 }
 
-
 class BreathingActivity {
-  + RunActivity : void
+  + RunActivity() : void
 }
 
 class ReflectionActivity {
-  - _reflectionPromptGenerator :\n ReflectionPromptGenerator
-  - _reflectionQuestionGenerator :\n ReflectionQuestionGenerator
+  - _reflectionPromptGenerator : ReflectionPromptGenerator
+  - _reflectionQuestionGenerator : ReflectionQuestionGenerator
   + RunActivity() : void
 }
 
 class ListingActivity {
-  - _listingPromptGenerator :\n ListingPromptGenerator
+  - _listingPromptGenerator : ListingPromptGenerator
   - _itemCount : int
   + RunActivity() : void
 }
@@ -79,20 +80,14 @@ class ListingPromptGenerator {
   - _listingPrompts : List<string>
   + GetPrompt() : string
 }
-together{
+
 class Animation {
   + Display(duration : int) : void
-}
-
-note top of Animation: Helper class
 }
 
 class Countdown {
   + Display(duration : int) : void
 }
-
-
-
 
 Activity <|-- BreathingActivity
 Activity <|-- ReflectionActivity

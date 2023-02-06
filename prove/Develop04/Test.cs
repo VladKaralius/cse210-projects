@@ -15,7 +15,7 @@ public class Test
         Type type = Type.GetType("BreathingActivity",true);
         object currentActivity = Activator.CreateInstance(type);
         Console.Clear();
-        currentActivity.RunActivity();
+        //currentActivity.RunActivity();
 
         Console.WriteLine(currentActivity.GetType());
         Console.ReadLine();
