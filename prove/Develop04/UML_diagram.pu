@@ -3,7 +3,7 @@ hide circle
 hide empty members
 'skinparam classAttributeIconSize 0
 skinparam style strictuml
-'skinparam groupInheritance 2
+skinparam groupInheritance 2
 'skinparam linetype ortho
 <style>
 classDiagram {
@@ -28,8 +28,13 @@ classDiagram {
 }
 </style>
 
-'note "Test1" as Note1
-'note "Test2" as Note2
+
+legend top left
+  class Class as "Class"
+endlegend
+
+note "Test1" as Note1
+note "Test2" as Note2
 'Note1 .. Class1
 'Note1 . Class2
 
@@ -59,13 +64,18 @@ Class1 <|-- Class2
 Class1 <|-- Class3
 Class1 <|-- Class4
 
-
-class Animal
-together {
-  class Dog
-  class Cat
+class Animal {
+  - test1 : int
 }
-Animal <|-- Cat
-Dog - (Animal, Cat)
+together {
+  class Dog {
+    test()
+  }
+  class Cat{
+    test()
+  }
+}
+Animal <|-down- Cat
+Dog -- (Animal, Cat)
 
 @enduml
