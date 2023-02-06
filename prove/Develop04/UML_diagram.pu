@@ -5,6 +5,7 @@ hide empty members
 skinparam style strictuml
 skinparam groupInheritance 2
 'skinparam linetype ortho
+'skinparam linetype polyline
 <style>
 classDiagram {
   class {
@@ -28,54 +29,78 @@ classDiagram {
 }
 </style>
 
-
 legend top left
-  class Class as "Class"
+  Contstructors without parameters are ommited in this diagram
 endlegend
 
-note "Test1" as Note1
-note "Test2" as Note2
+''note "Test1" as Note1
+'note "Test2" as Note2
 'Note1 .. Class1
 'Note1 . Class2
 
-class Class1 {
-  - check : int
-  + test : string
-  # buh : float
+class Activity {
+  # _name : string
+  # _description : string
+  # _duration : int
+  # _animation : Animation
+  # _countdown : Countdown
+  + DisplayStartingMessage() : void
+  + DisplayEndingMessage() : void
 }
 
-note left : Test3
 
-class Class2 {
-  + check : int
+class BreathingActivity {
+  + RunActivity : void
 }
 
-class Class3 {
-  - test()
-  + test()
-  # test()
+class ReflectionActivity {
+  - _reflectionPromptGenerator :\n ReflectionPromptGenerator
+  - _reflectionQuestionGenerator :\n ReflectionQuestionGenerator
+  + RunActivity() : void
 }
 
-class Class4 {
-  - test : float
+class ListingActivity {
+  - _listingPromptGenerator :\n ListingPromptGenerator
+  - _itemCount : int
+  + RunActivity() : void
 }
 
-Class1 <|-- Class2
-Class1 <|-- Class3
-Class1 <|-- Class4
+class ReflectionPromptGenerator {
+  - _reflectionPrompts : List<string>
+  + GetPrompt() : string
+}
 
-class Animal {
-  - test1 : int
+class ReflectionQuestionGenerator {
+  - _reflectionQuestions : List<string>
+  + GetQuestion() : string
 }
-together {
-  class Dog {
-    test()
-  }
-  class Cat{
-    test()
-  }
+
+class ListingPromptGenerator {
+  - _listingPrompts : List<string>
+  + GetPrompt() : string
 }
-Animal <|-down- Cat
-Dog -- (Animal, Cat)
+together{
+class Animation {
+  + Display(duration : int) : void
+}
+
+note top of Animation: Helper class
+}
+
+class Countdown {
+  + Display(duration : int) : void
+}
+
+
+
+
+Activity <|-- BreathingActivity
+Activity <|-- ReflectionActivity
+Activity <|-- ListingActivity
+ReflectionActivity <.. ReflectionPromptGenerator
+ReflectionActivity <.. ReflectionQuestionGenerator
+ListingActivity <.. ListingPromptGenerator
+Activity <.left. Animation
+Activity <.right. Countdown
 
 @enduml
