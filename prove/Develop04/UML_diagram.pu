@@ -4,10 +4,10 @@ hide empty members
 'skinparam BackgroundColor White/LightGreen
 'skinparam classAttributeIconSize 0
 skinparam style strictuml
-skinparam groupInheritance 2
+'skinparam groupInheritance 2
 'skinparam linetype ortho
 'skinparam linetype polyline
-'skinparam Nodesep 40
+'skinparam Nodesep 15
 'skinparam Ranksep 25
 'left to right direction
 <style>
@@ -36,10 +36,26 @@ classDiagram {
 header 2023-02-16
 title Unit 04 Develop: Mindfulness Program (Inheritance - Design Activity)
 
-legend top left
-  Contstructors without parameters are ommited in this diagram
-endlegend
+'legend top left
+'  Constructors without parameters are ommited in this diagram
+'endlegend
 
+note "Constructors\nwithout\nparameters\nare ommited\nin this diagram" as N1
+
+' Dummy class that explains visibility symbols
+class Visibility #LightGray{
+Attributes
+..
+- private
+# protected
++ public
+--
+Methods
+..
+- private()
+# protected()
++ public()
+}
 
 class Activity {
   # _name : string
@@ -82,11 +98,11 @@ class ListingPromptGenerator {
   + GetPrompt() : string
 }
 
-class Animation {
+class Animation <<auxiliary>> {
   + Display(duration : int) : void
 }
 
-class Countdown {
+class Countdown <<auxiliary>> {
   + Display(duration : int) : void
 }
 
