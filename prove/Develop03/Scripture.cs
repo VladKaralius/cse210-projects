@@ -33,7 +33,7 @@ public class Scripture
 
     public string GetRenderedText()
     {
-        string renderedText = "";
+        string renderedText = _reference + " ";
         foreach (Word word in _words)
         {
             renderedText += word.GetWord() + " ";
