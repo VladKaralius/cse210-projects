@@ -109,10 +109,10 @@ class Countdown <<auxiliary>> {
 Activity <|-- BreathingActivity
 Activity <|-- ReflectionActivity
 Activity <|-- ListingActivity
-ReflectionActivity <.. ReflectionPromptGenerator
-ReflectionActivity <.. ReflectionQuestionGenerator
-ListingActivity <.. ListingPromptGenerator
-Activity <.left. Animation
-Activity <.right. Countdown
+ReflectionActivity ..> ReflectionPromptGenerator
+ReflectionActivity ..> ReflectionQuestionGenerator
+ListingActivity ..> ListingPromptGenerator
+Activity .left.> Animation
+Activity .right.> Countdown
 
 @enduml
