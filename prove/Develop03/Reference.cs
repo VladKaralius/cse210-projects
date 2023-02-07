@@ -44,6 +44,4 @@
         {
             return _verseTextFull;
         }
-
-
     }
