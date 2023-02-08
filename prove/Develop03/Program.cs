@@ -5,7 +5,7 @@ using System;
 // Every time a random reference is selected for memorization.
 // Scripture verses are also store in a text file.
 // Each verse is store on a separate line, but the text for display
-// may be made from several verses, (depending on a reference).
+// may be formed from several verses (depending on a reference).
 // The program keeps track of the hidden words, so each time it
 // randomly selects from only those words that are not already hidden.
 
@@ -43,7 +43,7 @@ class Program
             verseTextFull = reference.GetVerseTextFull();
         }
 
-        // Pass the formatted reference and verses to the Scripture module for display
+        // Pass the formatted reference and verses to the Scripture class for display
         Scripture scripture = new Scripture(fullReference, verseTextFull);
 
         // Start the menu loop        
@@ -58,8 +58,8 @@ class Program
 
             // Check if enter is pressed.
             // Then check if all words are hidden.
-            // If all words are already hidden end the program.
-            // Otherwise hide some words and prompt the user again.
+            // If all words are already hidden, end the program.
+            // Otherwise, hide some words and prompt the user again.
             if (input == "")
             {
                 if (scripture.GetIsFullyHidden() == false)
