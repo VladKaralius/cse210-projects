@@ -13,6 +13,8 @@ skinparam style strictuml
 
 '--Styling--
 'skinparam BackgroundColor White/LightGreen
+skinparam TitleFontSize 22
+
 <style>
 classDiagram {
   class {
@@ -33,21 +35,19 @@ classDiagram {
   note {
     BackgroundColor Yellow
   }
-}
+  legend {
+    FontSize 20
+  }
 </style>
 
-'--Header/footer, title, legend--
+'--Header, footer, title, explanations--
 header Vladislovas Karalius 2023-02-16
 title Unit 04 Develop: Mindfulness Program (Inheritance - Design Activity)
 
-'legend top left
-'  Constructors without parameters are ommited in this diagram
-'endlegend
-
-note "Constructors\nwithout\nparameters\nare ommited\nin this diagram" as N1
+note  "Constructors\nwithout\nparameters\nare ommited\nin this diagram" as N1
 
 ' Dummy class that explains visibility symbols
-class Visibility #LightGray{
+class Visibility #dddddd {
 Attributes
 ..
 - private
@@ -119,5 +119,34 @@ ReflectionActivity ..> ReflectionQuestionGenerator
 ListingActivity ..> ListingPromptGenerator
 Activity .left.> Animation
 Activity .right.> Countdown
+
+'--Description--
+legend
+<size:15>test</size>
+The program has one base class **Activity**. This class contains the attributes and methods
+that are common to all activities. Certain functions are put into separate classes as follows:
+
+**Animation** class is responsible for displaying the spinner animation for a given duration.
+
+**Countdown** class is responisble for displaying the countdown with the interval of 1 second.
+
+BreathingActivity, ReflectionActivity, and ListingActivity classes are derived from the base
+Activity class. They have attributes and methods that are unique to each of them.
+RunActivity() method is named the same, but it performs differently for each activity.
+
+**BreathingActivity** class has no attributes. It just contains the RunActivity() method.
+That is sufficient for this class.
+
+**ReflectionActivity** class uses two other classes: ReflectionPromptGenerator and
+ReflectionQuestionGenerator.
+
+**ReflectionPrompGenerator** provides random prompts for the ReflectionActivity class.
+ReflectionQuestionGenerator provides random Questions for the ReflectionActivity class.
+
+**ListingActivity** class has an attribute which is used to count the number of items
+that a user types during this activity. It also uses another class: ListingPromptGenerator.
+
+**ListingPromptGenerator** provides random prompts for the ListingActivity class.
+endlegend
 
 @enduml
