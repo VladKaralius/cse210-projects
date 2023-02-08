@@ -1,15 +1,17 @@
 @startuml test
+'--Formatting options--
 hide circle
 hide empty members
-'skinparam BackgroundColor White/LightGreen
 'skinparam classAttributeIconSize 0
 skinparam style strictuml
 'skinparam groupInheritance 2
 'skinparam linetype ortho
-'skinparam linetype polyline
 'skinparam Nodesep 15
 'skinparam Ranksep 25
 'left to right direction
+
+'--Styling--
+'skinparam BackgroundColor White/LightGreen
 <style>
 classDiagram {
   class {
@@ -33,6 +35,7 @@ classDiagram {
 }
 </style>
 
+'--Header/footer, title, legend--
 header 2023-02-16
 title Unit 04 Develop: Mindfulness Program (Inheritance - Design Activity)
 
@@ -40,6 +43,7 @@ title Unit 04 Develop: Mindfulness Program (Inheritance - Design Activity)
 '  Constructors without parameters are ommited in this diagram
 'endlegend
 
+'--Main--
 note "Constructors\nwithout\nparameters\nare ommited\nin this diagram" as N1
 
 ' Dummy class that explains visibility symbols
