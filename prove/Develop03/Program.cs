@@ -22,13 +22,13 @@ class Program
         // Get a random reference from the list of references (mastery.txt)
         string[] referenceLine = masteryList.GetReference();
 
-        // Split the reference into parts.
+        // Split the reference into parts
         string book = referenceLine[0];
         int chapter = int.Parse(referenceLine[1]);
         int verse = int.Parse(referenceLine[2]);
 
         // Check if it is a single line or multiple lines
-        // And invoke the appropriate constructor
+        // and invoke the appropriate constructor
         if (referenceLine.Length == 3) // Single line
         {
             Reference reference = new Reference(book, chapter, verse);

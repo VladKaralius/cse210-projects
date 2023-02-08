@@ -1,4 +1,5 @@
-@startuml test
+@startuml UML_diagram
+
 '--Formatting options--
 hide circle
 hide empty members
@@ -43,7 +44,6 @@ title Unit 04 Develop: Mindfulness Program (Inheritance - Design Activity)
 '  Constructors without parameters are ommited in this diagram
 'endlegend
 
-'--Main--
 note "Constructors\nwithout\nparameters\nare ommited\nin this diagram" as N1
 
 ' Dummy class that explains visibility symbols
@@ -61,6 +61,7 @@ Methods
 + public()
 }
 
+'--Main--
 class Activity {
   # _name : string
   # _description : string
