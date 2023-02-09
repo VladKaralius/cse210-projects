@@ -10,6 +10,8 @@ public class ListingActivity : Activity
             "by having you list as many things as you can in a certain area.";
         _listingPromptGenerator = new ListingPromptGenerator();
         _itemCount = 0;
+        // Keep track of activations
+        _activationCount[_name]++;
     }
 
     public void RunActivity()

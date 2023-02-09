@@ -6,6 +6,20 @@ public class Activity
     protected Animation _animation;
     protected Countdown _countdown;
 
+    // Tracking data will be stored in dictionaries:
+    protected static Dictionary<string, int> _activationCount =
+        new Dictionary<string, int>(){
+            {"Breathing", 0},
+            {"Reflection", 0},
+            {"Listing", 0}
+        };
+    protected static Dictionary<string, int> _totalDuration =
+        new Dictionary<string, int>(){
+            {"Breathing", 0},
+            {"Reflection", 0},
+            {"Listing", 0}
+        };
+
     public Activity()
     {
         _animation = new Animation();
@@ -21,6 +35,8 @@ public class Activity
         Console.Clear();
         Console.WriteLine("Get ready...");
         _animation.Display(5);
+        // Keep track of total duration
+        _totalDuration[_name] += _duration;
     }
 
     public void DisplayEndingMessage()

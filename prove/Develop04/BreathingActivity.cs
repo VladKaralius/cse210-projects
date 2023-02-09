@@ -5,6 +5,8 @@ public class BreathingActivity : Activity
         _name = "Breathing";
         _description = "This activity will help you relax by walking you through " + 
             "breathing in and out slowly. Clear your mind and focus on your breathing.";
+        // Keep track of activations
+        _activationCount[_name]++;
     }
 
     public void RunActivity()
