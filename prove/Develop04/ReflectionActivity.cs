@@ -11,6 +11,8 @@ public class ReflectionActivity : Activity
             "the power you have and how you can use it in other aspects of your life.";
         _reflectionPromptGenerator = new ReflectionPromptGenerator();
         _reflectionQuestionGenerator = new ReflectionQuestionGenerator();
+        // Keep track of activations
+        _activationCount[_name]++;
     }
 
     public void RunActivity()
