@@ -41,23 +41,25 @@ classDiagram {
 </style>
 
 '--Header, title, caption--
-header Vladislovas Karalius 2023-02-16
+header By Vladislovas Karalius, created with PlantUML, 2023-02-16
 title Unit 04 Develop: Mindfulness Program (Inheritance - Design Activity)
-caption <:warning:>Constructors without parameters are ommited in this diagram
+caption <:warning:> Constructors without parameters are ommited in this diagram
 
 ' Dummy class that explains visibility symbols
-class Visibility #dddddd {
+class Markers #dddddd {
 Attributes
 ..
 - private
 # protected
 + public
+{static} static
 --
 Methods
 ..
 - private()
 # protected()
 + public()
+{static} static()
 }
 
 '--Main--
@@ -124,30 +126,36 @@ Activity .right.> Countdown
 
 '--Description--
 legend bottom
+<size:22>__**Core Requirements**__
 The program has one base class **Activity**. This class contains the attributes and methods
 that are common to all activities. Certain functions are put into separate classes as follows:
 
-**Animation** class is responsible for displaying the spinner animation for a given duration.
-
-**Countdown** class is responisble for displaying the countdown with the interval of 1 second.
+* **Animation** class is responsible for displaying the spinner animation for a given duration.
+* **Countdown** class is responsible for displaying the countdown with the interval of 1 second.
 
 BreathingActivity, ReflectionActivity, and ListingActivity classes are derived from the base
 Activity class. They have attributes and methods that are unique to each of them.
-RunActivity() method is named the same, but it performs differently for each activity.
+//RunActivity()// method is named the same, but it performs differently for each activity.
 
-**BreathingActivity** class has no attributes. It just contains the RunActivity() method.
+**BreathingActivity** class has no attributes. It just contains the //RunActivity()// method.
 That is sufficient for this class.
 
 **ReflectionActivity** class uses two other classes: ReflectionPromptGenerator and
 ReflectionQuestionGenerator.
 
-**ReflectionPrompGenerator** provides random prompts for the ReflectionActivity class.
-ReflectionQuestionGenerator provides random Questions for the ReflectionActivity class.
+* **ReflectionPrompGenerator** provides random prompts for the ReflectionActivity class.
+* **ReflectionQuestionGenerator** provides random Questions for the ReflectionActivity class.
 
 **ListingActivity** class has an attribute which is used to count the number of items
 that a user types during this activity. It also uses another class: ListingPromptGenerator.
 
-**ListingPromptGenerator** provides random prompts for the ListingActivity class.
+* **ListingPromptGenerator** provides random prompts for the ListingActivity class.
+
+<size:22>__**Showing Creativity and Exceeding Requirements**__
+To exceed the core requirements I added the ability to track the activation count and total
+duration for each activity while the program is running. I used static attributes to store
+this information and a static method //DisplayReport()// to view the results. I also added
+another menu item (//4. Display report//) that invokes this method.
 endlegend
 
 @enduml
