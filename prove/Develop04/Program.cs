@@ -1,7 +1,11 @@
 using System;
 
 // _____Showing Creativity and Exceeding Requirements_____
-// ????
+// To exceed the core requirements I added the ability to track the activation count
+// and total duration for each activity while the programm is running.
+// I used static attributes to store and update this information and a static method
+// DisplayReport() to view the results.
+// I also added another menu item ("  4. Display report") that invokes this method.
 
 
 class Program
