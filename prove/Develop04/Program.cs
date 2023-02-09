@@ -10,14 +10,15 @@ class Program
     {
 
         int choice = 0;
-        while(choice != 4)
+        while(choice != 5)
         {
             Console.Clear();
             Console.WriteLine("Menu Options:");
             Console.WriteLine("  1. Start breathing activity");
             Console.WriteLine("  2. Start reflecting activity");
             Console.WriteLine("  3. Start listing activity");
-            Console.WriteLine("  4. Quit");
+            Console.WriteLine("  4. Display report");
+            Console.WriteLine("  5. Quit");
             Console.Write("Select a choice from the menu: ");
             choice = int.Parse(Console.ReadLine());
 
@@ -46,6 +47,11 @@ class Program
                 listingActivity.DisplayStartingMessage();
                 listingActivity.RunActivity();
                 listingActivity.DisplayEndingMessage();                
+            }
+
+            else if (choice == 4)
+            {
+                Activity.DisplayReport();
             }
         }
     }

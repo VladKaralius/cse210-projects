@@ -47,4 +47,20 @@ public class Activity
             $"seconds of the {_name} Activity.");
         _animation.Display(5);
     }
+
+    public static void DisplayReport()
+    {
+        Console.Clear();
+        Console.WriteLine("Statistics for this session\n");
+        int grandTotal = 0;
+        foreach (KeyValuePair<string, int> entry in _activationCount)
+        {
+            Console.WriteLine($"You have completed the {entry.Key} Activity {entry.Value} time(s) " +
+                $"for a total duration of {_totalDuration[entry.Key]} seconds.");
+            grandTotal += _totalDuration[entry.Key];
+        }
+        Console.WriteLine($"\nYou spent {grandTotal} seconds on all activities.");
+        Console.WriteLine("\nPress enter to continue...");
+        Console.ReadLine();
+    }
 }
