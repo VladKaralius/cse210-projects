@@ -48,6 +48,7 @@ public class Activity
         _animation.Display(5);
     }
 
+    // Showing Creativity and Exceeding Requirements
     public static void DisplayReport()
     {
         Console.Clear();
