@@ -40,11 +40,10 @@ classDiagram {
   }
 </style>
 
-'--Header, footer, title, explanations--
+'--Header, title, caption--
 header Vladislovas Karalius 2023-02-16
 title Unit 04 Develop: Mindfulness Program (Inheritance - Design Activity)
-
-note  "Constructors\nwithout\nparameters\nare ommited\nin this diagram" as N1
+caption <:warning:>Constructors without parameters are ommited in this diagram
 
 ' Dummy class that explains visibility symbols
 class Visibility #dddddd {
@@ -68,8 +67,11 @@ class Activity {
   # _duration : int
   # _animation : Animation
   # _countdown : Countdown
+  # {static} _activationCount : Dictionary<string, int>
+  # {static} _totalDuration : Dictionary<string, int>
   + DisplayStartingMessage() : void
   + DisplayEndingMessage() : void
+  + {static} DisplayReport() : void
 }
 
 class BreathingActivity {
@@ -121,8 +123,7 @@ Activity .left.> Animation
 Activity .right.> Countdown
 
 '--Description--
-legend
-<size:15>test</size>
+legend bottom
 The program has one base class **Activity**. This class contains the attributes and methods
 that are common to all activities. Certain functions are put into separate classes as follows:
 
