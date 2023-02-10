@@ -2,14 +2,15 @@ public class Shape
 {
     protected string _color;
 
-    public Shape()
+    public Shape(string color)
     {
+        _color = color;
         Console.WriteLine("Shape created");
     }
 
     public string GetColor()
     {
-        return "";
+        return _color;
     }
 
     public void SetColor(string color)
