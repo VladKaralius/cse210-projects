@@ -5,7 +5,7 @@ public class Shape
     public Shape(string color)
     {
         _color = color;
-        Console.WriteLine("Shape created");
+        //Console.WriteLine("Shape created");
     }
 
     public string GetColor()
@@ -22,10 +22,4 @@ public class Shape
     {
         return 0;
     }
-
-
-
-
-
-
 }
