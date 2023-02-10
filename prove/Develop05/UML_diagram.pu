@@ -1,0 +1,187 @@
+@startuml UML_diagram
+
+'--Formatting options--
+hide circle
+hide empty members
+'skinparam classAttributeIconSize 0
+skinparam style strictuml
+'skinparam groupInheritance 2
+'skinparam linetype ortho
+'skinparam Nodesep 15
+'skinparam Ranksep 25
+'left to right direction
+
+'--Styling--
+'skinparam BackgroundColor White/LightGreen
+skinparam TitleFontSize 22
+
+<style>
+classDiagram {
+  class {
+    '-attributes and methods-
+    'FontSize 14
+    'FontColor black
+    'BackgroundColor #fefece
+    BackgroundColor #f0fff0
+    'RoundCorner 0
+    '-class name-
+    header {
+      'FontSize 12
+      'FontColor Black
+      FontStyle bold
+      BackgroundColor YellowGreen
+    }
+  }
+  note {
+    BackgroundColor Yellow
+  }
+  legend {
+    FontSize 20
+  }
+</style>
+
+'--Header, title, caption--
+header By Vladislovas Karalius, created with PlantUML, 2023-03-02
+title Unit 05 Develop: Eternal Quest Program (Polymorphism - Design Activity)
+caption <:warning:> Constructors without parameters are not shown in this diagram
+
+' Dummy class that explains visibility symbols
+class Markers #dddddd {
+Attributes
+..
+- private
+# protected
++ public
+{abstract} abstract
+{static} static
+--
+Methods
+..
+- private()
+# protected()
++ public()
+{abstract} abstract()
+{static} static()
+}
+
+'Goal -right[hidden]- Markers
+
+'--Main--
+class GoalManager{
+  - _goals : list<Goal>
+  + ListGoals() : void
+  + SaveGoals() : void
+  + LoadGoals() : void
+
+}
+GoalManager o- Goal
+
+
+abstract class Goal {
+  # _name : string
+  # _description : string
+  # _basePoints : int
+
+  + {abstract} RecordEvent() : void
+  + {abstract} IsComplete() : bool
+}
+
+class SimpleGoal extends Goal {
+  <<override>> RecordEvent() : void
+  <<override>> IsComplete() : bool
+}
+
+class EternalGoal extends Goal {
+  <<override>> RecordEvent() : void
+  <<override>> IsComplete() : bool
+}
+
+class ChecklistGoal extends Goal {
+  - bonusPoints : int
+  <<override>> RecordEvent() : void
+  <<override>> IsComplete() : bool
+}
+
+' class BreathingActivity {
+'   + RunActivity() : void
+' }
+
+' class ReflectionActivity {
+'   - _reflectionPromptGenerator : ReflectionPromptGenerator
+'   - _reflectionQuestionGenerator : ReflectionQuestionGenerator
+'   + RunActivity() : void
+' }
+
+' class ListingActivity {
+'   - _listingPromptGenerator : ListingPromptGenerator
+'   - _itemCount : int
+'   + RunActivity() : void
+' }
+
+' class ReflectionPromptGenerator {
+'   - _reflectionPrompts : List<string>
+'   + GetPrompt() : string
+' }
+
+' class ReflectionQuestionGenerator {
+'   - _reflectionQuestions : List<string>
+'   + GetQuestion() : string
+' }
+
+' class ListingPromptGenerator {
+'   - _listingPrompts : List<string>
+'   + GetPrompt() : string
+' }
+
+' class Animation <<auxiliary>> {
+'   + Display(duration : int) : void
+' }
+
+' class Countdown <<auxiliary>> {
+'   + Display(duration : int) : void
+' }
+
+' Activity <|-- BreathingActivity
+' Activity <|-- ReflectionActivity
+' Activity <|-- ListingActivity
+' ReflectionActivity ..> ReflectionPromptGenerator
+' ReflectionActivity ..> ReflectionQuestionGenerator
+' ListingActivity ..> ListingPromptGenerator
+' Activity .left.> Animation
+' Activity .right.> Countdown
+
+'--Description--
+legend bottom
+<size:22>__**Core Requirements**__
+The program has one base class **Activity**. This class contains the attributes and methods
+that are common to all activities. Certain functions are put into separate classes as follows:
+
+* **Animation** class is responsible for displaying the spinner animation for a given duration.
+* **Countdown** class is responsible for displaying the countdown with the interval of 1 second.
+
+BreathingActivity, ReflectionActivity, and ListingActivity classes are derived from the base
+Activity class. They have attributes and methods that are unique to each of them.
+//RunActivity()// method is named the same, but it performs differently for each activity.
+
+**BreathingActivity** class has no attributes. It just contains the //RunActivity()// method.
+That is sufficient for this class.
+
+**ReflectionActivity** class uses two other classes: ReflectionPromptGenerator and
+ReflectionQuestionGenerator.
+
+* **ReflectionPrompGenerator** provides random prompts for the ReflectionActivity class.
+* **ReflectionQuestionGenerator** provides random Questions for the ReflectionActivity class.
+
+**ListingActivity** class has an attribute which is used to count the number of items
+that a user types during this activity. It also uses another class: ListingPromptGenerator.
+
+* **ListingPromptGenerator** provides random prompts for the ListingActivity class.
+
+<size:22>__**Showing Creativity and Exceeding Requirements**__
+To exceed the core requirements I added the ability to track the activation count and total
+duration for each activity while the program is running. I used static attributes to store
+this information and a static method //DisplayReport()// to view the results. I also added
+another menu item (//4. Display report//) that invokes this method.
+endlegend
+
+@enduml
