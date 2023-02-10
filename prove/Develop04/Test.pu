@@ -53,6 +53,10 @@ class Class2 {
   + check : int
 }
 
+  class Dog {
+    test()
+  }
+
 class Class3 {
   - test()
   + test()
@@ -68,16 +72,14 @@ Class1 <|-- Class3
 Class1 <|-- Class4
 
 class Animal {
-  - test1 : int
+  - <<virtual>> test()
 }
-together {
-  class Dog {
-    test()
-  }
+
+
   class Cat{
-    test()
+    + <<override>> test() : string
   }
-}
+
 Animal <|-down- Cat
 Animal <|-- Dog
 
