@@ -4,7 +4,7 @@ public class Shape
 
     public Shape()
     {
-
+        Console.WriteLine("Shape created");
     }
 
     public string GetColor()
