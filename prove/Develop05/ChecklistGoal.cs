@@ -1,12 +1,11 @@
 public class ChecklistGoal : Goal
 {
-    private int _timesCompleted;
-    private int _timesRequired;
     private int _bonusPoints;
-
-    
+    private int _timesRequired;
+    private int _timesCompleted;
+        
     public ChecklistGoal
-        (string name, string description, int basePoints, int timesRequired, int bonusPoints) 
+        (string name, string description, int basePoints, int bonusPoints, int timesRequired) 
         : base(name, description, basePoints)
     {
         _timesCompleted = 0;
@@ -27,5 +26,11 @@ public class ChecklistGoal : Goal
     {
         return $"[ ] {_name} ({_description}) -- " +
             $"Curently completed: {_timesCompleted}/{_timesRequired}";
+    }
+
+    public override string Serialize()
+    {
+        return $"SimpleGoal~:~{_name}~|~{_description}~|~{_basePoints}~|~" +
+            $"{_bonusPoints}~|~{_timesRequired}~|~{_timesCompleted}";
     }
 }

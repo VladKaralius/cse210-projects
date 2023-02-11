@@ -27,4 +27,9 @@ public class SimpleGoal : Goal
         }
         return $"[{checkmark}] {_name} ({_description})";
     }
+
+    public override string Serialize()
+    {
+        return $"SimpleGoal~:~{_name}~|~{_description}~|~{_basePoints}~|~{_isComplete}";
+    }
 }

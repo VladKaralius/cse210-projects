@@ -21,4 +21,9 @@ public class EternalGoal : Goal
     {
         return $"[ ] {_name} ({_description})";
     }
+
+    public override string Serialize()
+    {
+        return $"EternalGoal~:~{_name}~|~{_description}~|~{_basePoints}";
+    }
 }

@@ -88,6 +88,7 @@ abstract class Goal {
   + {abstract} RecordEvent() : void
   + {abstract} IsComplete() : bool
   + {abstract} GetInfo() : string
+  + {abstract} Serialize() : string
 }
 
 class SimpleGoal extends Goal {
@@ -96,6 +97,7 @@ class SimpleGoal extends Goal {
   + <<override>> RecordEvent() : void
   + <<override>> IsComplete() : bool
   + <<override>> GetInfo() : string
+  + <<override>> Serialize() : string
 }
 
 class EternalGoal extends Goal {
@@ -103,16 +105,18 @@ class EternalGoal extends Goal {
   + <<override>> RecordEvent() : void
   + <<override>> IsComplete() : bool
   + <<override>> GetInfo() : string
+  + <<override>> Serialize() : string
 }
 
 class ChecklistGoal extends Goal {
-  - _timesCompleted : int
-  - _timeRequired : int
   - _bonusPoints : int
-  + Goal(name : string, description : string,\n  basePoints : int, timesRequired : int,\n  bonusPoints : int)
+  - _timeRequired : int
+  - _timesCompleted : int
+  + Goal(name : string, description : string,\n  basePoints : int, bonusPoints : int,\n  timesRequired : int)
   + <<override>> RecordEvent() : void
   + <<override>> IsComplete() : bool
   + <<override>> GetInfo() : string
+  + <<override>> Serialize() : string
 }
 
 ' class BreathingActivity {

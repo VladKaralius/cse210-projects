@@ -53,7 +53,7 @@ public class GoalManager
             int bonusPoints = int.Parse(Console.ReadLine());
 
             ChecklistGoal checklistGoal = new ChecklistGoal
-                (name, description, basePoints, timesRequired, bonusPoints);
+                (name, description, basePoints, bonusPoints, timesRequired);
             _goals.Add(checklistGoal);
         }
 
@@ -82,7 +82,7 @@ public class GoalManager
         {
             foreach (Goal goal in _goals)
             {
-                outputFile.WriteLine(goal.GetInfo()); // TODO
+                outputFile.WriteLine(goal.Serialize());
             }
         }
     }
