@@ -69,6 +69,7 @@ Methods
 '--Main--
 class GoalManager{
   - _goals : list<Goal>
+  + CreateGoal() : void
   + ListGoals() : void
   + SaveGoals() : void
   + LoadGoals() : void
@@ -84,22 +85,26 @@ abstract class Goal {
 
   + {abstract} RecordEvent() : void
   + {abstract} IsComplete() : bool
+  + {abstract} GetInfo() : string
 }
 
 class SimpleGoal extends Goal {
-  <<override>> RecordEvent() : void
-  <<override>> IsComplete() : bool
+  + <<override>> RecordEvent() : void
+  + <<override>> IsComplete() : bool
+  + <<override>> GetInfo() : string
 }
 
 class EternalGoal extends Goal {
-  <<override>> RecordEvent() : void
-  <<override>> IsComplete() : bool
+  + <<override>> RecordEvent() : void
+  + <<override>> IsComplete() : bool
+  + <<override>> GetInfo() : string
 }
 
 class ChecklistGoal extends Goal {
   - bonusPoints : int
-  <<override>> RecordEvent() : void
-  <<override>> IsComplete() : bool
+  + <<override>> RecordEvent() : void
+  + <<override>> IsComplete() : bool
+  + <<override>> GetInfo() : string
 }
 
 ' class BreathingActivity {
@@ -151,37 +156,37 @@ class ChecklistGoal extends Goal {
 ' Activity .right.> Countdown
 
 '--Description--
-legend bottom
-<size:22>__**Core Requirements**__
-The program has one base class **Activity**. This class contains the attributes and methods
-that are common to all activities. Certain functions are put into separate classes as follows:
+' legend bottom
+' <size:22>__**Core Requirements**__
+' The program has one base class **Activity**. This class contains the attributes and methods
+' that are common to all activities. Certain functions are put into separate classes as follows:
 
-* **Animation** class is responsible for displaying the spinner animation for a given duration.
-* **Countdown** class is responsible for displaying the countdown with the interval of 1 second.
+' * **Animation** class is responsible for displaying the spinner animation for a given duration.
+' * **Countdown** class is responsible for displaying the countdown with the interval of 1 second.
 
-BreathingActivity, ReflectionActivity, and ListingActivity classes are derived from the base
-Activity class. They have attributes and methods that are unique to each of them.
-//RunActivity()// method is named the same, but it performs differently for each activity.
+' BreathingActivity, ReflectionActivity, and ListingActivity classes are derived from the base
+' Activity class. They have attributes and methods that are unique to each of them.
+' //RunActivity()// method is named the same, but it performs differently for each activity.
 
-**BreathingActivity** class has no attributes. It just contains the //RunActivity()// method.
-That is sufficient for this class.
+' **BreathingActivity** class has no attributes. It just contains the //RunActivity()// method.
+' That is sufficient for this class.
 
-**ReflectionActivity** class uses two other classes: ReflectionPromptGenerator and
-ReflectionQuestionGenerator.
+' **ReflectionActivity** class uses two other classes: ReflectionPromptGenerator and
+' ReflectionQuestionGenerator.
 
-* **ReflectionPrompGenerator** provides random prompts for the ReflectionActivity class.
-* **ReflectionQuestionGenerator** provides random Questions for the ReflectionActivity class.
+' * **ReflectionPrompGenerator** provides random prompts for the ReflectionActivity class.
+' * **ReflectionQuestionGenerator** provides random Questions for the ReflectionActivity class.
 
-**ListingActivity** class has an attribute which is used to count the number of items
-that a user types during this activity. It also uses another class: ListingPromptGenerator.
+' **ListingActivity** class has an attribute which is used to count the number of items
+' that a user types during this activity. It also uses another class: ListingPromptGenerator.
 
-* **ListingPromptGenerator** provides random prompts for the ListingActivity class.
+' * **ListingPromptGenerator** provides random prompts for the ListingActivity class.
 
-<size:22>__**Showing Creativity and Exceeding Requirements**__
-To exceed the core requirements I added the ability to track the activation count and total
-duration for each activity while the program is running. I used static attributes to store
-this information and a static method //DisplayReport()// to view the results. I also added
-another menu item (//4. Display report//) that invokes this method.
-endlegend
+' <size:22>__**Showing Creativity and Exceeding Requirements**__
+' To exceed the core requirements I added the ability to track the activation count and total
+' duration for each activity while the program is running. I used static attributes to store
+' this information and a static method //DisplayReport()// to view the results. I also added
+' another menu item (//4. Display report//) that invokes this method.
+' endlegend
 
 @enduml
