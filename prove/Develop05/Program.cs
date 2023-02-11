@@ -33,7 +33,7 @@ class Program
 
             else if (choice == 3)
             {
-                Console.WriteLine(choice);
+                goalManager.SaveGoals();
             }
 
             else if (choice == 4)

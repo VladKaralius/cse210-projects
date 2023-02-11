@@ -76,12 +76,20 @@ public class GoalManager
 
     public void SaveGoals()
     {
-
+        Console.Write("What is the filename for the goal file? ");
+        string fileName = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            foreach (Goal goal in _goals)
+            {
+                outputFile.WriteLine(goal.GetInfo()); // TODO
+            }
+        }
     }
 
     public void LoadGoals()
     {
-        
+
     }
 
     // Prompt for common user input in one place
