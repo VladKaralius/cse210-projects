@@ -15,11 +15,16 @@ public class SimpleGoal : Goal
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        return _isComplete;
     }
 
     public override string GetInfo()
     {
-        return $"[X] {_name} ({_description})";
+        string checkmark = " ";
+        if (_isComplete)
+        {
+            checkmark = "X";
+        }
+        return $"[{checkmark}] {_name} ({_description})";
     }
 }
