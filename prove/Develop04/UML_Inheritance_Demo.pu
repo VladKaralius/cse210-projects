@@ -1,0 +1,109 @@
+@startuml UML_diagram
+
+'--Formatting options--
+hide empty members
+skinparam style strictuml
+
+'--Styling--
+skinparam TitleFontSize 22
+skinparam LegendFontSize 16
+
+<style>
+classDiagram {
+  class {
+    header {
+      FontStyle bold
+    }
+  }
+</style>
+
+'--Header, title, caption--
+header By Vladislovas Karalius, created with PlantUML, 2023-02-14
+title Inheritance Demo
+
+'--Main--
+class Parent #PaleGreen {
+  parentAttribute : string
+  parentMethod() : void
+}
+
+class Child1 #LightCyan {
+  childAttribute1 : string
+  childMethod1() : void
+}
+
+Parent <|-- Child1 : Ihherits
+
+class Child2 #MistyRose {
+  childAttribute2 : string
+  childMethod2() : void
+}
+
+Parent <|-- Child2 : Inherits
+
+class InstanceChild1 <Instance> #dddddd {
+  <back:PaleGreen>parentAttribute : string
+  <back:LightCyan>childAttribute1 : string
+  <back:PaleGreen>parentMethod() : void
+  <back:LightCyan>childMethod1() : void
+}
+
+Child1 -[thickness=3,#Green]left-> InstanceChild1
+Parent -[thickness=3,#Green]-> InstanceChild1
+
+class InstanceChild2 <Instance>#dddddd {
+  <back:PaleGreen>parentAttribute : string
+  <back:MistyRose>childAttribute2 : string
+  <back:PaleGreen>parentMethod() : void
+  <back:MistyRose>childMethod2() : void
+}
+
+Child2 -[thickness=3,#Green]right-> InstanceChild2
+Parent -[thickness=3,#Green]-> InstanceChild2
+
+note as Note1
+It is equivalent to having two separate classes, as shown below.
+But in that case we have duplicate attributes and methods.
+They are the same, but now they are defined in two separate places.
+It is easy to make mistakes if we need to change something.
+endnote
+
+Child1 .down[hidden]. Note1
+Child2 .down[hidden]. Note1
+Note1 .down[hidden]. ParentChild1
+Note1 .down[hidden]. ParentChild2
+
+class ParentChild1 #f0fff0 {
+  <back:#Tomato>parentAttribute : string
+  childAttribute1 : string
+  <back:#Tomato>parentMethod() : void
+  childMethod1() : void
+}
+
+ParentChild1 -[thickness=3,#red]left-> InstanceChild1
+
+class ParentChild2 #f0fff0 {
+  <back:#Tomato>parentAttribute : string
+  childAttribute2 : string
+  <back:#Tomato>parentMethod() : void
+  childMethod2() : void
+}
+
+ParentChild2 -[thickness=3,#red]left-> InstanceChild2
+
+note "<b>Duplicate!" as note2 #Tomato
+
+ParentChild1::parentAttribute .right note2
+ParentChild2::parentAttribute .left note2
+ParentChild1::parentMethod .right note2
+ParentChild2::parentMethod .left note2
+
+'--Description--
+legend bottom
+Child classes are tightly connected to their parent. They cannot
+be invoked separately. When an instance of the child class is created,
+parent and child classes with their attributes and methods are "glued"
+together into one instance.
+endlegend
+
+@enduml
