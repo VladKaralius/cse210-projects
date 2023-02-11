@@ -50,7 +50,7 @@ public class GoalManager
     {
         foreach (Goal goal in _goals)
         {
-            Console.WriteLine(goal);
+            Console.WriteLine(goal.GetInfo());
         }
     }
 }

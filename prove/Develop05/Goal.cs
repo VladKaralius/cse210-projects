@@ -13,4 +13,5 @@ public abstract class Goal
 
     public abstract void RecordEvent();
     public abstract void IsComplete();
+    public abstract string GetInfo();
 }

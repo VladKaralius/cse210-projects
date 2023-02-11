@@ -16,4 +16,9 @@ public class SimpleGoal : Goal
     {
         throw new NotImplementedException();
     }
+
+    public override string GetInfo()
+    {
+        return $"[X] {_name} ({_description})";
+    }
 }
