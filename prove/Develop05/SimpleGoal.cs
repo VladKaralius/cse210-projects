@@ -8,9 +8,18 @@ public class SimpleGoal : Goal
         _isComplete = false;
     }
 
-    public override void RecordEvent()
+    public override int CompleteGoal()
     {
-        _isComplete = true;
+        if (_isComplete)
+        {
+            Console.WriteLine("This goal is already completed.");
+            return 0;
+        }
+        else
+        {
+            _isComplete = true;
+            return _basePoints;
+        }
     }
 
     public override bool IsComplete()

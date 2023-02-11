@@ -8,11 +8,12 @@ public class ChecklistGoal : Goal
         (string name, string description, int basePoints, int bonusPoints, int timesRequired) 
         : base(name, description, basePoints)
     {
+        _bonusPoints = bonusPoints;  
+        _timesRequired = timesRequired;
         _timesCompleted = 0;
-        _bonusPoints = bonusPoints;
     }
 
-    public override void RecordEvent()
+    public override int CompleteGoal()
     {
         throw new NotImplementedException();
     }
@@ -30,7 +31,7 @@ public class ChecklistGoal : Goal
 
     public override string Serialize()
     {
-        return $"SimpleGoal~:~{_name}~|~{_description}~|~{_basePoints}~|~" +
+        return $"ChecklistGoal~:~{_name}~|~{_description}~|~{_basePoints}~|~" +
             $"{_bonusPoints}~|~{_timesRequired}~|~{_timesCompleted}";
     }
 }

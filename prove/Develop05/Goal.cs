@@ -11,7 +11,7 @@ public abstract class Goal
         _basePoints = basePoints;
     }
 
-    public abstract void RecordEvent();
+    public abstract int CompleteGoal();
     public abstract bool IsComplete();
     public abstract string GetInfo();
     public abstract string Serialize();

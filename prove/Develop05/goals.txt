@@ -1,2 +1,3 @@
-[ ] tttt (tttt)
-[ ] rrrr (rrrr)
+SimpleGoal~:~simple~|~simple~|~1~|~False
+EternalGoal~:~eternal~|~eternal~|~2
+SimpleGoal~:~checklist~|~checklist~|~3~|~5~|~0~|~0

@@ -1,10 +1,12 @@
 public class GoalManager
 {
     private List<Goal> _goals;
+    private int _pointTotal;
 
     public GoalManager()
     {
         _goals = new List<Goal>();
+        _pointTotal = 0;
     }
 
     public void CreateGoal()
@@ -104,6 +106,16 @@ public class GoalManager
             // entry._record = parts[2];
             // _entries.Add(entry);
         }
+    }
+
+    public void RecordEvent()
+    {
+
+    }
+
+    public int GetPointTotal()
+    {
+        return _pointTotal;
     }
 
     // Prompt for common user input in one place
