@@ -41,7 +41,20 @@ public class GoalManager
 
         else if (choice == 3)
         {
-            Console.WriteLine(choice);
+            Tuple<string, string, int> userInput = GetUserInput();
+            string name = userInput.Item1;
+            string description = userInput.Item2;
+            int basePoints = userInput.Item3;
+
+            // Get unique attributs for the checklist goal
+            Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+            int timesRequired = int.Parse(Console.ReadLine());
+            Console.Write("What is the bonus for accomplishing it that many time? ");
+            int bonusPoints = int.Parse(Console.ReadLine());
+
+            ChecklistGoal checklistGoal = new ChecklistGoal
+                (name, description, basePoints, timesRequired, bonusPoints);
+            _goals.Add(checklistGoal);
         }
 
         else
@@ -52,6 +65,7 @@ public class GoalManager
 
     public void ListGoals()
     {
+        Console.WriteLine("\nThe goals are:");
         int lineNumber = 1;
         foreach (Goal goal in _goals)
         {
@@ -60,6 +74,7 @@ public class GoalManager
         }
     }
 
+    // Prompt for common user input in one place
     private Tuple<string, string, int> GetUserInput()
     {
         Console.Write("What is the name of your goal? ");
