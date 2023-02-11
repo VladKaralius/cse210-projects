@@ -91,6 +91,7 @@ abstract class Goal {
 }
 
 class SimpleGoal extends Goal {
+  - _isComplete : bool
   + Goal(name : string, description : string,\n  basePoints : int)
   + <<override>> RecordEvent() : void
   + <<override>> IsComplete() : bool

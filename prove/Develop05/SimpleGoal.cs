@@ -1,18 +1,19 @@
 public class SimpleGoal : Goal
 {
-
+    private bool _isComplete;
+    
     public SimpleGoal(string name, string description, int basePoints) 
         : base(name, description, basePoints)
     {
-
+        _isComplete = false;
     }
 
     public override void RecordEvent()
     {
-        throw new NotImplementedException();
+        _isComplete = true;
     }
 
-    public override void IsComplete()
+    public override bool IsComplete()
     {
         throw new NotImplementedException();
     }

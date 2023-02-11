@@ -18,13 +18,14 @@ public class ChecklistGoal : Goal
         throw new NotImplementedException();
     }
 
-    public override void IsComplete()
+    public override bool IsComplete()
     {
         throw new NotImplementedException();
     }
 
     public override string GetInfo()
     {
-        return $"[ ] {_name} ({_description})";
+        return $"[ ] {_name} ({_description}) -- " +
+            $"Curently completed: {_timesCompleted}/{_timesRequired}";
     }
 }

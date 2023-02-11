@@ -74,6 +74,16 @@ public class GoalManager
         }
     }
 
+    public void SaveGoals()
+    {
+
+    }
+
+    public void LoadGoals()
+    {
+        
+    }
+
     // Prompt for common user input in one place
     private Tuple<string, string, int> GetUserInput()
     {

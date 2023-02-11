@@ -12,7 +12,7 @@ public class EternalGoal : Goal
         throw new NotImplementedException();
     }
 
-    public override void IsComplete()
+    public override bool IsComplete()
     {
         throw new NotImplementedException();
     }
