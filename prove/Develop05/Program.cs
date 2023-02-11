@@ -28,7 +28,7 @@ class Program
 
             else if (choice == 2)
             {
-                Console.WriteLine(choice);
+                goalManager.ListGoals();
             }
 
             else if (choice == 3)
