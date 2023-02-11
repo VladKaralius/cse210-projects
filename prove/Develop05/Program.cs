@@ -38,7 +38,7 @@ class Program
 
             else if (choice == 4)
             {
-                Console.WriteLine(choice);
+                goalManager.LoadGoals();
             }
 
             else if (choice == 5)

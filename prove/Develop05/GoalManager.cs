@@ -89,7 +89,21 @@ public class GoalManager
 
     public void LoadGoals()
     {
+        Console.Write("What is the filename for the goal file? ");
+        string fileName = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+        _goals.Clear();
 
+        foreach (string line in lines)
+        {
+            Console.WriteLine(line);
+            // string[] parts = line.Split("|");
+            // Entry entry = new Entry();
+            // entry._date = parts[0];
+            // entry._heading = parts[1];
+            // entry._record = parts[2];
+            // _entries.Add(entry);
+        }
     }
 
     // Prompt for common user input in one place
