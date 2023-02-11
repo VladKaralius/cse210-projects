@@ -19,12 +19,10 @@ public class GoalManager
 
         if (choice == 1)
         {
-            Console.Write("What is the name of your goal? ");
-            string name = Console.ReadLine();
-            Console.Write("What is a short description of it? ");
-            string description = Console.ReadLine();
-            Console.Write("What is the amount of points associated with this goal? ");
-            int basePoints = int.Parse(Console.ReadLine());
+            Tuple<string, string, int> userInput = GetUserInput();
+            string name = userInput.Item1;
+            string description = userInput.Item2;
+            int basePoints = userInput.Item3;
 
             SimpleGoal simpleGoal = new SimpleGoal(name, description, basePoints);
             _goals.Add(simpleGoal);
@@ -32,7 +30,13 @@ public class GoalManager
 
         else if (choice == 2)
         {
-            Console.WriteLine(choice);
+            Tuple<string, string, int> userInput = GetUserInput();
+            string name = userInput.Item1;
+            string description = userInput.Item2;
+            int basePoints = userInput.Item3;
+
+            EternalGoal eternalGoal = new EternalGoal(name, description, basePoints);
+            _goals.Add(eternalGoal);
         }
 
         else if (choice == 3)
@@ -54,5 +58,16 @@ public class GoalManager
             Console.WriteLine($"{lineNumber}. {goal.GetInfo()}");
             lineNumber++;
         }
+    }
+
+    private Tuple<string, string, int> GetUserInput()
+    {
+        Console.Write("What is the name of your goal? ");
+        string name = Console.ReadLine();
+        Console.Write("What is a short description of it? ");
+        string description = Console.ReadLine();
+        Console.Write("What is the amount of points associated with this goal? ");
+        int basePoints = int.Parse(Console.ReadLine());
+        return new Tuple<string, string, int>(name, description, basePoints);
     }
 }
