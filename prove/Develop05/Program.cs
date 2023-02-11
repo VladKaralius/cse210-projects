@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        
+        GoalManager goalManager = new GoalManager();
+
         int choice = 0;
         while (choice != 7)
         {
@@ -22,7 +23,7 @@ class Program
 
             if (choice == 1)
             {
-                Console.WriteLine(choice);
+                goalManager.CreateGoal();
             }
 
             else if (choice == 2)
