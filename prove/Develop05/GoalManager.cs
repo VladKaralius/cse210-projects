@@ -110,7 +110,30 @@ public class GoalManager
 
     public void RecordEvent()
     {
+        Console.WriteLine("\nThe goals are:");
+        int lineNumber = 1;
+        foreach (Goal goal in _goals)
+        {
+            Console.WriteLine($"{lineNumber}. {goal.GetName()}");
+            lineNumber++;
+        }
 
+        Console.Write("Which goal did you accomplish? ");
+        int goalNumber = int.Parse(Console.ReadLine()) - 1;
+
+        int pointsReceived = _goals[goalNumber].CompleteGoal();
+        _pointTotal += pointsReceived;
+        
+        if (pointsReceived == 0)
+        {
+            Console.WriteLine("This goal is already completed. You have earned 0 points.");
+        }
+        else
+        {
+            Console.WriteLine($"Congratulations! You have earned {pointsReceived} points!");
+        }
+        
+        Console.WriteLine($"You now have {_pointTotal} points.");
     }
 
     public int GetPointTotal()

@@ -1,20 +1,18 @@
 public class EternalGoal : Goal
 {
-
     public EternalGoal(string name, string description, int basePoints) 
         : base(name, description, basePoints)
     {
-
     }
 
     public override int CompleteGoal()
     {
-        throw new NotImplementedException();
+        return _basePoints;
     }
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        return false;
     }
 
     public override string GetInfo()

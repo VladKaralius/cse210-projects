@@ -15,17 +15,45 @@ public class ChecklistGoal : Goal
 
     public override int CompleteGoal()
     {
-        throw new NotImplementedException();
+        if (_timesCompleted == _timesRequired)
+        {
+            return 0;
+        }
+        else
+        {
+            _timesCompleted++;
+
+            if (_timesCompleted == _timesRequired)
+            {
+                return _basePoints + _bonusPoints;
+            }
+            else
+            {
+                return _basePoints;
+            }
+        }
     }
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        if (_timesCompleted == _timesRequired)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public override string GetInfo()
     {
-        return $"[ ] {_name} ({_description}) -- " +
+        string checkmark = " ";
+        if (_timesCompleted == _timesRequired)
+        {
+            checkmark = "X";
+        }
+        return $"[{checkmark}] {_name} ({_description}) -- " +
             $"Curently completed: {_timesCompleted}/{_timesRequired}";
     }
 

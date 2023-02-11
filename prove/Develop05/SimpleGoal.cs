@@ -12,7 +12,6 @@ public class SimpleGoal : Goal
     {
         if (_isComplete)
         {
-            Console.WriteLine("This goal is already completed.");
             return 0;
         }
         else

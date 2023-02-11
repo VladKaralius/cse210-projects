@@ -11,6 +11,11 @@ public abstract class Goal
         _basePoints = basePoints;
     }
 
+    public string GetName()
+    {
+        return _name;
+    }
+
     public abstract int CompleteGoal();
     public abstract bool IsComplete();
     public abstract string GetInfo();

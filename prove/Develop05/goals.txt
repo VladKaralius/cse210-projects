@@ -1,3 +1,3 @@
-SimpleGoal~:~simple~|~simple~|~1~|~False
-EternalGoal~:~eternal~|~eternal~|~2
-SimpleGoal~:~checklist~|~checklist~|~3~|~5~|~0~|~0
+SimpleGoal~:~simple~|~simple~|~50~|~True
+EternalGoal~:~eternal~|~eternal~|~100
+ChecklistGoal~:~checklist~|~checklist~|~150~|~1000~|~3~|~3
