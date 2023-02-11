@@ -48,9 +48,11 @@ public class GoalManager
 
     public void ListGoals()
     {
+        int lineNumber = 1;
         foreach (Goal goal in _goals)
         {
-            Console.WriteLine(goal.GetInfo());
+            Console.WriteLine($"{lineNumber}. {goal.GetInfo()}");
+            lineNumber++;
         }
     }
 }
