@@ -68,11 +68,13 @@ Methods
 
 '--Main--
 class GoalManager{
-  - _goals : list<Goal>
+  - _goals : List<Goal>
+  + GoalManager()
   + CreateGoal() : void
   + ListGoals() : void
   + SaveGoals() : void
   + LoadGoals() : void
+  - GetUserInput() : Tuple<string, string, int>
 
 }
 GoalManager o- Goal
@@ -82,26 +84,31 @@ abstract class Goal {
   # _name : string
   # _description : string
   # _basePoints : int
-
+  + Goal(name : string, description : string,\n  basePoints : int)
   + {abstract} RecordEvent() : void
   + {abstract} IsComplete() : bool
   + {abstract} GetInfo() : string
 }
 
 class SimpleGoal extends Goal {
+  + Goal(name : string, description : string,\n  basePoints : int)
   + <<override>> RecordEvent() : void
   + <<override>> IsComplete() : bool
   + <<override>> GetInfo() : string
 }
 
 class EternalGoal extends Goal {
+  + Goal(name : string, description : string,\n  basePoints : int)
   + <<override>> RecordEvent() : void
   + <<override>> IsComplete() : bool
   + <<override>> GetInfo() : string
 }
 
 class ChecklistGoal extends Goal {
-  - bonusPoints : int
+  - _timesCompleted : int
+  - _timeRequired : int
+  - _bonusPoints : int
+  + Goal(name : string, description : string,\n  basePoints : int, timesRequired : int,\n  bonusPoints : int)
   + <<override>> RecordEvent() : void
   + <<override>> IsComplete() : bool
   + <<override>> GetInfo() : string
