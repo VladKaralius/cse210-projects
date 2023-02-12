@@ -9,6 +9,7 @@ class Program
         int choice = 0;
         while (choice != 7)
         {
+            Console.WriteLine("░▒▓┤╡╢╖╕╣║╗╝╜╛┐");
             Console.WriteLine($"\nYou have {goalManager.GetPointTotal()} points.\n");
             Console.WriteLine("Menu Options:\n" +
                               "  1. Create New Goal\n" +
