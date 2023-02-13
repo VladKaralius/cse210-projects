@@ -40,4 +40,9 @@ public class SimpleGoal : Goal
     {
         return $"SimpleGoal~:~{_name}~|~{_description}~|~{_basePoints}~|~{_isComplete}";
     }
+
+    public void SetIsComplete(bool isComplete)
+    {
+        _isComplete = isComplete;
+    }
 }

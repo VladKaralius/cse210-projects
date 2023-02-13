@@ -82,6 +82,8 @@ public class GoalManager
         string fileName = Console.ReadLine();
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
+            outputFile.WriteLine(_pointTotal);
+            
             foreach (Goal goal in _goals)
             {
                 outputFile.WriteLine(goal.Serialize());
@@ -96,10 +98,14 @@ public class GoalManager
         string[] lines = System.IO.File.ReadAllLines(fileName);
         _goals.Clear();
 
-        foreach (string line in lines)
+        _pointTotal = int.Parse(lines[1]);
+
+        foreach (string line in lines.Skip(1))
         {
-            Console.WriteLine(line);
-            // string[] parts = line.Split("|");
+            string[] parts = line.Split("~:~");
+            string type = parts[0];
+            string details = parts[1];
+
             // Entry entry = new Entry();
             // entry._date = parts[0];
             // entry._heading = parts[1];
@@ -139,6 +145,24 @@ public class GoalManager
     public int GetPointTotal()
     {
         return _pointTotal;
+    }
+
+    // This method initializes a new goal and adds it to _goals list
+    // It is used by LoadGoals() method.
+    private void AddGoal(string type, string details)
+    {
+        string[] parts = details.Split("~|~");
+        
+        if (type == "SimpleGoal")
+        {
+            string name = parts[0];
+            string description = parts[1];
+            int basePoints = int.Parse(parts[2]);
+            SimpleGoal simpleGoal = new SimpleGoal(name, description, basePoints);
+            simpleGoal.SetIsComplete(bool.Parse(parts[3]));
+            _goals.Add(simpleGoal);
+        }
+        
     }
 
     // Prompt for common user input in one place
