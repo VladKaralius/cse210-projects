@@ -62,4 +62,9 @@ public class ChecklistGoal : Goal
         return $"ChecklistGoal~:~{_name}~|~{_description}~|~{_basePoints}~|~" +
             $"{_bonusPoints}~|~{_timesRequired}~|~{_timesCompleted}";
     }
+
+    public void SetTimesCompleted(int timesCompleted)
+    {
+        _timesCompleted = timesCompleted;
+    }
 }

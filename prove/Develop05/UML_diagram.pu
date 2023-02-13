@@ -77,7 +77,7 @@ class GoalManager{
   + LoadGoals() : void
   + RecordEvent() : void
   + GetPointTotal() : int
-  - AddGoal(string) : void
+  - AddGoal(type : string, details : string) : void
   - GetUserInput() : Tuple<string, string, int>
 
 }
@@ -103,6 +103,7 @@ class SimpleGoal extends Goal {
   + <<override>> IsComplete() : bool
   + <<override>> GetInfo() : string
   + <<override>> Serialize() : string
+  + SetIsComplete(isComplete : bool) : void
 }
 
 class EternalGoal extends Goal {
@@ -122,6 +123,7 @@ class ChecklistGoal extends Goal {
   + <<override>> IsComplete() : bool
   + <<override>> GetInfo() : string
   + <<override>> Serialize() : string
+  + SetTimesCompleted(timesCompleted : int) : void
 }
 
 ' class BreathingActivity {

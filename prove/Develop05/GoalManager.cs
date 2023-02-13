@@ -97,20 +97,15 @@ public class GoalManager
         string fileName = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(fileName);
         _goals.Clear();
-
-        _pointTotal = int.Parse(lines[1]);
-
-        foreach (string line in lines.Skip(1))
+        
+        _pointTotal = int.Parse(lines[0]);
+        lines = lines.Skip(1).ToArray();
+        foreach (string line in lines)
         {
             string[] parts = line.Split("~:~");
             string type = parts[0];
             string details = parts[1];
-
-            // Entry entry = new Entry();
-            // entry._date = parts[0];
-            // entry._heading = parts[1];
-            // entry._record = parts[2];
-            // _entries.Add(entry);
+            AddGoal(type, details);
         }
     }
 
@@ -147,22 +142,38 @@ public class GoalManager
         return _pointTotal;
     }
 
-    // This method initializes a new goal and adds it to _goals list
+    // This method deserializes goal details, creates a new goal and adds it to _goals list
     // It is used by LoadGoals() method.
     private void AddGoal(string type, string details)
     {
         string[] parts = details.Split("~|~");
-        
+
+        string name = parts[0];
+        string description = parts[1];
+        int basePoints = int.Parse(parts[2]);        
+                
         if (type == "SimpleGoal")
         {
-            string name = parts[0];
-            string description = parts[1];
-            int basePoints = int.Parse(parts[2]);
             SimpleGoal simpleGoal = new SimpleGoal(name, description, basePoints);
             simpleGoal.SetIsComplete(bool.Parse(parts[3]));
             _goals.Add(simpleGoal);
         }
-        
+
+        else if (type == "EternalGoal")
+        {
+            EternalGoal eternalGoal = new EternalGoal(name, description, basePoints);
+            _goals.Add(eternalGoal);
+        }
+
+        else if (type == "ChecklistGoal")
+        {
+            int bonusPoints = int.Parse(parts[3]);
+            int timesRequired = int.Parse(parts[4]);
+            ChecklistGoal checklistGoal = new ChecklistGoal
+                (name, description, basePoints, bonusPoints, timesRequired);
+            checklistGoal.SetTimesCompleted(int.Parse(parts[5]));
+            _goals.Add(checklistGoal);
+        }
     }
 
     // Prompt for common user input in one place
