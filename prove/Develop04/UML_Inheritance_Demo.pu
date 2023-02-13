@@ -6,7 +6,6 @@ skinparam style strictuml
 
 '--Styling--
 skinparam TitleFontSize 22
-skinparam LegendFontSize 16
 
 <style>
 classDiagram {
@@ -18,7 +17,7 @@ classDiagram {
 </style>
 
 '--Header, title, caption--
-header By Vladislovas Karalius, created with PlantUML, 2023-02-14
+header By Vladislovas Karalius, created with PlantUML, 2023-02-13
 title Inheritance Demo
 
 '--Main--
@@ -32,7 +31,7 @@ class Child1 #LightCyan {
   childMethod1() : void
 }
 
-Parent <|-- Child1 : Ihherits
+Parent <|-- Child1 : Inherits
 
 class Child2 #MistyRose {
   childAttribute2 : string
@@ -41,31 +40,31 @@ class Child2 #MistyRose {
 
 Parent <|-- Child2 : Inherits
 
-class InstanceChild1 <Instance> #dddddd {
+class parentChild1 <Instance> #dddddd {
   <back:PaleGreen>parentAttribute : string
   <back:LightCyan>childAttribute1 : string
   <back:PaleGreen>parentMethod() : void
   <back:LightCyan>childMethod1() : void
 }
 
-Child1 -[thickness=3,#Green]left-> InstanceChild1
-Parent -[thickness=3,#Green]-> InstanceChild1
+Child1 -[thickness=3,#Green]left-> parentChild1
+Parent .[thickness=3,#Green].> parentChild1
 
-class InstanceChild2 <Instance>#dddddd {
+class parentChild2 <Instance>#dddddd {
   <back:PaleGreen>parentAttribute : string
   <back:MistyRose>childAttribute2 : string
   <back:PaleGreen>parentMethod() : void
   <back:MistyRose>childMethod2() : void
 }
 
-Child2 -[thickness=3,#Green]right-> InstanceChild2
-Parent -[thickness=3,#Green]-> InstanceChild2
+Child2 -[thickness=3,#Green]right-> parentChild2
+Parent .[thickness=3,#Green].> parentChild2
 
 note as Note1
-It is equivalent to having two separate classes, as shown below.
+It is similar to having two separate classes, as shown below.
 But in that case we have duplicate attributes and methods.
-They are the same, but now they are defined in two separate places.
 It is easy to make mistakes if we need to change something.
+Also, we cannot use such features as polymorphism, etc.
 endnote
 
 Child1 .down[hidden]. Note1
@@ -80,7 +79,7 @@ class ParentChild1 #f0fff0 {
   childMethod1() : void
 }
 
-ParentChild1 -[thickness=3,#red]left-> InstanceChild1
+ParentChild1 -[thickness=3,#red]left-> parentChild1
 
 class ParentChild2 #f0fff0 {
   <back:#Tomato>parentAttribute : string
@@ -89,21 +88,23 @@ class ParentChild2 #f0fff0 {
   childMethod2() : void
 }
 
-ParentChild2 -[thickness=3,#red]left-> InstanceChild2
+ParentChild2 -[thickness=3,#red]left-> parentChild2
 
-note "<b>Duplicate!" as note2 #Tomato
+note "<b>Duplicate!" as Note2 #Tomato
 
-ParentChild1::parentAttribute .right note2
-ParentChild2::parentAttribute .left note2
-ParentChild1::parentMethod .right note2
-ParentChild2::parentMethod .left note2
+ParentChild1::parentAttribute .right Note2
+ParentChild2::parentAttribute .left Note2
+ParentChild1::parentMethod .right Note2
+ParentChild2::parentMethod .left Note2
 
-'--Description--
-legend bottom
+note as Note3
 Child classes are tightly connected to their parent. They cannot
-be invoked separately. When an instance of the child class is created,
+be invoked separately. When an instance of a child class is created,
 parent and child classes with their attributes and methods are "glued"
 together into one instance.
-endlegend
+endnote
+
+ParentChild1 .down[hidden]. Note3
+ParentChild2 .down[hidden]. Note3
 
 @enduml
