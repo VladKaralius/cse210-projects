@@ -43,7 +43,7 @@ classDiagram {
 '--Header, title, caption--
 header By Vladislovas Karalius, created with PlantUML, 2023-03-02
 title Unit 05 Develop: Eternal Quest Program (Polymorphism - Design Activity)
-caption <:warning:> Constructors without parameters are not shown in this diagram
+'caption <:warning:> Constructors without parameters are not shown in this diagram
 
 ' Dummy class that explains visibility symbols
 class Markers #dddddd {
