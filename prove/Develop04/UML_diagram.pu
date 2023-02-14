@@ -3,7 +3,6 @@
 '--Formatting options--
 hide circle
 hide empty members
-hide <<hidden>> stereotype
 'skinparam classAttributeIconSize 0
 skinparam style strictuml
 'skinparam groupInheritance 2
