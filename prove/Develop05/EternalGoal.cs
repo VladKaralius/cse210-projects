@@ -7,12 +7,12 @@ public class EternalGoal : Goal
 
     public override int CompleteGoal()
     {
-        return _basePoints;
+        return _basePoints; // Get points every time
     }
 
     public override bool IsComplete()
     {
-        return false;
+        return false; // It is never complete
     }
 
     public override string GetInfo()

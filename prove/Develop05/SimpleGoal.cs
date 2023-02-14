@@ -12,7 +12,7 @@ public class SimpleGoal : Goal
     {
         if (_isComplete)
         {
-            return 0;
+            return 0; // If it is already completed get 0 points
         }
         else
         {
@@ -23,7 +23,7 @@ public class SimpleGoal : Goal
 
     public override bool IsComplete()
     {
-        return _isComplete;
+        return _isComplete; // Return completion state
     }
 
     public override string GetInfo()

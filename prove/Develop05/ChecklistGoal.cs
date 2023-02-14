@@ -17,7 +17,7 @@ public class ChecklistGoal : Goal
     {
         if (_timesCompleted == _timesRequired)
         {
-            return 0;
+            return 0; // If it is already completed get 0 points
         }
         else
         {

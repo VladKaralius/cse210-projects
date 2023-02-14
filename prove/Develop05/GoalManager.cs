@@ -18,7 +18,6 @@ public class GoalManager
         Console.Write("Which type of goal would you like to create? ");
         int choice = int.Parse(Console.ReadLine());
 
-
         if (choice == 1)
         {
             Tuple<string, string, int> userInput = GetUserInput();
@@ -96,11 +95,11 @@ public class GoalManager
         Console.Write("What is the filename for the goal file? ");
         string fileName = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(fileName);
+       
         _goals.Clear();
-        
-        _pointTotal = int.Parse(lines[0]);
-        lines = lines.Skip(1).ToArray();
-        foreach (string line in lines)
+       _pointTotal = int.Parse(lines[0]);
+        //lines = lines.Skip(1).ToArray();
+        foreach (string line in lines.Skip(1))
         {
             string[] parts = line.Split("~:~");
             string type = parts[0];
