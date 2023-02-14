@@ -3,6 +3,7 @@
 '--Formatting options--
 hide circle
 hide empty members
+hide <<hidden>> stereotype
 'skinparam classAttributeIconSize 0
 skinparam style strictuml
 'skinparam groupInheritance 2
@@ -36,14 +37,14 @@ classDiagram {
     BackgroundColor Yellow
   }
   legend {
-    FontSize 20
+    FontSize 18
   }
 </style>
 
 '--Header, title, caption--
 header By Vladislovas Karalius, created with PlantUML, 2023-02-16
 title Unit 04 Develop: Mindfulness Program (Inheritance - Design Activity)
-caption <:warning:> Constructors without parameters are not shown in this diagram
+'caption <:warning:>Constructors without parameters are not shown in this diagram
 
 ' Dummy class that explains visibility symbols
 class Markers #dddddd {
@@ -71,47 +72,56 @@ class Activity {
   # _countdown : Countdown
   # {static} _activationCount : Dictionary<string, int>
   # {static} _totalDuration : Dictionary<string, int>
+  + Activity()
   + DisplayStartingMessage() : void
   + DisplayEndingMessage() : void
   + {static} DisplayReport() : void
 }
 
 class BreathingActivity {
+  + BreathingActivity()
   + RunActivity() : void
 }
 
 class ReflectionActivity {
   - _reflectionPromptGenerator : ReflectionPromptGenerator
   - _reflectionQuestionGenerator : ReflectionQuestionGenerator
+  + ReflectionActivity()
   + RunActivity() : void
 }
 
 class ListingActivity {
   - _listingPromptGenerator : ListingPromptGenerator
   - _itemCount : int
+  + ListingActivity()
   + RunActivity() : void
 }
 
 class ReflectionPromptGenerator {
   - _reflectionPrompts : List<string>
+  + ReflectionPromptGenerator()
   + GetPrompt() : string
 }
 
 class ReflectionQuestionGenerator {
   - _reflectionQuestions : List<string>
+  + ReflectionQuestionGenerator()
   + GetQuestion() : string
 }
 
 class ListingPromptGenerator {
   - _listingPrompts : List<string>
+  + ListingPromptGenerator()
   + GetPrompt() : string
 }
 
 class Animation <<auxiliary>> {
+  + Animation()
   + Display(duration : int) : void
 }
 
 class Countdown <<auxiliary>> {
+  + Display()
   + Display(duration : int) : void
 }
 
