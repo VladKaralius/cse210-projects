@@ -1,0 +1,52 @@
+@startuml UML_diagram
+
+'--Formatting options--
+hide circle
+hide empty members
+
+'--Styling--
+'skinparam BackgroundColor White|LightGreen
+skinparam TitleFontSize 18
+skinparam NoteBackgroundColor Yellow
+skinparam LegendFontSize 15
+<style>
+classDiagram {
+  class {
+    '-attributes and methods-
+    BackgroundColor #f0fff0
+    '-class name-
+    header {
+      FontStyle bold
+      BackgroundColor YellowGreen
+    }
+  }
+</style>
+
+'--Header, title, caption--
+header Created with PlantUML, 2023-02-16
+title Inheritance Design - PlantUML Demo
+caption Diagram caption
+
+'--Main--
+class Parent {
+  # _name : string
+  + Parent()
+  + Feed() : string
+}
+
+class Child1 extends Parent {
+  - _toy : string
+  + Child1()
+  + Run() : void
+}
+
+'--Description--
+legend bottom
+<size:18>__**Description**__
+The program has one base class **Parent**.
+
+**Child1** class inherits all attributes and
+method of the **Parent** class.
+endlegend
+
+@enduml

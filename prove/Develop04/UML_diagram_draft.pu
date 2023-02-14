@@ -1,0 +1,109 @@
+@startuml UML_diagram
+
+'Some options are commented. You can uncomment them
+'to experiment with layout and styling.
+
+'--Formatting options--
+hide circle
+hide empty members
+'skinparam classAttributeIconSize 0
+'skinparam style strictuml
+'skinparam groupInheritance 2
+'skinparam linetype ortho
+'skinparam Nodesep 15
+'skinparam Ranksep 25
+'left to right direction
+
+'--Styling--
+'skinparam BackgroundColor White|LightGreen
+skinparam TitleFontSize 20
+skinparam NoteBackgroundColor Yellow
+skinparam LegendFontSize 16
+<style>
+classDiagram {
+  class {
+    '-attributes and methods-
+    BackgroundColor #f0fff0
+    'RoundCorner 0
+    '-class name-
+    header {
+      FontStyle bold
+      BackgroundColor YellowGreen
+    }
+  }
+</style>
+
+'--Header, title, caption--
+header By Vladislovas Karalius, created with PlantUML, 2023-02-16
+title Inheritance Design - PlantUML Demo
+caption <:warning:> Many different symbols can be added to the diagram <:sunny:>
+
+' Dummy class that explains visibility symbols
+class Markers #dddddd {
+Attributes
+..
+- private
+# protected
++ public
+{static} static
+--
+Methods
+..
+- private()
+# protected()
++ public()
+{static} static()
+}
+
+'--Main--
+class Parent {
+  # _name : string
+  # _helper : Helper
+  + Parent()
+  + Feed() : string
+}
+
+class Child1 extends Parent {
+  + Child1()
+  + Run() : void
+}
+
+class Child2 extends Parent {
+  - _toy : string
+  - _foo : Foo
+  + Child2()
+  + Play() : void
+}
+
+class Foo {
+  - _fooList : List<string>
+  + Foo()
+  + GetFoo() : string
+}
+
+class Helper <<auxiliary>> {
+  + Helper()
+  + Read(duration : int) : void
+}
+
+Child2 ..> Foo
+Parent .right.> Helper
+
+'--Description--
+legend bottom
+<size:20>__**Description**__
+The program has one base class **Parent**. This class contains the attributes
+and methods that are common to all Child classes. Certain functions are put
+into a separate class:
+* **Helper** class is responsible for doing something to the Parent class.
+
+Child1 and Child2 classes are derived from the base Parent class.
+They have attributes and methods that are unique to each of them.
+
+**Child1** class has no attributes.
+
+**Child2** class uses another class:
+* **Foo** provides something.
+endlegend
+
+@enduml
