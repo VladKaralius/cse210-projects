@@ -10,10 +10,10 @@ public class Countdown
 
         for (int i = duration; i > 0; i--)
         {
-            Console.Write($"\b \b{i}");
+            Console.Write($"\b{i}");
             Thread.Sleep(1000);
         }
 
-        Console.Write("\b \b\n");
+        Console.Write("\b \n");
     }
 }

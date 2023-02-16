@@ -16,11 +16,11 @@ public class Animation
         {
             for (int j = 0; j < symbols.Count(); j++)
             {
-                Console.Write($"\b \b{symbols[j]}");
+                Console.Write($"\b{symbols[j]}");
                 Thread.Sleep(250);
             }
         }
 
-        Console.Write("\b \b\n");
+        Console.Write("\b \n");
     }
 }
