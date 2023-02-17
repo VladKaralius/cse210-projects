@@ -72,8 +72,8 @@ class Activity {
   # {static} _activationCount : Dictionary<string, int>
   # {static} _totalDuration : Dictionary<string, int>
   + Activity()
-  + DisplayStartingMessage() : void
-  + DisplayEndingMessage() : void
+  + RunStartingSequence() : void
+  + RunEndingSequence() : void
   + {static} DisplayReport() : void
 }
 

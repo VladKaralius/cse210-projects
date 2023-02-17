@@ -26,7 +26,7 @@ public class Activity
         _countdown = new Countdown();
     }
 
-    public void DisplayStartingMessage()
+    public void RunStartingSequence()
     {
         Console.WriteLine($"Welcome to the {_name} Activity.\n");
         Console.WriteLine($"{_description}\n");
@@ -35,11 +35,11 @@ public class Activity
         Console.Clear();
         Console.WriteLine("Get ready...");
         _animation.Display(5);
-        // Keep track of total duration
+        // Keep track of total duration.
         _totalDuration[_name] += _duration;
     }
 
-    public void DisplayEndingMessage()
+    public void RunEndingSequence()
     {
         Console.WriteLine("\nWell done!!");
         _animation.Display(5);

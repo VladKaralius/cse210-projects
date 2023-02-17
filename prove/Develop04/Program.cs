@@ -1,18 +1,16 @@
 using System;
 
-// _____Showing Creativity and Exceeding Requirements_____
-// To exceed the core requirements I added the ability to track the activation count
-// and total duration for each activity while the programm is running.
-// I used static attributes to store and update this information and a static method
-// DisplayReport() to view the results.
-// I also added another menu item ("  4. Display report") that invokes this method.
-
+/* _Showing Creativity and Exceeding Requirements_
+To exceed the core requirements I added the ability to track the activation count
+and total duration for each activity while the programm is running.
+I used static attributes to store and update this information and a static method
+DisplayReport() to view the results.
+I also added another menu item ("  4. Display report") that invokes this method. */
 
 class Program
 {
     static void Main(string[] args)
     {
-
         int choice = 0;
         while(choice != 5)
         {
@@ -30,27 +28,27 @@ class Program
             {
                 Console.Clear();
                 BreathingActivity breathingActivity = new BreathingActivity();
-                breathingActivity.DisplayStartingMessage();
+                breathingActivity.RunStartingSequence();
                 breathingActivity.RunActivity();
-                breathingActivity.DisplayEndingMessage();
+                breathingActivity.RunEndingSequence();
             }
 
             else if (choice == 2)
             {
                 Console.Clear();
                 ReflectionActivity reflectionActivity = new ReflectionActivity();
-                reflectionActivity.DisplayStartingMessage();
+                reflectionActivity.RunStartingSequence();
                 reflectionActivity.RunActivity();
-                reflectionActivity.DisplayEndingMessage();                
+                reflectionActivity.RunEndingSequence();                
             }
 
             else if (choice == 3)
             {
                 Console.Clear();
                 ListingActivity listingActivity = new ListingActivity();
-                listingActivity.DisplayStartingMessage();
+                listingActivity.RunStartingSequence();
                 listingActivity.RunActivity();
-                listingActivity.DisplayEndingMessage();                
+                listingActivity.RunEndingSequence();                
             }
 
             else if (choice == 4)
