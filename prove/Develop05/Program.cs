@@ -9,7 +9,8 @@ class Program
         int choice = 0;
         while (choice != 7)
         {
-            Console.WriteLine($"\nYou have {goalManager.GetPointTotal()} points.\n");
+            goalManager.DisplayInfo();
+
             Console.WriteLine("Menu Options:\n" +
                               "  1. Create New Goal\n" +
                               "  2. List Goals\n" +
@@ -48,13 +49,7 @@ class Program
 
             else if (choice == 6)
             {
-                Level level = new Level();
-                level.Display(1000, 1000);
-                level.Display(100, 1000);
-                level.Display(99, 1000);
-                level.Display(0, 1000);
-                level.Display(1500, 1000);
-                level.Display(10000000, 1000);
+
             }
         } 
     }

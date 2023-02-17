@@ -1,7 +1,7 @@
 public class Level
 {
     private int _increase = 100;
-    // First level requires 100 points, second - 200, third - 300, each increasing by 100.
+    // First level requires 100 points, second - 200, third - 300, and so on, each increasing by 100.
     // Total points required can be calculated using Gauss formula:
     // sum = (n / 2) * (first_number + last_number), where n is the number of integers.
     // Then we need to multiply it by 100. Since we always start with 1, we can simplify it:
@@ -11,7 +11,7 @@ public class Level
     {
     }
 
-    public void Display(int pointTotal, int pointsReceived)
+    public void LevelUp(int pointTotal, int pointsReceived)
     {
         int level = PointsToLevel(pointTotal);
         int newPointTotal = pointTotal + pointsReceived;
@@ -29,14 +29,24 @@ public class Level
         {
             Console.WriteLine($"Level up! Congratulations, you gained {levelGain} levels!");
         }
+        
+        Console.ResetColor();
+    }    
+    
+    public void Display(int pointTotal)
+    {
+        int level = PointsToLevel(pointTotal);
+        int pointsTillNextLevel = LevelToPoints(level + 1) - pointTotal;
+    
+        Console.ForegroundColor = ConsoleColor.Green;
 
         Console.Write("Your level: ");
         Console.ForegroundColor = ConsoleColor.DarkRed;
-        Console.Write(newLevel);
+        Console.Write(level);
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.Write(".  Points to the next level: ");
+        Console.Write("   Points to the next level: ");
         Console.ForegroundColor = ConsoleColor.DarkRed;
-        Console.WriteLine(pointsTillNextLevel);
+        Console.WriteLine(pointsTillNextLevel + "\n");
         
         Console.ResetColor();
     }

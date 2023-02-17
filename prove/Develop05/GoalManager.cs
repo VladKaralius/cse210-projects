@@ -135,17 +135,20 @@ public class GoalManager
             Console.WriteLine($"Congratulations! You have earned {pointsReceived} points!");
         }
         
-        _level.Display(_pointTotal, pointsReceived);
+        _level.LevelUp(_pointTotal, pointsReceived);
 
         _pointTotal += pointsReceived;
         Console.WriteLine($"You now have {_pointTotal} points.");
 
     }
 
-    public int GetPointTotal()
+    public void DisplayInfo()
     {
-        return _pointTotal;
+        Console.WriteLine($"\nYou have {_pointTotal} points.");
+        _level.Display(_pointTotal);
     }
+
+
 
     // This method deserializes goal details, creates a new goal and adds it to _goals list
     // It is used by LoadGoals() method.

@@ -1,4 +1,4 @@
 1000
 SimpleGoal~:~simple~|~simple~|~50~|~True
-EternalGoal~:~eternal~|~eternal~|~100
+EternalGoal~:~eternal~|~eternal~|~300
 ChecklistGoal~:~checklist~|~checklist~|~150~|~1000~|~3~|~3
