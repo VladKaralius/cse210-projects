@@ -31,3 +31,8 @@ class Program{
         cat.Meow();
     }  
 }  
+
+
+(n / 2) * ( 1 + n)
+
+n + n*n 

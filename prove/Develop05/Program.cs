@@ -48,7 +48,13 @@ class Program
 
             else if (choice == 6)
             {
-                Console.WriteLine("We will play later");
+                Level level = new Level();
+                level.Display(1000, 1000);
+                level.Display(100, 1000);
+                level.Display(99, 1000);
+                level.Display(0, 1000);
+                level.Display(1500, 1000);
+                level.Display(10000000, 1000);
             }
         } 
     }
