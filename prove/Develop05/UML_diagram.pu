@@ -70,7 +70,7 @@ Methods
 class GoalManager{
   - _goals : List<Goal>
   - _pointTotal : int
-  - _levelTracker : LevelTracker
+  - _level : Level
   + GoalManager()
   + CreateGoal() : void
   + ListGoals() : void

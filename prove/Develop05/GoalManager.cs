@@ -2,11 +2,13 @@ public class GoalManager
 {
     private List<Goal> _goals;
     private int _pointTotal;
+    private Level _level;
 
     public GoalManager()
     {
         _goals = new List<Goal>();
         _pointTotal = 0;
+        _level = new Level();
     }
 
     public void CreateGoal()
@@ -122,7 +124,7 @@ public class GoalManager
         int goalNumber = int.Parse(Console.ReadLine()) - 1;
 
         int pointsReceived = _goals[goalNumber].CompleteGoal();
-        _pointTotal += pointsReceived;
+        
         
         if (pointsReceived == 0)
         {
@@ -133,7 +135,11 @@ public class GoalManager
             Console.WriteLine($"Congratulations! You have earned {pointsReceived} points!");
         }
         
+        _level.Display(_pointTotal, pointsReceived);
+
+        _pointTotal += pointsReceived;
         Console.WriteLine($"You now have {_pointTotal} points.");
+
     }
 
     public int GetPointTotal()

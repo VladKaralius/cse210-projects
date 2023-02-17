@@ -11,10 +11,10 @@ public class Level
     {
     }
 
-    public void Display(int pointTotal, int pointsGained)
+    public void Display(int pointTotal, int pointsReceived)
     {
         int level = PointsToLevel(pointTotal);
-        int newPointTotal = pointTotal + pointsGained;
+        int newPointTotal = pointTotal + pointsReceived;
         int newLevel = PointsToLevel(newPointTotal);
         int pointsTillNextLevel = LevelToPoints(newLevel + 1) - newPointTotal;
         int levelGain = newLevel - level;
@@ -30,12 +30,15 @@ public class Level
             Console.WriteLine($"Level up! Congratulations, you gained {levelGain} levels!");
         }
 
-        Console.WriteLine($"Your level: {newLevel}. Points to the next level: {pointsTillNextLevel}");
-       
-        Console.ResetColor();
+        Console.Write("Your level: ");
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.Write(newLevel);
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write(".  Points to the next level: ");
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine(pointsTillNextLevel);
         
-        Console.WriteLine(PointsToLevel(pointTotal));
-        Console.WriteLine(LevelToPoints(PointsToLevel(pointTotal)));
+        Console.ResetColor();
     }
 
     private int PointsToLevel(int points)
