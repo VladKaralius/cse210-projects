@@ -7,8 +7,11 @@ public class Level
     // Then we need to multiply it by 100. Since we always start with 1, we can simplify it:
     // points = level * (1 + level) / 2 * 100
 
+    private ProgressBar _progressBar;
+
     public Level()
     {
+        _progressBar = new ProgressBar(50);
     }
 
     public void LevelUp(int pointTotal, int pointsReceived)
@@ -37,18 +40,19 @@ public class Level
     {
         int level = PointsToLevel(pointTotal);
         int pointsTillNextLevel = LevelToPoints(level + 1) - pointTotal;
+        int pointDifference = LevelToPoints(level +1) - LevelToPoints(level);
     
         Console.ForegroundColor = ConsoleColor.Green;
-
         Console.Write("Your level: ");
         Console.ForegroundColor = ConsoleColor.DarkRed;
         Console.Write(level);
         Console.ForegroundColor = ConsoleColor.Green;
         Console.Write("   Points to the next level: ");
         Console.ForegroundColor = ConsoleColor.DarkRed;
-        Console.WriteLine(pointsTillNextLevel + "\n");
-        
+        Console.WriteLine(pointsTillNextLevel);
         Console.ResetColor();
+        _progressBar.Display(pointsTillNextLevel, pointDifference);
+
     }
 
     private int PointsToLevel(int points)
