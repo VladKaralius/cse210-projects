@@ -6,13 +6,12 @@ public class Animation
 
     public void Display(int duration)
     {
-        int cycles = duration;
         
         List<string> symbols = new List<string>{"-", "\\", "|", "/"};
 
         Console.Write(" ");
 
-        for (int i = 0; i < cycles; i++)
+        for (int i = 0; i < duration; i++)
         {
             for (int j = 0; j < symbols.Count(); j++)
             {

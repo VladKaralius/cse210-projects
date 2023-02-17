@@ -10,7 +10,7 @@ public class ListingActivity : Activity
             "by having you list as many things as you can in a certain area.";
         _listingPromptGenerator = new ListingPromptGenerator();
         _itemCount = 0;
-        // Keep track of activations
+        // Keep track of activations.
         _activationCount[_name]++;
     }
 
@@ -21,7 +21,6 @@ public class ListingActivity : Activity
         Console.WriteLine($" --- {prompt} ---");
         Console.Write("\nYou may begin in: ");
         _countdown.Display(5);
-        // Console.Clear();
     
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_duration);
