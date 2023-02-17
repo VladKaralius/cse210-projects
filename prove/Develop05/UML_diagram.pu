@@ -77,7 +77,7 @@ class GoalManager{
   + SaveGoals() : void
   + LoadGoals() : void
   + RecordEvent() : void
-  + GetPointTotal() : int
+  + DisplayInfo() : void
   - AddGoal(type : string, details : string) : void
   - GetUserInput() : Tuple<string, string, int>
 }
@@ -88,7 +88,10 @@ class Level <<gaming>> {
   - _increase : int = 100
   - progressBar : ProgressBar
   + Level()
-  + Display(pointTotal : int, pointsGained : int) : void
+  + LevelUp(pointTotal : int, pointsReceive : int) : void
+  + Display(pointTotal : int) : void
+  - PointsToLevel(points : int) : int
+  - LevelToPoints(level : int) : int
 }
 
 GoalManager .left> Level
