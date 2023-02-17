@@ -70,6 +70,7 @@ Methods
 class GoalManager{
   - _goals : List<Goal>
   - _pointTotal : int
+  - _levelTracker : LevelTracker
   + GoalManager()
   + CreateGoal() : void
   + ListGoals() : void
@@ -79,10 +80,25 @@ class GoalManager{
   + GetPointTotal() : int
   - AddGoal(type : string, details : string) : void
   - GetUserInput() : Tuple<string, string, int>
-
 }
-GoalManager o- Goal
 
+GoalManager o-- Goal
+
+class Level <<gaming>> {
+  - _increase : int = 100
+  - progressBar : ProgressBar
+  + Level()
+  + Display(pointTotal : int, pointsGained : int) : void
+}
+
+GoalManager .left> Level
+
+class ProgressBar <<gaming>> {
+  ProgressBar()
+  Display()
+}
+
+Level ..> ProgressBar
 
 abstract class Goal {
   # _name : string
@@ -126,86 +142,81 @@ class ChecklistGoal extends Goal {
   + SetTimesCompleted(timesCompleted : int) : void
 }
 
-' class BreathingActivity {
-'   + RunActivity() : void
-' }
-
-' class ReflectionActivity {
-'   - _reflectionPromptGenerator : ReflectionPromptGenerator
-'   - _reflectionQuestionGenerator : ReflectionQuestionGenerator
-'   + RunActivity() : void
-' }
-
-' class ListingActivity {
-'   - _listingPromptGenerator : ListingPromptGenerator
-'   - _itemCount : int
-'   + RunActivity() : void
-' }
-
-' class ReflectionPromptGenerator {
-'   - _reflectionPrompts : List<string>
-'   + GetPrompt() : string
-' }
-
-' class ReflectionQuestionGenerator {
-'   - _reflectionQuestions : List<string>
-'   + GetQuestion() : string
-' }
-
-' class ListingPromptGenerator {
-'   - _listingPrompts : List<string>
-'   + GetPrompt() : string
-' }
-
-' class Animation <<auxiliary>> {
-'   + Display(duration : int) : void
-' }
-
-' class Countdown <<auxiliary>> {
-'   + Display(duration : int) : void
-' }
-
-' Activity <|-- BreathingActivity
-' Activity <|-- ReflectionActivity
-' Activity <|-- ListingActivity
-' ReflectionActivity ..> ReflectionPromptGenerator
-' ReflectionActivity ..> ReflectionQuestionGenerator
-' ListingActivity ..> ListingPromptGenerator
-' Activity .left.> Animation
-' Activity .right.> Countdown
-
 '--Description--
-' legend bottom
-' <size:22>__**Core Requirements**__
-' The program has one base class **Activity**. This class contains the attributes and methods
-' that are common to all activities. Certain functions are put into separate classes as follows:
+legend bottom
+<size:22>__**Core Requirements**__
+The program has one base class **Activity**. This class contains the attributes and methods
+that are common to all activities. Certain functions are put into separate classes as follows:
 
-' * **Animation** class is responsible for displaying the spinner animation for a given duration.
-' * **Countdown** class is responsible for displaying the countdown with the interval of 1 second.
+{{
+digraph foo {
+    b [shape=none, margin=0
+  label=<<font face = "Arial"><table border='0' cellborder='1' cellspacing='0'>
+   <th>
+    <td>6</td>
+    <td><b>Core Requirements</b></td>
+    <td>Length</td>
+    <td>To</td>
+    <td>From</td>
+    <td>Segment</td>
+    <td>Port</td>
+    <td>Public Key</td>
+    <td colspan="2">Encrypted Raw Data</td>
+    <td>CRC</td>
+  </th>
+  <tr>
+    <td>5</td>
+    <td>Session Layer</td>
+    <td>Length</td>
+    <td>To</td>
+    <td>From</td>
+    <td>Segment</td>
+    <td>Port</td>
+    <td>Public Key</td>
+    <td colspan="2">Raw data</td>
+    <td>CRC</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Transport Layer</td>
+    <td>Length</td>
+    <td>To</td>
+    <td>From</td>
+    <td>Segment</td>
+    <td>Port</td>
+    <td colspan="3">Raw data</td>
+    <td>CRC</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Network Layer</td>
+    <td>Length</td>
+    <td>To</td>
+    <td>From</td>
+    <td colspan="5">Raw data</td>
+    <td>CRC</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Datalink Layer</td>
+    <td>Length</td>
+    <td colspan="7">Raw data</td>
+    <td>CRC</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Physical Layer</td>
+    <td>Length</td>
+    <td colspan="8">Raw data</td>
+  </tr>
+</table></font>>
+  ];
+}
+}}
 
-' BreathingActivity, ReflectionActivity, and ListingActivity classes are derived from the base
-' Activity class. They have attributes and methods that are unique to each of them.
-' //RunActivity()// method is named the same, but it performs differently for each activity.
 
-' **BreathingActivity** class has no attributes. It just contains the //RunActivity()// method.
-' That is sufficient for this class.
-
-' **ReflectionActivity** class uses two other classes: ReflectionPromptGenerator and
-' ReflectionQuestionGenerator.
-
-' * **ReflectionPrompGenerator** provides random prompts for the ReflectionActivity class.
-' * **ReflectionQuestionGenerator** provides random Questions for the ReflectionActivity class.
-
-' **ListingActivity** class has an attribute which is used to count the number of items
-' that a user types during this activity. It also uses another class: ListingPromptGenerator.
-
-' * **ListingPromptGenerator** provides random prompts for the ListingActivity class.
-
-' <size:22>__**Showing Creativity and Exceeding Requirements**__
-' To exceed the core requirements I added the ability to track the activation count and total
-' duration for each activity while the program is running. I used static attributes to store
-' this information and a static method //DisplayReport()// to view the results. I also added
-' another menu item (//4. Display report//) that invokes this method.
-' endlegend
+<size:22>__**Showing Creativity and Exceeding Requirements**__
+To exceed the core requirements I added the ability...
+endlegend
 
 @enduml
