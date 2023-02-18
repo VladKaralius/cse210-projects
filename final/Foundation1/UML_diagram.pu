@@ -46,33 +46,45 @@ title Final Project - Program 1: Abstraction with YouTube Videos
 'caption <:warning:>Constructors without parameters are not shown in this diagram
 
 ' Dummy class that explains visibility symbols
-class Markers #dddddd {
-Attributes
-..
-- private
-# protected
-+ public
-{static} static
---
-Methods
-..
-- private()
-# protected()
-+ public()
-{static} static()
-}
+' class Markers #dddddd {
+' Attributes
+' ..
+' - private
+' # protected
+' + public
+' {static} static
+' --
+' Methods
+' ..
+' - private()
+' # protected()
+' + public()
+' {static} static()
+' }
 
 '--Main--
-class BreathingActivity {
-  + BreathingActivity()
-  + RunActivity() : void
+class Video {
+  - _title : string
+  - _author : string
+  - _length : int
+  - _comments : List<Comment>
+  + Video()
+  + GetCommentCount() : int
 }
 
+class Comment {
+  - _name : string
+  - _text : string
+  + Comment()
+}
+
+Video o- Comment
+
 '--Description--
-legend bottom
-<size:22>__**Core Requirements**__
-The program has one base class **Activity**. This class contains the attributes and methods
-that are common to all activities. Certain functions are put into separate classes as follows:
-endlegend
+' legend bottom
+' <size:22>__**Core Requirements**__
+' The program has one base class **Activity**. This class contains the attributes and methods
+' that are common to all activities. Certain functions are put into separate classes as follows:
+' endlegend
 
 @enduml
