@@ -68,14 +68,14 @@ class Video {
   - _author : string
   - _length : int
   - _comments : List<Comment>
-  + Video()
+  + Video(title : string, author : string, length : int)
   + GetCommentCount() : int
 }
 
 class Comment {
   - _name : string
   - _text : string
-  + Comment()
+  + Comment(name : string, text : string)
 }
 
 Video o- Comment
