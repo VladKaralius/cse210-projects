@@ -7,9 +7,8 @@ class Program
         int choice = 0;
         while (choice != 6)
         {
-
             Console.WriteLine("Menu Options:\n" +
-                              "  1. Create New Goal\n" +
+                              "  1. Generate sample data\n" +
                               "  2. List Goals\n" +
                               "  3. Save Goals\n" +
                               "  4. Load Goals\n" +
@@ -20,7 +19,11 @@ class Program
 
             if (choice == 1)
             {
-
+                SampleDataGenerator sample = new SampleDataGenerator();
+                for (int i = 0; i < 50; i++)
+                {
+                    Console.WriteLine(sample.GetNextTitle());
+                }
             }
 
             else if (choice == 2)
