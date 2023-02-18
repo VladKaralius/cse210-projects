@@ -11,14 +11,16 @@ public class ProgressBar
     {
         int pointsPerSegment = pointDifference / _length;
         int completeSegments = (pointDifference - pointsTillNextLevel) / pointsPerSegment;
+        
+        // I had to add any symbol at the beginning of the bar.
+        // Otherwise the colors were not displayed as I expected.
+        // It seems I am missing some nuances here.
+        Console.Write("> ");
         Console.BackgroundColor = ConsoleColor.DarkYellow;
-        if (completeSegments > 0)
-        {
-            Console.Write(new string(' ', completeSegments));
-        }
+        Console.Write(new string(' ', completeSegments));
         Console.BackgroundColor = ConsoleColor.DarkBlue;
         Console.Write(new string(' ', _length - completeSegments));
         Console.ResetColor();
-        Console.WriteLine();
+        Console.WriteLine("\n");
     }
 }

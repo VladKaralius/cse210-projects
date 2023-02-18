@@ -42,6 +42,7 @@ public class Level
         int pointsTillNextLevel = LevelToPoints(level + 1) - pointTotal;
         int pointDifference = LevelToPoints(level +1) - LevelToPoints(level);
     
+        Console.Write("> ");
         Console.ForegroundColor = ConsoleColor.Green;
         Console.Write("Your level: ");
         Console.ForegroundColor = ConsoleColor.DarkRed;
