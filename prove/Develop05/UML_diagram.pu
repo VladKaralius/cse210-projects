@@ -149,22 +149,32 @@ class ChecklistGoal extends Goal {
 '--Description--
 legend bottom
 <size:22>__**Core Requirements**__
-The program has one base class **Activity**. This class contains the attributes and methods
-that are common to all activities. Certain functions are put into separate classes as follows:
+The program has one abstract base class **Goal**. This class contains the attributes and methods
+that are common to all goals. Most methods are defined as abstract. They are overridden in the
+derived classes:
 
+* **SimpleGoal**. It has //_isComplete// attribute to track the state of completion.
+
+* **EternalGoal**. It has no additional attributes or methods.
+
+* **ChecklistGoal**. It contains //_bonusPoints// attribute, and other attributes that track how
+many times the goal was completed.
+
+The differences in implementation of overridden methods are described in the table below:
+' Experimenting with advanced PlantUML features:
 {{
 digraph methods {
     methods [shape=none, margin=0
-  label=<<font face="Arial"><table border='0' cellborder='1' cellspacing='0'>
+  label=<<font face="Arial"><table border='1' cellborder='1' cellspacing='0'>
   <th>
     <td><b>Override</b></td>
     <td colspan="3"><b>Goal</b></td>
   </th>
   <th>
     <td><b>Method</b></td>
-    <td width="200"><b>SimpleGoal</b></td>
-    <td width="200"><b>EternalGoal</b></td>
-    <td width="200"><b>ChecklistGoal</b></td>
+    <td><b>SimpleGoal</b></td>
+    <td width="180"><b>EternalGoal</b></td>
+    <td><b>ChecklistGoal</b></td>
   </th>
   <tr>
     <td>CompleteGoal</td>
@@ -176,24 +186,36 @@ digraph methods {
     <td>IsComplete</td>
     <td>Returns <i>_isComplete</i></td>
     <td>Always returns <i>false</i></td>
-    <td><i>true</i>  if <i>_timesCompleted</i>  ==<i>_timesRequred</i>, else <i>false</i></td>
+    <td><i>true</i>  if <i>_timesCompleted</i>  ==<i>_timesRequired</i>, else <i>false</i></td>
   </tr>
   <tr>
     <td>GetInfo</td>
-    <td colspan="3">Returns goal specific string for display in human readable form</td>
+    <td colspan="3">Returns goal specific string for display in a human-readable format</td>
   </tr>
   <tr>
     <td>Serialize</td>
-    <td colspan="3">Returns goal specific string for saving into a file</td>
+    <td colspan="3">Returns goal specific string for saving into a file (with separators)</td>
   </tr>
 </table></font>>
   ];
 }
 }}
 
+**GoalManager** class performs all operations with goal. It has methods for creating,
+displaying, saving and loading goals.
 
 <size:22>__**Showing Creativity and Exceeding Requirements**__
-To exceed the core requirements I added the ability...
+To exceed the core requirements I added the ability to level up when you gain points.
+All gaming information and other features are displayed in different colors.
+
+**Level** class is responsible for tracking, calculating and displaying levels.
+First level requires 100 points, second - 200, third - 300, and so on, each increasing by 100.
+It displays a message when you gain one or more levels. It also displays points required
+for the next level.
+
+This class uses another class **ProgressBar** to display a progress bar that shows your
+progress on the current level.
+
 endlegend
 
 @enduml

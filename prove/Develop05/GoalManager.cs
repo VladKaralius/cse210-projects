@@ -148,8 +148,6 @@ public class GoalManager
         _level.Display(_pointTotal);
     }
 
-
-
     // This method deserializes goal details, creates a new goal and adds it to _goals list
     // It is used by LoadGoals() method.
     private void AddGoal(string type, string details)
