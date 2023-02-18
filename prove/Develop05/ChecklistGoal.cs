@@ -17,7 +17,8 @@ public class ChecklistGoal : Goal
     {
         if (_timesCompleted == _timesRequired)
         {
-            return 0; // If it is already completed get 0 points
+            // If it is already completed get 0 points.
+            return 0;
         }
         else
         {
@@ -63,6 +64,7 @@ public class ChecklistGoal : Goal
             $"{_bonusPoints}~|~{_timesRequired}~|~{_timesCompleted}";
     }
 
+    // Used when loading goals from a file.
     public void SetTimesCompleted(int timesCompleted)
     {
         _timesCompleted = timesCompleted;

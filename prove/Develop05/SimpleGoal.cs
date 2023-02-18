@@ -12,7 +12,8 @@ public class SimpleGoal : Goal
     {
         if (_isComplete)
         {
-            return 0; // If it is already completed get 0 points
+            // If it is already completed get 0 points.
+            return 0;
         }
         else
         {
@@ -23,7 +24,8 @@ public class SimpleGoal : Goal
 
     public override bool IsComplete()
     {
-        return _isComplete; // Return completion state
+        // Return completion state.
+        return _isComplete;
     }
 
     public override string GetInfo()
@@ -41,6 +43,7 @@ public class SimpleGoal : Goal
         return $"SimpleGoal~:~{_name}~|~{_description}~|~{_basePoints}~|~{_isComplete}";
     }
 
+    // Used when loading goals from a file.
     public void SetIsComplete(bool isComplete)
     {
         _isComplete = isComplete;

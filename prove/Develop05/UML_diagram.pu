@@ -97,8 +97,9 @@ class Level <<gaming>> {
 GoalManager .left> Level
 
 class ProgressBar <<gaming>> {
-  ProgressBar()
-  Display()
+  - _lenght : int
+  + ProgressBar(length : int)
+  + Display(pointsTillNextLevel : int,\npointDifference : int) : void
 }
 
 Level ..> ProgressBar
@@ -152,65 +153,38 @@ The program has one base class **Activity**. This class contains the attributes 
 that are common to all activities. Certain functions are put into separate classes as follows:
 
 {{
-digraph foo {
-    b [shape=none, margin=0
-  label=<<font face = "Arial"><table border='0' cellborder='1' cellspacing='0'>
-   <th>
-    <td>6</td>
-    <td><b>Core Requirements</b></td>
-    <td>Length</td>
-    <td>To</td>
-    <td>From</td>
-    <td>Segment</td>
-    <td>Port</td>
-    <td>Public Key</td>
-    <td colspan="2">Encrypted Raw Data</td>
-    <td>CRC</td>
+digraph methods {
+    methods [shape=none, margin=0
+  label=<<font face="Arial"><table border='0' cellborder='1' cellspacing='0'>
+  <th>
+    <td><b>Override</b></td>
+    <td colspan="3"><b>Goal</b></td>
+  </th>
+  <th>
+    <td><b>Method</b></td>
+    <td width="200"><b>SimpleGoal</b></td>
+    <td width="200"><b>EternalGoal</b></td>
+    <td width="200"><b>ChecklistGoal</b></td>
   </th>
   <tr>
-    <td>5</td>
-    <td>Session Layer</td>
-    <td>Length</td>
-    <td>To</td>
-    <td>From</td>
-    <td>Segment</td>
-    <td>Port</td>
-    <td>Public Key</td>
-    <td colspan="2">Raw data</td>
-    <td>CRC</td>
+    <td>CompleteGoal</td>
+    <td>Changes <i>_isComplete</i>  from <i>false</i>  to <i>true</i></td>
+    <td>Changes nothing</td>
+    <td>Increases <i>_timesCompleted</i>  by 1</td>
   </tr>
   <tr>
-    <td>4</td>
-    <td>Transport Layer</td>
-    <td>Length</td>
-    <td>To</td>
-    <td>From</td>
-    <td>Segment</td>
-    <td>Port</td>
-    <td colspan="3">Raw data</td>
-    <td>CRC</td>
+    <td>IsComplete</td>
+    <td>Returns <i>_isComplete</i></td>
+    <td>Always returns <i>false</i></td>
+    <td><i>true</i>  if <i>_timesCompleted</i>  ==<i>_timesRequred</i>, else <i>false</i></td>
   </tr>
   <tr>
-    <td>3</td>
-    <td>Network Layer</td>
-    <td>Length</td>
-    <td>To</td>
-    <td>From</td>
-    <td colspan="5">Raw data</td>
-    <td>CRC</td>
+    <td>GetInfo</td>
+    <td colspan="3">Returns goal specific string for display in human readable form</td>
   </tr>
   <tr>
-    <td>2</td>
-    <td>Datalink Layer</td>
-    <td>Length</td>
-    <td colspan="7">Raw data</td>
-    <td>CRC</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Physical Layer</td>
-    <td>Length</td>
-    <td colspan="8">Raw data</td>
+    <td>Serialize</td>
+    <td colspan="3">Returns goal specific string for saving into a file</td>
   </tr>
 </table></font>>
   ];

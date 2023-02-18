@@ -7,7 +7,7 @@ class Program
         GoalManager goalManager = new GoalManager();
 
         int choice = 0;
-        while (choice != 7)
+        while (choice != 6)
         {
             goalManager.DisplayInfo();
 
@@ -17,8 +17,7 @@ class Program
                               "  3. Save Goals\n" +
                               "  4. Load Goals\n" +
                               "  5. Record Event\n" +
-                              "  6. Gamify (add later)\n" +
-                              "  7. Quit");
+                              "  6. Quit");
             Console.Write("Select a choice from the menu: ");
             choice = int.Parse(Console.ReadLine());
 
@@ -45,11 +44,6 @@ class Program
             else if (choice == 5)
             {
                 goalManager.RecordEvent();
-            }
-
-            else if (choice == 6)
-            {
-
             }
         } 
     }

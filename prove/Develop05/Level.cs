@@ -53,7 +53,6 @@ public class Level
         Console.WriteLine(pointsTillNextLevel);
         Console.ResetColor();
         _progressBar.Display(pointsTillNextLevel, pointDifference);
-
     }
 
     private int PointsToLevel(int points)
@@ -64,7 +63,7 @@ public class Level
 
     private int LevelToPoints(int level)
     {
-        int points = (level + level * level) / 2 * _increase;
+        int points = level * (1 + level) / 2 * _increase;
         return points;
     }
 }
