@@ -115,6 +115,7 @@ class ListingPromptGenerator {
 }
 
 class Animation <<auxiliary>> {
+  - _symbols : List<string>
   + Animation()
   + Display(duration : int) : void
 }

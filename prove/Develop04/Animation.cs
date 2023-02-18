@@ -1,21 +1,22 @@
 public class Animation
 {
+    private List<string> _symbols;
+
     public Animation()
     {
+        _symbols = new List<string>{"-", "\\", "|", "/"};
     }
 
     public void Display(int duration)
     {
         
-        List<string> symbols = new List<string>{"-", "\\", "|", "/"};
-
         Console.Write(" ");
 
         for (int i = 0; i < duration; i++)
         {
-            for (int j = 0; j < symbols.Count(); j++)
+            for (int j = 0; j < _symbols.Count(); j++)
             {
-                Console.Write($"\b{symbols[j]}");
+                Console.Write($"\b{_symbols[j]}");
                 Thread.Sleep(250);
             }
         }

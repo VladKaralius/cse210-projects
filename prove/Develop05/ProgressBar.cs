@@ -1,6 +1,6 @@
 public class ProgressBar
 {
-    int _length;
+    private int _length;
 
     public ProgressBar(int length)
     {
