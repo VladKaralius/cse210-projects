@@ -17,4 +17,10 @@ public class Video
     {
         return _comments.Count;
     }
+
+    public void AddComment(string name, string text)
+    {
+        Comment comment = new Comment(name, text);
+        _comments.Add(comment);
+    }
 }

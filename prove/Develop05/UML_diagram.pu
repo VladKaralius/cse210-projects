@@ -32,12 +32,22 @@ classDiagram {
       BackgroundColor YellowGreen
     }
 
+    ' Alternative class style 1
     .gaming {
       BackgroundColor Bisque
       header {
         BackgroundColor Orange
       }
     }
+
+    ' Alternative class style 2
+    .test {
+      BackgroundColor #eeeeee
+      header {
+        BackgroundColor #cccccc
+      }
+    }
+
   }
 
   note {
@@ -75,7 +85,7 @@ Methods
 'Goal -right[hidden]- Markers
 
 '--Main--
-class GoalManager{
+class GoalManager <<test>> {
   - _goals : List<Goal>
   - _pointTotal : int
   - _level : Level
