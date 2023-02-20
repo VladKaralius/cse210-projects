@@ -31,7 +31,24 @@ classDiagram {
       FontStyle bold
       BackgroundColor YellowGreen
     }
+    
+    ' Alternative class style 1
+    .gaming {
+      BackgroundColor Bisque
+      header {
+        BackgroundColor Orange
+      }
+    }
+
+    ' Alternative class style 2
+    .test {
+      BackgroundColor #eeeeee
+      header {
+        BackgroundColor #cccccc
+      }
+    }
   }
+
   note {
     BackgroundColor Yellow
   }

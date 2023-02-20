@@ -47,7 +47,6 @@ classDiagram {
         BackgroundColor #cccccc
       }
     }
-
   }
 
   note {
@@ -104,7 +103,7 @@ GoalManager o-- Goal
 
 class Level <<gaming>> {
   - _increase : int = 100
-  - progressBar : ProgressBar
+  - _progressBar : ProgressBar
   + Level()
   + LevelUp(pointTotal : int, pointsReceive : int) : void
   + Display(pointTotal : int) : void
@@ -115,7 +114,7 @@ class Level <<gaming>> {
 GoalManager .left> Level
 
 class ProgressBar <<gaming>> {
-  - _lenght : int
+  - _length : int
   + ProgressBar(length : int)
   + Display(pointsTillNextLevel : int,\npointDifference : int) : void
 }

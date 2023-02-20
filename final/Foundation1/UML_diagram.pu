@@ -31,6 +31,22 @@ classDiagram {
       FontStyle bold
       BackgroundColor YellowGreen
     }
+
+    ' Alternative class style 1
+    .gaming {
+      BackgroundColor Bisque
+      header {
+        BackgroundColor Orange
+      }
+    }
+
+    ' Alternative class style 2
+    .test {
+      BackgroundColor #eeeeee
+      header {
+        BackgroundColor #cccccc
+      }
+    }
   }
   note {
     BackgroundColor Yellow
@@ -68,14 +84,25 @@ class Video {
   - _author : string
   - _length : int
   - _comments : List<Comment>
+  __
   + Video(title : string, author : string, length : int)
   + GetCommentCount() : int
+  + AddComment(name : string, text : string) : void
+  ..Getters..
+  + GetTitle() : string
+  + GetAuthor() : string
+  + GetLength() : int
+  + GetComments() : List<Comment>
 }
 
 class Comment {
   - _name : string
   - _text : string
+  __
   + Comment(name : string, text : string)
+  ..Getters..
+  + GetName() : string
+  + GetText() : string
 }
 
 Video o- Comment
