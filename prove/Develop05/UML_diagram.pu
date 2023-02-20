@@ -218,6 +218,7 @@ digraph methods {
   ];
 }
 }}
+
 **GoalManager** class performs all operations with goal. It has methods for creating,
 displaying, saving and loading goals.
 
