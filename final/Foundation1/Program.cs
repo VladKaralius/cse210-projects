@@ -25,22 +25,31 @@ class Program
                 for (int i = 0; i < random.Next(3, 5); i++)
                 {
                     Video video = new Video(sampleData.GetNextTitle(),
-                        sampleData.GetNextName(), random.Next(300, 3000));
+                        sampleData.GetNextName(), random.Next(200, 1500));
+                    
+                    for (int j=0; j < random.Next(3, 5); j++)
+                    {
+                        video.AddComment(sampleData.GetNextName(), sampleData.GetNextText());
+                    }
                     
                     videos.Add(video);
                 }
-
-
-
             }
 
             else if (choice == 2)
             {
+                Console.WriteLine();
                 foreach (Video video in videos)
                 {
-                    Console.WriteLine(video.GetCommentCount());
-                }
+                    Console.WriteLine($"{video.GetTitle()} " +
+                        $"({video.GetLength()} s) by {video.GetAuthor()}");
 
+                    foreach (Comment comment in video.GetComments())
+                    {
+                        Console.WriteLine($"    {comment.GetName()}: {comment.GetText()}");
+                    }
+                    Console.WriteLine();
+                }
             }
         }
     }
