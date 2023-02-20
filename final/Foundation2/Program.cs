@@ -9,8 +9,8 @@ class Program
         {
 
             Console.WriteLine("Menu Options:\n" +
-                              "  1. Create New Goal\n" +
-                              "  2. List Goals\n" +
+                              "  1. Create sample orders\n" +
+                              "  2. Display orders\n" +
                               "  3. Save Goals\n" +
                               "  4. Load Goals\n" +
                               "  5. Record Event\n" +

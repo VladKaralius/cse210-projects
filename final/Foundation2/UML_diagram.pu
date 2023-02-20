@@ -33,7 +33,7 @@ classDiagram {
     }
     
     ' Alternative class style 1
-    .gaming {
+    .style1 {
       BackgroundColor Bisque
       header {
         BackgroundColor Orange
@@ -41,7 +41,7 @@ classDiagram {
     }
 
     ' Alternative class style 2
-    .test {
+    .auxiliary {
       BackgroundColor #eeeeee
       header {
         BackgroundColor #cccccc
@@ -58,37 +58,76 @@ classDiagram {
 
 '--Header, title, caption--
 header By Vladislovas Karalius, created with PlantUML, 2023-03-16
-title Final Project - Program 1: Abstraction with YouTube Videos
+title Final Project - Program 2: Encapsulation with Online Ordering
 'caption <:warning:>Constructors without parameters are not shown in this diagram
 
 ' Dummy class that explains visibility symbols
-class Markers #dddddd {
-Attributes
-..
-- private
-# protected
-+ public
-{static} static
---
-Methods
-..
-- private()
-# protected()
-+ public()
-{static} static()
-}
+' class Markers #dddddd {
+' Attributes
+' ..
+' - private
+' # protected
+' + public
+' {static} static
+' --
+' Methods
+' ..
+' - private()
+' # protected()
+' + public()
+' {static} static()
+' }
 
 '--Main--
-class BreathingActivity {
-  + BreathingActivity()
-  + RunActivity() : void
+class Order {
+  - _products : List<Product> 
+  - _customer : Customer
+  + Order()
+  + CalculateTotalCost() : decimal
+  + GetPackingLabel() : string
+  + GetShippingLabel() : string
 }
 
+class Product {
+  - _productName : string
+  - _productId : string
+  - price : decimal
+  - quantity : int
+  + Product()
+}
+
+class Customer {
+- _customerName : string
+- _customerAddress : Address
++ Customer()
++ IsFromUSA() : bool
+
+}
+
+class Address {
+  - _streetAddress : string
+  - _city : string
+  - _state : string
+  - _country : string
+  + Address()
+  + IsInUSA() : bool
+  + GetFullAddress() : string
+}
+
+class SampleDataGenerator <<auxiliary>> {
+
+}
+
+Order o- Product
+Customer "1" -- Order
+Customer .> Address
+Order .[hidden]. SampleDataGenerator
+
 '--Description--
-legend bottom
-<size:22>__**Core Requirements**__
-The program has one base class **Activity**. This class contains the attributes and methods
-that are common to all activities. Certain functions are put into separate classes as follows:
-endlegend
+' legend bottom
+' <size:22>__**Core Requirements**__
+' The program has one base class **Activity**. This class contains the attributes and methods
+' that are common to all activities. Certain functions are put into separate classes as follows:
+' endlegend
 
 @enduml
