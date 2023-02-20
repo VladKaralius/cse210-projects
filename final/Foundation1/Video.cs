@@ -23,4 +23,9 @@ public class Video
         Comment comment = new Comment(name, text);
         _comments.Add(comment);
     }
+
+    public string GetTitle() => _title;
+    public string GetAuthor() => _author;
+    public int GetLength() => _length;
+    public List<Comment> GetComments() => _comments;
 }

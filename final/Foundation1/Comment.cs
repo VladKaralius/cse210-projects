@@ -8,4 +8,8 @@ public class Comment
         _name = name;
         _text = text;
     }
+
+    public string GetName() => _name;
+    public string GetText() => _text;
+
 }
