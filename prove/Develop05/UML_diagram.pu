@@ -85,7 +85,7 @@ Methods
 'Goal -right[hidden]- Markers
 
 '--Main--
-class GoalManager <<test>> {
+class GoalManager {
   - _goals : List<Goal>
   - _pointTotal : int
   - _level : Level
@@ -218,7 +218,6 @@ digraph methods {
   ];
 }
 }}
-
 **GoalManager** class performs all operations with goal. It has methods for creating,
 displaying, saving and loading goals.
 
