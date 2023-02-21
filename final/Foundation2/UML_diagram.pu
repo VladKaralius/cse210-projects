@@ -80,20 +80,34 @@ title Final Project - Program 2: Encapsulation with Online Ordering
 
 '--Main--
 class Order {
-  - _products : List<Product> 
   - _customer : Customer
+  - _products : List<Product> 
+  __
   + Order()
+  + SetCustomer()
+  + AddProduct(productName : string, productID : string,
+    price : decimal, quantity : int)
   + CalculateTotalCost() : decimal
   + GetPackingLabel() : string
   + GetShippingLabel() : string
+  ..Getters..
+  + GetCustomer() : Customer
+  + GetProducts() : List<Product>
 }
 
 class Product {
   - _productName : string
   - _productId : string
-  - price : decimal
-  - quantity : int
-  + Product()
+  - _price : decimal
+  - _quantity : int
+  __
+  + Product(productName : string, productID : string,
+    price : decimal, quantity : int)
+  ..Getters..
+  + GetProductName() : string
+  + GetProductId() : string
+  + GetPrice() : decimal
+  + GetQuantity() : int
 }
 
 class Customer {
