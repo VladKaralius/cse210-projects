@@ -16,6 +16,6 @@ public class Product
 
     public string GetProductName() => _productName;
     public string GetProductId() => _productId;
-    public decimal GetProductPrice() => _price;
+    public decimal GetPrice() => _price;
     public int GetQuantity() => _quantity;
 }
