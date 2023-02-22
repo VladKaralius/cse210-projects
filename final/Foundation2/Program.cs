@@ -28,7 +28,7 @@ class Program
 
                 for (int i = 0; i < random.Next(3, 5); i++)
                 {
-                    Order order = new Order();
+                    Order order = new Order(sampleData.GetNextName());
 
                     for (int j = 0; j < random.Next(3, 5); j++)
                     {

@@ -4,13 +4,16 @@ public class Order {
     private List<Product> _products;
     
 
-    public Order() {
-       _customer = new Customer();
+    public Order(string customerName) {
+       _customer = new Customer(customerName);
        _products = new List<Product>();
     }
 
-    public void SetCustomer()
+    public void SetCustomerAddress(string streetAddress,
+        string city, string state, string country)
     {
+
+
 
     }
 
