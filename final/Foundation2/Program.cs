@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        List<Order> orders = new List<Order>();
+        Random random = new Random();
+
         int choice = 0;
         while (choice != 6)
         {
@@ -20,6 +23,22 @@ class Program
 
             if (choice == 1)
             {
+                SampleDataGenerator sampleData = new SampleDataGenerator();
+                orders.Clear();
+
+                for (int i = 0; i < random.Next(3, 5); i++)
+                {
+                    Order order = new Order();
+
+                    for (int j = 0; j < random.Next(3, 5); j++)
+                    {
+                        string product = sampleData.GetNextProductName();
+                        string productId = $"{product.Substring(0, 3)}{random.Next(1, 100):0000}";
+                        decimal price = random.Next(100, 10000) / 100;
+                        int quantity = random.Next(1, 11);
+                    }                 
+                }
+
 
             }
 
