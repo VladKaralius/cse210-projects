@@ -14,8 +14,11 @@ public class Product
         _quantity = quantity;
     }
 
+    public decimal GetTotalPrice()
+    {
+        return (decimal)_price * _quantity;
+    }
+
     public string GetProductName() => _productName;
     public string GetProductId() => _productId;
-    public decimal GetPrice() => _price;
-    public int GetQuantity() => _quantity;
 }

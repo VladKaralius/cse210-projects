@@ -50,7 +50,7 @@ class Program
                     for (int j = 0; j < random.Next(3, 5); j++)
                     {
                         string productName = sampleData.GetNextProductName();
-                        string productId = $"{productName.Substring(0, 3)}{random.Next(1, 100):0000}";
+                        string productId = $"{productName.Substring(0, 3).ToUpper()}{random.Next(1, 100):00}";
                         decimal price = (decimal)random.Next(10, 10000) / 100;
                         int quantity = random.Next(1, 11);
                         order.AddProduct(productName, productId, price, quantity);

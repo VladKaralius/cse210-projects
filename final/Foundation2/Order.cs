@@ -39,7 +39,7 @@ public class Order {
 
         foreach (Product product in _products)
         {
-            totalCost += (decimal)product.GetPrice() * product.GetQuantity();
+            totalCost += product.GetTotalPrice();
         }
                 
         return totalCost + shippingCost;

@@ -103,11 +103,10 @@ class Product {
   __
   + Product(productName : string, productID : string,
     price : decimal, quantity : int)
+  + GetTotalPrice() : decimal
   ..Getters..
   + GetProductName() : string
   + GetProductId() : string
-  + GetPrice() : decimal
-  + GetQuantity() : int
 }
 
 class Customer {
