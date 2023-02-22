@@ -12,9 +12,7 @@ public class Order {
     public void SetCustomerAddress(string streetAddress,
         string city, string state, string country)
     {
-
-
-
+        _customer.SetAddress(streetAddress, city, state, country);
     }
 
     public void AddProduct(string productName, string productId,
