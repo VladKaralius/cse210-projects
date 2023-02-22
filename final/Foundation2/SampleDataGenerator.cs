@@ -51,6 +51,15 @@ public class SampleDataGenerator
     
     private int _currentStatesUSAIndex = 0;
 
+    private string[] _cities =
+        {
+            "Solaris", "New Grasslands", "Crazy Town", "Pineville Wood", "Dracaris City",
+            "Brilfax Village", "Tangerine Town", "Bamford City", "Jedburgh", "Penketh",
+            "Farrahville", "Upper Ghyllxos", "Watfordr", "Kamouraska", "Eastbourne"
+        };
+    
+    private int _currentCitiesIndex = 0; 
+   
     private string[] _streets =
         {
             "Luna Street", "Lilypad Route", "Shade Lane", "Crimson Street",
@@ -104,6 +113,14 @@ public class SampleDataGenerator
         }
         Array.Sort(order, _statesUSA);
 
+        // Shuffle _cities
+        order = new Double[_cities.Length];
+        for (int i = 0; i < _cities.Length; i++)
+        {
+            order[i] = random.NextDouble();
+        }
+        Array.Sort(order, _cities);
+
         // Shuffle _streets
         order = new Double[_streets.Length];
         for (int i = 0; i < _streets.Length; i++)
@@ -147,7 +164,14 @@ public class SampleDataGenerator
         _currentStatesUSAIndex = ++_currentStatesUSAIndex % _statesUSA.Length;
         return stateUSA;
     }
-    
+
+    public string GetNextCity()
+    {
+        string city = _cities[_currentCitiesIndex];
+        _currentCitiesIndex = ++_currentCitiesIndex % _cities.Length;
+        return city;
+    }
+
     public string GetNextStreet()
     {
         string street = _streets[_currentStreetsIndex];
