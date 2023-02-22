@@ -83,7 +83,7 @@ class Program
                 foreach (Order order in orders)
                 {
                     string customerName = order.GetCustomer().GetCustomerName();
-                    Console.WriteLine($"Customer: {customerName}");
+                    Console.WriteLine($"Customer: {customerName}\n" + new string('-', 29));
                     Console.WriteLine(order.GetPackingLabel());
                 }
 
