@@ -67,6 +67,8 @@ class Program
             {
                 Console.WriteLine();
                 
+                // Some strings are formatted differently due to my regional settings.
+                // I added this option to ensure uniform display.
                 CultureInfo enUSCulture = new CultureInfo("en-US");
             
                 foreach (Order order in orders)
