@@ -129,7 +129,24 @@ class Address {
 }
 
 class SampleDataGenerator <<auxiliary>> {
-
+  - _productNames : string[]
+  - _curentProductNamesIndex : int = 0
+  - _names : string[]
+  - _currentNamesIndex : int = 0
+  - _countries : string[]
+  - _currentCountriesIndex : int = 0
+  - _states : string[]
+  - _currentStatesIndex : int = 0
+  - _statesUSA : string[]
+  - _currentStatesUSAIndex : int = 0
+  - _streets : string[]
+  - _currentStreetsIndex : int = 0
+  + GetNextProductName() : string
+  + GetNextName() : string
+  + GetNextCountry() : string
+  + GetNextState() : string
+  + GetNextStateUSA() : string
+  + GetNextStreet() : string
 }
 
 Order o- Product
