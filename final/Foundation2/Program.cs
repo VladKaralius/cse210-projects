@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 
 class Program
 {
@@ -65,12 +66,15 @@ class Program
             else if (choice == 2)
             {
                 Console.WriteLine();
-
+                
+                CultureInfo enUSCulture = new CultureInfo("en-US");
+            
                 foreach (Order order in orders)
                 {
-                    decimal totalCost = order.CalculateTotalCost();
+                    string totalCost = "$" + order.CalculateTotalCost().ToString(enUSCulture);
                     string customerName = order.GetCustomer().GetCustomerName();
-                    Console.WriteLine($"Total cost: {totalCost,7:0.00}$  Customer: {customerName}");
+                    Console.WriteLine($"Total cost: {totalCost,8}   " +
+                    $"Shipping cost (included): {"$" + order.GetShippingCost(),3}   Customer: {customerName}");
                 }
 
                 Console.WriteLine();

@@ -22,10 +22,10 @@ public class Order {
         _products.Add(product);
     }
 
-    public decimal CalculateTotalCost()
+    public decimal GetShippingCost()
     {
-        decimal totalCost = 0;
         decimal shippingCost;
+
         if (_customer.IsFromUSA())
         {
             shippingCost = 5;
@@ -35,14 +35,20 @@ public class Order {
             shippingCost = 35;
         }
 
-        totalCost +=  shippingCost;
+        return shippingCost;
+    }
+    
+    public decimal CalculateTotalCost()
+    {
+        decimal totalCost = 0;
+        totalCost +=  GetShippingCost();
 
         foreach (Product product in _products)
         {
             totalCost += product.GetTotalPrice();
         }
                 
-        return totalCost + shippingCost;
+        return totalCost;
     }
 
     public string GetPackingLabel()

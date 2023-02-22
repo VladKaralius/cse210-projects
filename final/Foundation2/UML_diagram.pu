@@ -87,6 +87,7 @@ class Order {
   + SetCustomerAddress(streetAddress : string, city : string\nstate : string, country : string)
   + AddProduct(productName : string, productID : string,
     price : decimal, quantity : int)
+  + GetShippingCost() : decimal
   + CalculateTotalCost() : decimal
   + GetPackingLabel() : string
   + GetShippingLabel() : string
