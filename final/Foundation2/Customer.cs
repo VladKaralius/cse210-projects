@@ -14,4 +14,9 @@ public class Customer
         _customerAddress = new Address(streetAddress, city, state, country);
     }
 
+    public bool IsFromUSA()
+    {
+        return _customerAddress.IsInUSA();
+    }
+
 }
