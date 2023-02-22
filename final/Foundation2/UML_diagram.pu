@@ -83,8 +83,8 @@ class Order {
   - _customer : Customer
   - _products : List<Product> 
   __
-  + Order()
-  + SetCustomer()
+  + Order(customerName : string)
+  + SetCustomerAddress(streetAddress : string, city : string\nstate : string, country : string)
   + AddProduct(productName : string, productID : string,
     price : decimal, quantity : int)
   + CalculateTotalCost() : decimal
@@ -113,9 +113,12 @@ class Product {
 class Customer {
 - _customerName : string
 - _customerAddress : Address
-+ Customer()
+__
++ Customer(customerName : string)
++ SetAddress(streetAddress : string, city : string\nstate : string, country : string)
 + IsFromUSA() : bool
-
+..Getters..
++ GetCustomerName() : string
 }
 
 class Address {
@@ -123,7 +126,7 @@ class Address {
   - _city : string
   - _state : string
   - _country : string
-  + Address()
+  + Address(streetAddress : string, city : string\nstate : string, country : string)
   + IsInUSA() : bool
   + GetFullAddress() : string
 }
@@ -139,6 +142,8 @@ class SampleDataGenerator <<auxiliary>> {
   - _currentStatesIndex : int = 0
   - _statesUSA : string[]
   - _currentStatesUSAIndex : int = 0
+  - _cities : string[]
+  - _currentCitiesIndex : int = 0
   - _streets : string[]
   - _currentStreetsIndex : int = 0
   + GetNextProductName() : string
