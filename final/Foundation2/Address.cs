@@ -13,4 +13,14 @@ public class Address
         _state = state;
         _country = country;
     }
+
+    public bool IsInUSA()
+    {
+        return _country == "USA";
+    }
+
+    public string GetFullAddress()
+    {
+        return $"{_streetAddress}\n{_city}\n{_state}\n{_country}";
+    }
 }
