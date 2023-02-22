@@ -13,7 +13,7 @@ class Program
 
             Console.WriteLine("Menu Options:\n" +
                               "  1. Create sample orders\n" +
-                              "  2. Display orders\n" +
+                              "  2. Display total cost for each order\n" +
                               "  3. Save Goals\n" +
                               "  4. Load Goals\n" +
                               "  5. Record Event\n" +
@@ -30,8 +30,22 @@ class Program
                 {
                     Order order = new Order(sampleData.GetNextName());
 
+                    string state;
+                    string country;
+
+                    if (random.Next(0, 2) == 0)
+                    {
+                        state = sampleData.GetNextStateUSA();
+                        country = "USA";
+                    }
+                    else
+                    {
+                        state = sampleData.GetNextState();
+                        country = sampleData.GetNextCountry();
+                    }
+                                        
                     order.SetCustomerAddress($"{sampleData.GetNextStreet} {random.Next(1, 200)}",
-                        sampleData.)
+                        sampleData.GetNextCity(), state, country);
                     
                     for (int j = 0; j < random.Next(3, 5); j++)
                     {
