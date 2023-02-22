@@ -34,6 +34,8 @@ class Program
                     
                     videos.Add(video);
                 }
+
+                Console.WriteLine("\nVideos created.\n");
             }
 
             else if (choice == 2)
