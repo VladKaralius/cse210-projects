@@ -154,6 +154,4 @@ public class SampleDataGenerator
         _currentStreetsIndex = ++_currentStreetsIndex % _streets.Length;
         return street;
     }
-    
-
 }
