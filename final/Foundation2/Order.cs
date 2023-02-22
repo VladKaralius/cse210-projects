@@ -44,6 +44,8 @@ public class Order {
                 
         return totalCost + shippingCost;
     }
+
+    
     
     public Customer GetCustomer() => _customer;
     public List<Product> GetProducts() => _products;
