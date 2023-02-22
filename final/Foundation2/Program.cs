@@ -14,7 +14,7 @@ class Program
             Console.WriteLine("Menu Options:\n" +
                               "  1. Create sample orders\n" +
                               "  2. Display total cost for each order\n" +
-                              "  3. Save Goals\n" +
+                              "  3. Display packing labels\n" +
                               "  4. Load Goals\n" +
                               "  5. Record Event\n" +
                               "  6. Quit");
@@ -52,7 +52,7 @@ class Program
                         string productName = sampleData.GetNextProductName();
                         string productId = $"{productName.Substring(0, 3).ToUpper()}{random.Next(1, 100):00}";
                         decimal price = (decimal)random.Next(10, 10000) / 100;
-                        int quantity = random.Next(1, 11);
+                        int quantity = random.Next(1, 20);
                         order.AddProduct(productName, productId, price, quantity);
                     }         
 
@@ -78,7 +78,16 @@ class Program
 
             else if (choice == 3)
             {
-   
+                Console.WriteLine();
+                
+                foreach (Order order in orders)
+                {
+                    string customerName = order.GetCustomer().GetCustomerName();
+                    Console.WriteLine($"Customer: {customerName}");
+                    Console.WriteLine(order.GetPackingLabel());
+                }
+
+                Console.WriteLine();
             }
 
             else if (choice == 4)

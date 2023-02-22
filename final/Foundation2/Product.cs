@@ -21,4 +21,5 @@ public class Product
 
     public string GetProductName() => _productName;
     public string GetProductId() => _productId;
+    public int GetProductQuantity() => _quantity;
 }

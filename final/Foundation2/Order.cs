@@ -45,7 +45,17 @@ public class Order {
         return totalCost + shippingCost;
     }
 
-    
+    public string GetPackingLabel()
+    {
+        string packingLabel = "Product     Product ID   Qty.\n";
+        foreach (Product product in _products)
+        {
+            packingLabel += $"{product.GetProductName(),-14}{product.GetProductId()}" +
+                $"      {product.GetProductQuantity(),3}\n";
+        }
+        
+        return packingLabel;
+    }
     
     public Customer GetCustomer() => _customer;
     public List<Product> GetProducts() => _products;

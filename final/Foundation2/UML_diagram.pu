@@ -107,6 +107,7 @@ class Product {
   ..Getters..
   + GetProductName() : string
   + GetProductId() : string
+  + GetProductQuantity() : int
 }
 
 class Customer {
