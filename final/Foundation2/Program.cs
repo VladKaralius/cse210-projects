@@ -64,11 +64,16 @@ class Program
 
             else if (choice == 2)
             {
+                Console.WriteLine();
+
                 foreach (Order order in orders)
                 {
-                    Console.WriteLine(order.CalculateTotalCost());
+                    decimal totalCost = order.CalculateTotalCost();
+                    string customerName = order.GetCustomer().GetCustomerName();
+                    Console.WriteLine($"Total cost: {totalCost,7:0.00}$  Customer: {customerName}");
                 }
 
+                Console.WriteLine();
             }
 
             else if (choice == 3)
