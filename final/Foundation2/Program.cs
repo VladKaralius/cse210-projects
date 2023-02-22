@@ -30,6 +30,9 @@ class Program
                 {
                     Order order = new Order(sampleData.GetNextName());
 
+                    order.SetCustomerAddress($"{sampleData.GetNextStreet} {random.Next(1, 200)}",
+                        sampleData.)
+                    
                     for (int j = 0; j < random.Next(3, 5); j++)
                     {
                         string productName = sampleData.GetNextProductName();
