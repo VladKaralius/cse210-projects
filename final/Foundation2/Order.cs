@@ -25,11 +25,24 @@ public class Order {
     public decimal CalculateTotalCost()
     {
         decimal totalCost = 0;
+        decimal shippingCost;
+        if (_customer.IsFromUSA())
+        {
+            shippingCost = 5;
+        }
+        else
+        {
+            shippingCost = 35;
+        }
+
+        totalCost +=  shippingCost;
+
         foreach (Product product in _products)
         {
             totalCost += (decimal)product.GetPrice() * product.GetQuantity();
         }
-        return totalCost;
+                
+        return totalCost + shippingCost;
     }
     
     public Customer GetCustomer() => _customer;
