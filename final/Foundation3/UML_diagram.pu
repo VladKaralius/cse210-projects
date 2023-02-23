@@ -106,11 +106,11 @@ class SampleDataGenerator <<auxiliary>> {
   - _titles : string[]
   - _currentTitlesIndex : int = 0
   - _descriptions : string[]
-  - _currentDescriptionIndex : int = 0
+  - _currentDescriptionsIndex : int = 0
   - _emails : string[]
-  - _curentEmailIndex : int = 0
+  - _curentEmailsIndex : int = 0
   - _weatherForecasts : string[]
-  - _currentWeatherForecatIndex : int = 0
+  - _currentWeatherForecastsIndex : int = 0
   - _names : string[]
   - _currentNamesIndex : int = 0
   - _countries : string[]
