@@ -134,9 +134,9 @@ class SampleDataGenerator <<auxiliary>> {
   + GetNextStreet() : string
 }
 
-Event .l> Address
+Event .> Address
 
-Event .[hidden] SampleDataGenerator
+LectureEvent .[hidden]. SampleDataGenerator
 
 
 '--Description--
