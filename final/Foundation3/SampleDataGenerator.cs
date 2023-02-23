@@ -40,7 +40,7 @@ public class SampleDataGenerator
 
     private string[] _weatherForecasts =
         {
-            "Mostly dry. Very mild (max 16°C, min 7°C ). Wind will be generally light.",
+            "Mostly dry. Very mild (max 16°C, min 7°C ). Mainly fresh winds.",
             "Mostly dry. Very mild (max 18°C, min 10°C ). Wind will be generally light.",
             "Some drizzle. Very mild (max 18°C, min 10°C ). Wind will be generally light.",
             "Light rain. Very mild (max 18°C, min 10°C ). Wind will be generally light.",
@@ -114,94 +114,44 @@ public class SampleDataGenerator
 
     public SampleDataGenerator()
     {
-        Random random = new Random();
-
-        // Shuffle _titles
-        Double[] order = new Double[_titles.Length];
-        for (int i = 0; i < _titles.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _titles);
-
-        // Shuffle _descriptions
-        order = new Double[_descriptions.Length];
-        for (int i = 0; i < _descriptions.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _descriptions);
-
-        // Shuffle _emails
-       order = new Double[_emails.Length];
-        for (int i = 0; i < _emails.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _emails);
-
-        // Shuffle _weatherForecasts
-        order = new Double[_weatherForecasts.Length];
-        for (int i = 0; i < _weatherForecasts.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _weatherForecasts);
-
-        // Shuffle _names
-        order = new Double[_names.Length];
-        for (int i = 0; i < _names.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _names);
-
-        // Shuffle _countries
-        order = new Double[_countries.Length];
-        for (int i = 0; i < _countries.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _countries);
-
-        // Shuffle _states
-        order = new Double[_states.Length];
-        for (int i = 0; i < _states.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _states);
-
-        // Shuffle _statesUSA
-        order = new Double[_statesUSA.Length];
-        for (int i = 0; i < _statesUSA.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _statesUSA);
-
-        // Shuffle _cities
-        order = new Double[_cities.Length];
-        for (int i = 0; i < _cities.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _cities);
-
-        // Shuffle _streets
-        order = new Double[_streets.Length];
-        for (int i = 0; i < _streets.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _streets);
+        Shuffle(_titles);
+        Shuffle(_descriptions);
+        Shuffle(_emails);
+        Shuffle(_weatherForecasts);
+        Shuffle(_names);
+        Shuffle(_countries);
+        Shuffle(_states);
+        Shuffle(_statesUSA);
+        Shuffle(_cities);
+        Shuffle(_streets);
     }
 
-    public string GetNextProductName()
+    public string GetNextTitle()
     {
-        string productName = _productNames[_currentProductNamesIndex];
-        _currentProductNamesIndex = ++_currentProductNamesIndex % _productNames.Length;
-        return productName;
+        string title = _titles[_currentTitlesIndex];
+        _currentTitlesIndex = ++_currentTitlesIndex % _titles.Length;
+        return title;        
+    }
+    
+    public string GetNextDescription()
+    {
+        string description = _descriptions[_currentDescriptionsIndex];
+        _currentDescriptionsIndex = ++_currentDescriptionsIndex % _descriptions.Length;
+        return description;        
+    }
+
+    public string GetNextEmail()
+    {
+        string email = _emails[_currentEmailsIndex];
+        _currentEmailsIndex = ++_currentEmailsIndex % _emails.Length;
+        return email + "@greatevents.com";
+    }
+
+    public string GetNextWeatherForecast()
+    {
+        string weatherForecast = _weatherForecasts[_currentWeatherForecastsIndex];
+        _currentWeatherForecastsIndex = ++_currentWeatherForecastsIndex % _weatherForecasts.Length;
+        return weatherForecast;        
     }
 
     public string GetNextName()
@@ -244,5 +194,17 @@ public class SampleDataGenerator
         string street = _streets[_currentStreetsIndex];
         _currentStreetsIndex = ++_currentStreetsIndex % _streets.Length;
         return street;
+    }
+
+    private void Shuffle(string[] records)
+    {
+        Random random = new Random();
+        
+        Double[] order = new Double[records.Length];
+        for (int i = 0; i < records.Length; i++)
+        {
+            order[i] = random.NextDouble();
+        }
+        Array.Sort(order, records);
     }
 }
