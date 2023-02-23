@@ -9,16 +9,15 @@ class Program
         Random random = new Random();
 
         int choice = 0;
-        while (choice != 6)
+        while (choice != 5)
         {
 
             Console.WriteLine("Menu Options:\n" +
                               "  1. Create sample orders\n" +
                               "  2. Display total cost for each order\n" +
                               "  3. Display packing labels\n" +
-                              "  4. Load Goals\n" +
-                              "  5. Record Event\n" +
-                              "  6. Quit");
+                              "  4. Display shipping labels\n" +
+                              "  5. Quit");
             Console.Write("Select a choice from the menu: ");
             choice = int.Parse(Console.ReadLine());
 
@@ -45,7 +44,7 @@ class Program
                         country = sampleData.GetNextCountry();
                     }
                                         
-                    order.SetCustomerAddress($"{sampleData.GetNextStreet} {random.Next(1, 200)}",
+                    order.SetCustomerAddress($"{sampleData.GetNextStreet()} {random.Next(1, 200)}",
                         sampleData.GetNextCity(), state, country);
                     
                     for (int j = 0; j < random.Next(3, 5); j++)
@@ -92,18 +91,16 @@ class Program
                     Console.WriteLine($"Customer: {customerName}\n" + new string('-', 29));
                     Console.WriteLine(order.GetPackingLabel());
                 }
-
-                Console.WriteLine();
             }
 
             else if (choice == 4)
             {
+                Console.WriteLine();
 
-            }
-
-            else if (choice == 5)
-            {
-
+                foreach (Order order in orders)
+                {
+                    Console.WriteLine(order.GetShippingLabel() + "\n");
+                }
             }
         }
     }

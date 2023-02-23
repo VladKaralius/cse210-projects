@@ -20,4 +20,5 @@ public class Customer
     }
 
     public string GetCustomerName() => _customerName;
+    public Address GetCustomerAddress() => _customerAddress;
 }
