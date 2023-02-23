@@ -41,7 +41,7 @@ classDiagram {
     }
 
     ' Alternative class style 2
-    .test {
+    .auxiliary {
       BackgroundColor #eeeeee
       header {
         BackgroundColor #cccccc
@@ -59,37 +59,91 @@ classDiagram {
 
 '--Header, title, caption--
 header By Vladislovas Karalius, created with PlantUML, 2023-03-16
-title Final Project - Program 1: Abstraction with YouTube Videos
-'caption <:warning:>Constructors without parameters are not shown in this diagram
-
-' Dummy class that explains visibility symbols
-class Markers #dddddd {
-Attributes
-..
-- private
-# protected
-+ public
-{static} static
---
-Methods
-..
-- private()
-# protected()
-+ public()
-{static} static()
-}
+title Final Project - Program 3: Inheritance with Event Planning
 
 '--Main--
-class BreathingActivity {
-  + BreathingActivity()
-  + RunActivity() : void
+class Event {
+  # _title : string
+  # _description : string
+  # _date : string
+  # _time : string
+  # _address : Address
+  + Event(title : string, description : string,\ndate : string, time : string, address : string)
+  + SetAddress(streetAddress : string, city : string\nstate : string, country : string)
+  + GetStandardDetails() : string
+  + GetShortDescription() : string
 }
 
+class Address {
+  - _streetAddress : string
+  - _city : string
+  - _state : string
+  - _country : string
+  + Address(streetAddress : string, city : string\nstate : string, country : string)
+  + GetFullAddress() : string
+}
+
+class LectureEvent extends Event {
+- _speakerName : string
+- _capacity : int
++ LectureEvent(title : string, description : string,\ndate : string, time : string, address : string\nspeakerName :string, capacity : int)
++ GetFullDetails() : string
+}
+
+class ReceptionEvent extends Event {
+- _responseEmail : string
++ ReceptionEvent(title : string, description : string,\ndate : string, time : string, address : string\nresponseEmail : string)
++ GetFullDetails() : string
+}
+
+class OutdoorEvent extends Event {
+- _weatherForecast : string
++ OutdoorEvent(title : string, description : string,\ndate : string, time : string, address : string\nweatherForecast : string)
++ GetFullDetails() : string
+}
+
+class SampleDataGenerator <<auxiliary>> {
+  - _titles : string[]
+  - _currentTitlesIndex : int = 0
+  - _descriptions : string[]
+  - _currentDescriptionIndex : int = 0
+  - _emails : string[]
+  - _curentEmailIndex : int = 0
+  - _weatherForecasts : string[]
+  - _currentWeatherForecatIndex : int = 0
+  - _names : string[]
+  - _currentNamesIndex : int = 0
+  - _countries : string[]
+  - _currentCountriesIndex : int = 0
+  - _states : string[]
+  - _currentStatesIndex : int = 0
+  - _statesUSA : string[]
+  - _currentStatesUSAIndex : int = 0
+  - _cities : string[]
+  - _currentCitiesIndex : int = 0
+  - _streets : string[]
+  - _currentStreetsIndex : int = 0
+  + GetNextTitle() : string
+  + GetNextDescription() : string
+  + GetNextEmail() : string
+  + GetNextWeatherForecast() : string
+  + GetNextName() : string
+  + GetNextCountry() : string
+  + GetNextState() : string
+  + GetNextStateUSA() : string
+  + GetNextStreet() : string
+}
+
+Event .l> Address
+
+Event .[hidden] SampleDataGenerator
+
+
 '--Description--
-legend bottom
-<size:22>__**Core Requirements**__
-The program has one base class **Activity**. This class contains the attributes and methods
-that are common to all activities. Certain functions are put into separate classes as follows:
-endlegend
+' legend bottom
+' <size:22>__**Core Requirements**__
+' The program has one base class **Activity**. This class contains the attributes and methods
+' that are common to all activities. Certain functions are put into separate classes as follows:
+' endlegend
 
 @enduml
