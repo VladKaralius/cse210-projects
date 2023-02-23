@@ -62,6 +62,14 @@ public class Order {
         
         return packingLabel;
     }
+
+    public string GetShippingLabel()
+    {
+        string shippingLabel = "Ship to:\n";
+        shippingLabel += _customer.GetCustomerName() + "\n";
+        shippingLabel += _customer.GetCustomerAddress().GetFullAddress();
+        return shippingLabel;
+    }
     
     public Customer GetCustomer() => _customer;
     public List<Product> GetProducts() => _products;
