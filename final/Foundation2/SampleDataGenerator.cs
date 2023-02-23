@@ -71,63 +71,13 @@ public class SampleDataGenerator
 
     public SampleDataGenerator()
     {
-        Random random = new Random();
-        
-        // Shuffle _productNames
-        Double[] order = new Double[_productNames.Length];
-        for (int i = 0; i < _productNames.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _productNames);
-
-        // Shuffle _names
-        order = new Double[_names.Length];
-        for (int i = 0; i < _names.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _names);
-
-        // Shuffle _countries
-        order = new Double[_countries.Length];
-        for (int i = 0; i < _countries.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _countries);
-
-        // Shuffle _states
-        order = new Double[_states.Length];
-        for (int i = 0; i < _states.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _states);
-
-        // Shuffle _statesUSA
-        order = new Double[_statesUSA.Length];
-        for (int i = 0; i < _statesUSA.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _statesUSA);
-
-        // Shuffle _cities
-        order = new Double[_cities.Length];
-        for (int i = 0; i < _cities.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _cities);
-
-        // Shuffle _streets
-        order = new Double[_streets.Length];
-        for (int i = 0; i < _streets.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _streets);
+        Shuffle(_productNames);
+        Shuffle(_names);
+        Shuffle(_countries);
+        Shuffle(_states);
+        Shuffle(_statesUSA);
+        Shuffle(_cities);
+        Shuffle(_streets);
     }
 
     public string GetNextProductName()
@@ -177,5 +127,17 @@ public class SampleDataGenerator
         string street = _streets[_currentStreetsIndex];
         _currentStreetsIndex = ++_currentStreetsIndex % _streets.Length;
         return street;
+    }
+
+    private void Shuffle(string[] records)
+    {
+        Random random = new Random();
+        
+        Double[] order = new Double[records.Length];
+        for (int i = 0; i < records.Length; i++)
+        {
+            order[i] = random.NextDouble();
+        }
+        Array.Sort(order, records);
     }
 }

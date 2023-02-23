@@ -153,6 +153,7 @@ class SampleDataGenerator <<auxiliary>> {
   + GetNextState() : string
   + GetNextStateUSA() : string
   + GetNextStreet() : string
+  - Shuffle() : void
 }
 
 Order o- Product

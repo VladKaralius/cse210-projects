@@ -11,7 +11,7 @@ class Program
         while (choice != 3)
         {
             Console.WriteLine("Menu Options:\n" +
-                              "  1. Populate with random sample data\n" +
+                              "  1. Create videos with sample data\n" +
                               "  2. Display sample data\n" +
                               "  3. Quit");
             Console.Write("Select a choice from the menu: ");

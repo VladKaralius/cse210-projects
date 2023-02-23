@@ -118,6 +118,7 @@ class SampleDataGenerator <<auxiliary>> {
   + GetNextTitle() : string
   + GetNextName() : string
   + GetNextText() : string
+  - Shuffle() : void
 }
 
 Video .[hidden]. SampleDataGenerator

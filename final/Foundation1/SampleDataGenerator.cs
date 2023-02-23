@@ -56,31 +56,9 @@ public class SampleDataGenerator
 
     public SampleDataGenerator()
     {
-        Random random = new Random();
-        
-        // Shuffle _titles
-        Double[] order = new Double[_titles.Length];
-        for (int i = 0; i < _titles.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _titles);
-
-        // Shuffle _names
-        order = new Double[_names.Length];
-        for (int i = 0; i < _names.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _names);
-
-        // Shuffle _texts
-        order = new Double[_texts.Length];
-        for (int i = 0; i < _texts.Length; i++)
-        {
-            order[i] = random.NextDouble();
-        }
-        Array.Sort(order, _texts);
+        Shuffle(_titles);
+        Shuffle(_names);
+        Shuffle(_texts);
     }
 
     public string GetNextTitle()
@@ -104,4 +82,15 @@ public class SampleDataGenerator
         return text;
     }
 
+    private void Shuffle(string[] records)
+    {
+        Random random = new Random();
+        
+        Double[] order = new Double[records.Length];
+        for (int i = 0; i < records.Length; i++)
+        {
+            order[i] = random.NextDouble();
+        }
+        Array.Sort(order, records);
+    }
 }
