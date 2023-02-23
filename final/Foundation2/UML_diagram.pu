@@ -120,6 +120,7 @@ __
 + IsFromUSA() : bool
 ..Getters..
 + GetCustomerName() : string
++ GetCustomerAddress() : Address
 }
 
 class Address {

@@ -55,7 +55,7 @@ public class SampleDataGenerator
         {
             "Solaris", "New Grasslands", "Crazy Town", "Pineville Wood", "Dracaris City",
             "Brilfax Village", "Tangerine Town", "Bamford City", "Jedburgh", "Penketh",
-            "Farrahville", "Upper Ghyllxos", "Watfordr", "Kamouraska", "Eastbourne"
+            "Farrahville", "Upper Ghyllxos", "Watford", "Kamouraska", "Eastbourne"
         };
     
     private int _currentCitiesIndex = 0; 
@@ -63,7 +63,7 @@ public class SampleDataGenerator
     private string[] _streets =
         {
             "Luna Street", "Lilypad Route", "Shade Lane", "Crimson Street",
-            "Mason Passage", "Genral Boulevard", "Liberty Row", "Garden Avenue",
+            "Mason Passage", "General Boulevard", "Liberty Row", "Garden Avenue",
             "Congress Street", "College Way", "Duke Street", "Legend Street"
         };
     
