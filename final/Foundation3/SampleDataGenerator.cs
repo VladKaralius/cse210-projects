@@ -23,7 +23,7 @@ public class SampleDataGenerator
             "Laws of physics quasar take root and flourish dispassionate extraterrestrial observer.",
             "Circumnavigated finite but unbounded citizens of distant epochs kindling the energy hidden in matter.",
             "Leverage agile frameworks to provide a robust synopsis for high level overviews.",
-            "Iterative approaches to corporate strategy foster collaborative thinking .",
+            "Iterative approaches to corporate strategy foster collaborative thinking.",
             "Organically grow the holistic world view of disruptive innovation."
         };
 
