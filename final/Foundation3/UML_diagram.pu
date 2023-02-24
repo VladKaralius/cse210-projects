@@ -49,9 +49,9 @@ classDiagram {
     }
   }
   
-  note {
-    BackgroundColor Yellow
-  }
+  ' note {
+  '   BackgroundColor Yellow
+  ' }
   legend {
     FontSize 18
   }
@@ -132,10 +132,19 @@ class SampleDataGenerator <<auxiliary>> {
   + GetNextState() : string
   + GetNextStateUSA() : string
   + GetNextStreet() : string
+  - Shuffle() : void
 }
 
-Event .> Address
+note as Note1
+I did not use polymorphism here.
+As I uderstand, we should focus
+purely on inheritance in this
+program and leave the polymorphism
+for the next task.
+endnote
 
+Event .> Address
+Event .l[hidden] Note1
 LectureEvent .[hidden]. SampleDataGenerator
 
 

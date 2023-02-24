@@ -1,13 +1,56 @@
 public class SampleDataGenerator
 {
-    private string[] _productNames =
+    private string[] _titles =
         {
-            "Algecir", "Hosphere", "Theidonial", "Brochets", "Examplier",
-            "Erneather", "Crossibilia", "Orangence", "Germantina", "Fundards",
-            "Lupervices", "Bulgence", "Haemation", "Paludlow", "Apparabs"
+            "Oh How Come Factor", "Revelation Good Dots", "Main Charming Ranch",
+            "Crystal Functions", "Unique Production Times", "Eventions Blue Feasts",
+            "Little Moment", "Orion Meetings", "Engaging Nirvana",
+            "Natural Time Celebration", "Matrix Now", "Kinetic Day",
+            "Social New Season", "Dreams Success Details", "Meeting Science"
         };
     
-    private int _currentProductNamesIndex = 0;
+    private int _currentTitlesIndex = 0;
+
+    private string[] _descriptions =
+        {
+            "For vertical integration parallel path, so we need to get all stakeholders up to speed.",
+            "We need to get the vernacular right translating our vision of having a market leading platfrom.",
+            "Reach out we're ahead of the curve on that one in an ideal world.",
+            "If you're not hurting you're not winning enough to wash your face going forward.",
+            "Herding cats effort made was a lot, for technologically savvy going forward.",
+            "Digital literacy slipstream, so draw a line in the sand,  those options are already baked in with this model.",
+            "Cosmic ocean permanence of the stars made in the interiors of collapsing stars.",
+            "Laws of physics quasar take root and flourish dispassionate extraterrestrial observer.",
+            "Circumnavigated finite but unbounded citizens of distant epochs kindling the energy hidden in matter.",
+            "Leverage agile frameworks to provide a robust synopsis for high level overviews.",
+            "Iterative approaches to corporate strategy foster collaborative thinking .",
+            "Organically grow the holistic world view of disruptive innovation."
+        };
+
+    private int _currentDescriptionsIndex = 0;
+    
+    private string[] _emails =
+        {
+            "algecir", "hosphere", "theidonial", "brochets", "examplier",
+            "erneather", "crossibilia", "orangence", "germantina", "fundards",
+            "lupervices", "bulgence", "haemation", "paludlow", "apparabs"
+        };
+    
+    private int _currentEmailsIndex = 0;
+
+    private string[] _weatherForecasts =
+        {
+            "Mostly dry. Very mild (max 16°C, min 7°C ). Mainly fresh winds.",
+            "Mostly dry. Very mild (max 18°C, min 10°C ). Wind will be generally light.",
+            "Some drizzle. Very mild (max 18°C, min 10°C ). Wind will be generally light.",
+            "Light rain. Very mild (max 18°C, min 10°C ). Wind will be generally light.",
+            "Light rain. Very mild (max 18°C, min 10°C ). Mainly fresh winds.",
+            "Mostly dry. Freeze-thaw conditions (max 2°C , min -5°C). Wind will be generally light.",
+            "Mostly dry. Very mild (max 18°C, min 10°C ). Mainly fresh winds.",
+            "Mostly dry. Very mild (max 22°C, min 15°C ). Wind will be generally light."
+        };
+
+    private int _currentWeatherForecastsIndex = 0;
 
     private string[] _names = 
         {
@@ -71,7 +114,10 @@ public class SampleDataGenerator
 
     public SampleDataGenerator()
     {
-        Shuffle(_productNames);
+        Shuffle(_titles);
+        Shuffle(_descriptions);
+        Shuffle(_emails);
+        Shuffle(_weatherForecasts);
         Shuffle(_names);
         Shuffle(_countries);
         Shuffle(_states);
@@ -80,11 +126,32 @@ public class SampleDataGenerator
         Shuffle(_streets);
     }
 
-    public string GetNextProductName()
+    public string GetNextTitle()
     {
-        string productName = _productNames[_currentProductNamesIndex];
-        _currentProductNamesIndex = ++_currentProductNamesIndex % _productNames.Length;
-        return productName;
+        string title = _titles[_currentTitlesIndex];
+        _currentTitlesIndex = ++_currentTitlesIndex % _titles.Length;
+        return title;        
+    }
+    
+    public string GetNextDescription()
+    {
+        string description = _descriptions[_currentDescriptionsIndex];
+        _currentDescriptionsIndex = ++_currentDescriptionsIndex % _descriptions.Length;
+        return description;        
+    }
+
+    public string GetNextEmail()
+    {
+        string email = _emails[_currentEmailsIndex];
+        _currentEmailsIndex = ++_currentEmailsIndex % _emails.Length;
+        return email + "@greatevents.com";
+    }
+
+    public string GetNextWeatherForecast()
+    {
+        string weatherForecast = _weatherForecasts[_currentWeatherForecastsIndex];
+        _currentWeatherForecastsIndex = ++_currentWeatherForecastsIndex % _weatherForecasts.Length;
+        return weatherForecast;        
     }
 
     public string GetNextName()
