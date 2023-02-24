@@ -8,8 +8,7 @@ public class Customer
         _customerName = customerName;
     }
 
-    public void SetAddress(string streetAddress,
-        string city, string state, string country)
+    public void SetAddress(string streetAddress, string city, string state, string country)
     {
         _customerAddress = new Address(streetAddress, city, state, country);
     }

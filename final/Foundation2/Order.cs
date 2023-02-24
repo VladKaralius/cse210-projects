@@ -2,9 +2,9 @@ public class Order {
     
     private Customer _customer;
     private List<Product> _products;
-    
 
-    public Order(string customerName) {
+    public Order(string customerName)
+    {
        _customer = new Customer(customerName);
        _products = new List<Product>();
     }
