@@ -34,14 +34,13 @@ class Program
                     Order order = new Order(customerName);
 
                     // Add customer address.
-                    string state;
-                    string country;
-                    
                     string streetAddress = sampleData.GetNextStreet();
                     // Add a random house number.
                     streetAddress += " " + random.Next(1, 200);
                     string city = sampleData.GetNextCity();
 
+                    string state;
+                    string country;
                     // About one address in two will be from USA.
                     // Use real state name for USA and imaginary for other countries.
                     if (random.Next(0, 2) == 0)

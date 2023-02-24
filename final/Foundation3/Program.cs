@@ -27,17 +27,27 @@ class Program
                 SampleDataGenerator sampleData = new SampleDataGenerator();
                 events.Clear();
 
-                for (int i = 0; i < 5; i++)
+                // Create 6 orders (2 of each type)
+                for (int i = 0; i < 6; i++)
                 {
+                    string title = sampleData.GetNextTitle();
+                    string description = sampleData.GetNextDescription();
+                    
                     DateTime date = DateTime.Now.AddDays(random.Next(10, 60));
                     string dateText = date.ToString("d", enUSCulture);
                     DateTime time = new DateTime(2023, 3, 1, 8, 0, 0).AddMinutes(random.Next(0, 21) * 30);
                     string timeText = time.ToString("t", enUSCulture);
                     
+                    string streetAddress = sampleData.GetNextStreet();
+                    // Add a random house number.
+                    streetAddress += " " + random.Next(1, 200);
+                    string city = sampleData.GetNextCity();
+
                     string state;
                     string country;
-
-                    if (random.Next(0, 4) == 0)
+                    // About one address in four will be from USA.
+                    // Use real state name for USA and imaginary for other countries.
+                    if (random.Next(0, 2) == 0)
                     {
                         state = sampleData.GetNextStateUSA();
                         country = "USA";
@@ -48,11 +58,11 @@ class Program
                         country = sampleData.GetNextCountry();
                     }
 
-                    Event event_ = new Event(sampleData.GetNextTitle(),
-                        sampleData.GetNextDescription(), dateText, timeText);
+                  
+                    Event event_ = new Event(title, description, dateText, timeText);
 
-                    event_.SetAddress($"{sampleData.GetNextStreet()} {random.Next(1, 200)}",
-                            sampleData.GetNextCity(), state, country);
+                    // Add event address.
+                    event_.SetAddress(streetAddress, city, state, country);
                     events.Add(event_);
                 }
 
