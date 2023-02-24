@@ -5,8 +5,6 @@ public class BreathingActivity : Activity
         _name = "Breathing";
         _description = "This activity will help you relax by walking you through " + 
             "breathing in and out slowly. Clear your mind and focus on your breathing.";
-        // Keep track of activations
-        _activationCount[_name]++;
     }
 
     public void RunActivity()
@@ -14,11 +12,13 @@ public class BreathingActivity : Activity
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_duration);
 
+        // Let's start with a shorter interval.
         Console.Write("\nBreath in...");
         _countdown.Display(2);
         Console.Write("Now breath out...");
         _countdown.Display(3);
         
+        // And now do it in longer intervals until the time runs out.
         while (DateTime.Now < endTime)
         {
             Console.Write("\nBreathe in...");

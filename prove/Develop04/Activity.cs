@@ -3,17 +3,22 @@ public class Activity
     protected string _name;
     protected string _description;
     protected int _duration;
+    
+    /* These classes could simply be implemented as methods in the Activity class.
+    However, I felt that this functionality is distinct enough and
+    decided to move it into separate classes for easier handling.
+    Indeed, I modified those classes several times without touching the Activity class. */
     protected Animation _animation;
     protected Countdown _countdown;
 
     // Tracking data will be stored in dictionaries:
-    protected static Dictionary<string, int> _activationCount =
+    private static Dictionary<string, int> _activationCount =
         new Dictionary<string, int>(){
             {"Breathing", 0},
             {"Reflection", 0},
             {"Listing", 0}
         };
-    protected static Dictionary<string, int> _totalDuration =
+    private static Dictionary<string, int> _totalDuration =
         new Dictionary<string, int>(){
             {"Breathing", 0},
             {"Reflection", 0},
@@ -24,6 +29,8 @@ public class Activity
     {
         _animation = new Animation();
         _countdown = new Countdown();
+        // Keep track of activations.
+        _activationCount[_name]++;
     }
 
     public void RunStartingSequence()

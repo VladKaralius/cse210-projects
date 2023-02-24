@@ -1,5 +1,8 @@
 using System;
 
+// Polymorphism could be used in this assignement, but we have not learned it yet.
+// I suppose it is intended that we focus solely on inheritance here.
+
 /* _Showing Creativity and Exceeding Requirements_
 To exceed the core requirements I added the ability to track the activation count
 and total duration for each activity while the programm is running.
@@ -15,12 +18,12 @@ class Program
         while(choice != 5)
         {
             Console.Clear();
-            Console.WriteLine("Menu Options:");
-            Console.WriteLine("  1. Start breathing activity");
-            Console.WriteLine("  2. Start reflecting activity");
-            Console.WriteLine("  3. Start listing activity");
-            Console.WriteLine("  4. Display report");
-            Console.WriteLine("  5. Quit");
+            Console.WriteLine("Menu Options:\n" +
+                              "  1. Start breathing activity\n" +
+                              "  2. Start reflecting activity\n" +
+                              "  3. Start listing activity\n +" +
+                              "  4. Display report\n" +
+                              "  5. Quit");
             Console.Write("Select a choice from the menu: ");
             choice = int.Parse(Console.ReadLine());
 
