@@ -31,6 +31,6 @@ public class Event
     public string GetShortDescription()
     {
         string type = GetType().Name;
-        return $"{type}{_title} held on {_date}";
+        return $"{type} | {_title} | {_date}";
     }
 }
