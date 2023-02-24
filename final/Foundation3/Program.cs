@@ -33,7 +33,7 @@ class Program
                     string title = sampleData.GetNextTitle();
                     string description = sampleData.GetNextDescription();
                     
-                    DateTime date = DateTime.Now.AddDays(random.Next(10, 60));
+                    DateTime date = DateTime.Now.AddDays(random.Next(10, 360));
                     string dateText = date.ToString("d", enUSCulture);
                     DateTime time = new DateTime(2023, 3, 1, 8, 0, 0).AddMinutes(random.Next(0, 21) * 30);
                     string timeText = time.ToString("t", enUSCulture);
@@ -58,12 +58,27 @@ class Program
                         country = sampleData.GetNextCountry();
                     }
 
-                  
+                    if (i < 2)
+                    {
                     Event event_ = new Event(title, description, dateText, timeText);
-
+                    // Add event address.
+                    event_.SetAddress(streetAddress, city, state, country);
+                    events.Add(event_);                        
+                    }
+                    else if (i < 4)
+                    {
+                    Event event_ = new Event(title, description, dateText, timeText);
                     // Add event address.
                     event_.SetAddress(streetAddress, city, state, country);
                     events.Add(event_);
+                    }
+                    else
+                    {
+                    Event event_ = new Event(title, description, dateText, timeText);
+                    // Add event address.
+                    event_.SetAddress(streetAddress, city, state, country);
+                    events.Add(event_);
+                    }
                 }
 
                 Console.WriteLine("\nEvents created.\n");
