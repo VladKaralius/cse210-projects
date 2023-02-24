@@ -29,8 +29,6 @@ public class Activity
     {
         _animation = new Animation();
         _countdown = new Countdown();
-        // Keep track of activations.
-        _activationCount[_name]++;
     }
 
     public void RunStartingSequence()
@@ -42,6 +40,9 @@ public class Activity
         Console.Clear();
         Console.WriteLine("Get ready...");
         _animation.Display(5);
+        
+        // Keep track of activations.
+        _activationCount[_name]++;
         // Keep track of total duration.
         _totalDuration[_name] += _duration;
     }

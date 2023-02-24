@@ -21,7 +21,7 @@ class Program
             Console.WriteLine("Menu Options:\n" +
                               "  1. Start breathing activity\n" +
                               "  2. Start reflecting activity\n" +
-                              "  3. Start listing activity\n +" +
+                              "  3. Start listing activity\n" +
                               "  4. Display report\n" +
                               "  5. Quit");
             Console.Write("Select a choice from the menu: ");
