@@ -33,7 +33,7 @@ class Program
                     
                     if (i < 2)
                     {
-                        float distance = (float)random.Next(6, 12) / 60 * length;
+                        float distance = (float)random.Next(60, 120) / 600 * length;
 
                         RunningActivity runningActivity =
                         new RunningActivity(dateText, length, distance);
@@ -43,10 +43,19 @@ class Program
                     else if (i < 4)
                     {
                         float speed = (float)random.Next(100, 301) / 10;
-                        
+
                         CyclingActivity cyclingActivity =
                         new CyclingActivity(dateText, length, speed);
                         activities.Add(cyclingActivity);
+                    }
+
+                    else
+                    {
+                        int numberOfLaps = random.Next(20, 60) * length / 60;
+
+                        SwimmingActivity swimmingActivity =
+                        new SwimmingActivity(dateText, length, numberOfLaps);
+                        activities.Add(swimmingActivity);
                     }
                 }
 
