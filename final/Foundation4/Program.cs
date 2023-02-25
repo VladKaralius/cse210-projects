@@ -30,12 +30,23 @@ class Program
                     DateTime date = DateTime.Now.AddDays(-20);
                     string dateText = date.ToString("dd MMM yyyy", enUSCulture);
                     int length = random.Next(2, 11) * 5;
+                    
                     if (i < 2)
                     {
                         float distance = (float)random.Next(6, 12) / 60 * length;
+
                         RunningActivity runningActivity =
                         new RunningActivity(dateText, length, distance);
                         activities.Add(runningActivity);
+                    }
+
+                    else if (i < 4)
+                    {
+                        float speed = (float)random.Next(100, 301) / 10;
+                        
+                        CyclingActivity cyclingActivity =
+                        new CyclingActivity(dateText, length, speed);
+                        activities.Add(cyclingActivity);
                     }
                 }
 
