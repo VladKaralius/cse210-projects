@@ -33,4 +33,10 @@ public class Event
         string type = GetType().Name;
         return $"{type} | {_title} | {_date}";
     }
+
+    protected string GetEventType()
+    {
+        string type = GetType().Name;
+        return type;
+    }
 }

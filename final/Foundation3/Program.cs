@@ -27,7 +27,7 @@ class Program
                 SampleDataGenerator sampleData = new SampleDataGenerator();
                 events.Clear();
 
-                // Create 6 orders (2 of each type)
+                // Create 6 events (2 of each type)
                 for (int i = 0; i < 6; i++)
                 {
                     string title = sampleData.GetNextTitle();
