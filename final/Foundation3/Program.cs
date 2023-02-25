@@ -7,8 +7,10 @@ class Program
     {
         Random random = new Random();
         CultureInfo enUSCulture = new CultureInfo("en-US");
-        List<Event> events = new List<Event>();
         
+        List<LectureEvent> lectureEvents = new List<LectureEvent>();
+        List<Event> events = new List<Event>();
+                
         int choice = 0;
         while (choice != 5)
         {
@@ -58,12 +60,16 @@ class Program
                         country = sampleData.GetNextCountry();
                     }
 
+                    // Create different type of events.
                     if (i < 2)
                     {
-                    Event event_ = new Event(title, description, dateText, timeText);
+                    string speakerName = sampleData.GetNextName();
+                    int capacity = random.Next(4, 40) * 5;
+                    LectureEvent lectureEvent = new LectureEvent(title, description, dateText, timeText,
+                        speakerName, capacity);
                     // Add event address.
-                    event_.SetAddress(streetAddress, city, state, country);
-                    events.Add(event_);                        
+                    lectureEvent.SetAddress(streetAddress, city, state, country);
+                    lectureEvents.Add(lectureEvent);                        
                     }
                     else if (i < 4)
                     {
@@ -88,6 +94,11 @@ class Program
             {
                 Console.WriteLine();
 
+                foreach (LectureEvent lectureEvent in lectureEvents)
+                {
+                    Console.WriteLine(lectureEvent.GetStandardDetails() + "\n");
+                }
+                
                 foreach (Event event_ in events)
                 {
                     Console.WriteLine(event_.GetStandardDetails() + "\n");
@@ -98,6 +109,10 @@ class Program
             {
                 Console.WriteLine();
 
+                foreach (LectureEvent lectureEvent in lectureEvents)
+                {
+                    Console.WriteLine(lectureEvent.GetFullDetails() + "\n");
+                }   
                 Console.WriteLine("Not implemented");
 
                 Console.WriteLine();
@@ -107,9 +122,16 @@ class Program
             {
                 Console.WriteLine();
                 
+                foreach (LectureEvent lectureEvent in lectureEvents)
+                {
+                    Console.WriteLine(lectureEvent.GetShortDescription());
+                }                
+                                
                 foreach (Event event_ in events)
-                Console.WriteLine(event_.GetShortDescription());
-
+                {
+                    Console.WriteLine(event_.GetShortDescription());
+                }
+                
                 Console.WriteLine();
             }
         }

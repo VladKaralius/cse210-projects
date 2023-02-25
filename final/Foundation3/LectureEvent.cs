@@ -14,7 +14,7 @@ public class LectureEvent : Event
     {
         string fullDetails = GetStandardDetails();
         string type = GetEventType();
-        fullDetails += $"{type}: speaker {_speakerName}, capacity {_capacity} seats.";
+        fullDetails += $"\n{type}: speaker {_speakerName}, capacity {_capacity} seats.";
         return fullDetails;
     }
 }

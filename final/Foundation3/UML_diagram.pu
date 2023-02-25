@@ -72,6 +72,7 @@ class Event {
   + SetAddress(streetAddress : string, city : string\nstate : string, country : string)
   + GetStandardDetails() : string
   + GetShortDescription() : string
+  # GetEventType() : string
 }
 
 class Address {

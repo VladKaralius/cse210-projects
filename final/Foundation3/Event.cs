@@ -22,21 +22,22 @@ public class Event
 
     public string GetStandardDetails()
     {
-        string standardDetails = $"Invitation to the event: {_title}\n" +
-            $"{_description}\n{_date} {_time}\n{_address.GetFullAddress()}";
+        string standardDetails = $"You are invited to attend: {_title}\n" +
+            $"{_description}\nTo be held on {_date} at {_time}\n" +
+            $"Location: {_address.GetFullAddress()}";
         
         return standardDetails;
     }
 
     public string GetShortDescription()
     {
-        string type = GetType().Name;
-        return $"{type} | {_title} | {_date}";
+        string type = GetEventType();
+        return $"{_date,10} - {type,-15} - {_title}";
     }
 
     protected string GetEventType()
     {
-        string type = GetType().Name;
+        string type = GetType().Name.Replace("Event", " event");
         return type;
     }
 }
