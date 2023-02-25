@@ -1,7 +1,7 @@
 public abstract class Activity
 {
-    private string _date;
-    private int _length;
+    protected string _date;
+    protected int _length;
 
     public Activity(string date, int length)
     {

@@ -20,12 +20,32 @@ class Program
 
             if (choice == 1)
             {
+                activities.Clear();
 
+                for (int i = 0; i < 6; i++)
+                {
+
+                    if (i < 2)
+                    {
+                        RunningActivity runningActivity =
+                        new RunningActivity("data", 30, 30);
+                        activities.Add(runningActivity);
+                    }
+                }
+
+                Console.WriteLine("\nActivities created.\n");
             }
 
             else if (choice == 2)
             {
+                Console.WriteLine();
 
+                foreach (Activity activity in activities)
+                {
+                    Console.WriteLine(activity.GetSummary());
+                }
+
+                Console.WriteLine();
             }
         }
     }
