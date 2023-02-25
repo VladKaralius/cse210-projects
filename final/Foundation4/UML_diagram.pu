@@ -59,37 +59,50 @@ classDiagram {
 
 '--Header, title, caption--
 header By Vladislovas Karalius, created with PlantUML, 2023-03-16
-title Final Project - Program 1: Abstraction with YouTube Videos
+title Final Project - Program 4: Polymorphism with Exercise Tracking
 'caption <:warning:>Constructors without parameters are not shown in this diagram
 
-' Dummy class that explains visibility symbols
-class Markers #dddddd {
-Attributes
-..
-- private
-# protected
-+ public
-{static} static
---
-Methods
-..
-- private()
-# protected()
-+ public()
-{static} static()
-}
 
 '--Main--
-class BreathingActivity {
-  + BreathingActivity()
-  + RunActivity() : void
+abstract class Activity {
+  # _date : string
+  # _length : int
+  + Activity(date : string, length : int)
+  + {abstract} GetDistance() : float
+  + {abstract} GetSpeed() : float
+  + {abstract} GetPace() : float
+  + GetSummary() : string
+}
+
+class RunningActivity extends Activity {
+  - _distance : float
+  + RunningActivity(date : string, length : int,\ndistance : float)
+  + <<override>> GetDistance() : float
+  + <<override>> GetSpeed() : float
+  + <<override>> GetPace() : float
+}
+
+class CyclingActivity extends Activity {
+  - _speed : float
+  + CyclingActivity(date : string, length : int,\nspeed : float)
+  + <<override>> GetDistance() : float
+  + <<override>> GetSpeed() : float
+  + <<override>> GetPace() : float
+}
+
+class SwimmingActivity extends Activity {
+  - _numberOfLaps : int
+  + SwimmingActivity(date : string, length : int,\nnumberOfLaps : int)
+  + <<override>> GetDistance() : float
+  + <<override>> GetSpeed() : float
+  + <<override>> GetPace() : float
 }
 
 '--Description--
-legend bottom
-<size:22>__**Core Requirements**__
-The program has one base class **Activity**. This class contains the attributes and methods
-that are common to all activities. Certain functions are put into separate classes as follows:
-endlegend
+' legend bottom
+' <size:22>__**Core Requirements**__
+' The program has one base class **Activity**. This class contains the attributes and methods
+' that are common to all activities. Certain functions are put into separate classes as follows:
+' endlegend
 
 @enduml
