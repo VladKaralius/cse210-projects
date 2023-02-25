@@ -1,12 +1,15 @@
 using System;
+using System.Globalization;
 
 class Program
 {
     static void Main(string[] args)
     {
-        List<Activity> activities = new List<Activity>();
         Random random = new Random();
-        
+        CultureInfo enUSCulture = new CultureInfo("en-US");
+
+        List<Activity> activities = new List<Activity>();
+       
         int choice = 0;
         while (choice != 3)
         {
@@ -24,11 +27,12 @@ class Program
 
                 for (int i = 0; i < 6; i++)
                 {
-
+                    DateTime date = DateTime.Now.AddDays(-20);
+                    string dateText = date.ToString("dd MMM yyyy", enUSCulture);
                     if (i < 2)
                     {
                         RunningActivity runningActivity =
-                        new RunningActivity("data", 30, 30);
+                        new RunningActivity(dateText, 20, 3.1F);
                         activities.Add(runningActivity);
                     }
                 }
