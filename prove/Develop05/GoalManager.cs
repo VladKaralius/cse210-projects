@@ -144,7 +144,7 @@ public class GoalManager
 
     public void DisplayInfo()
     {
-        Console.WriteLine($"\nYou have {_pointTotal} points.");
+        Console.WriteLine($"\n> You have {_pointTotal} points.");
         _level.Display(_pointTotal);
     }
 
