@@ -16,10 +16,10 @@ public abstract class Activity
     public string GetSummary()
     {
         string type = GetType().Name.Replace("Activity", "");
-        
+
         return  $"{_date} {type} ({_length} min): " +
-                $"Distance: {GetDistance()} km, " +
-                $"Speed: {GetSpeed()} kph, "+
-                $"Pace: {GetPace()} min per km";
+                $"Distance: {GetDistance():F1} km, " +
+                $"Speed: {GetSpeed():F1} kph, "+
+                $"Pace: {GetPace():F1} min per km";
     }
 }

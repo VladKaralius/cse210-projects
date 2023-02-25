@@ -29,10 +29,12 @@ class Program
                 {
                     DateTime date = DateTime.Now.AddDays(-20);
                     string dateText = date.ToString("dd MMM yyyy", enUSCulture);
+                    int length = random.Next(2, 11) * 5;
                     if (i < 2)
                     {
+                        float distance = (float)random.Next(6, 12) / 60 * length;
                         RunningActivity runningActivity =
-                        new RunningActivity(dateText, 20, 3.1F);
+                        new RunningActivity(dateText, length, distance);
                         activities.Add(runningActivity);
                     }
                 }
