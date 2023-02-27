@@ -27,7 +27,8 @@ class Program
 
                 for (int i = 0; i < 6; i++)
                 {
-                    DateTime date = DateTime.Now.AddDays(-20);
+                    // Randomize date.
+                    DateTime date = DateTime.Now.AddDays(random.Next(-100, 0));
                     string dateText = date.ToString("dd MMM yyyy", enUSCulture);
                     int length = random.Next(2, 11) * 5;
                     
