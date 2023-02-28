@@ -58,9 +58,9 @@ classDiagram {
 </style>
 
 '--Header, title, caption--
-header By Vladislovas Karalius, created with PlantUML, 2023-03-02
+center header By Vladislovas Karalius, created with PlantUML, 2023-03-02
 title Unit 05 Develop: Eternal Quest Program (Polymorphism - Design Activity)
-'caption <:warning:> Constructors without parameters are not shown in this diagram
+caption <:warning:> Constructors without parameters are not shown in this diagram
 
 ' Dummy class that explains visibility symbols
 class Markers #dddddd {
@@ -142,10 +142,14 @@ legend bottom
 https://forum.plantuml.net/11895/embed-sub-diagrams-all-type-especially-mindmap-type-diagram
 
 {{
+left to right direction
 class Embedded {
   + embedded : string
   + embedded() : void
 }
+Embedded <|-- Right1
+Embedded <|-- Right2
+
 }}
 
 
