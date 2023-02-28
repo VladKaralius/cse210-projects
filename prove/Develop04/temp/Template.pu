@@ -50,7 +50,10 @@ classDiagram {
   }
 
   note {
-    BackgroundColor Yellow
+    BackgroundColor Red
+    'LineColor White
+    Padding 200
+    Margin 200
   }
   legend {
     FontSize 20
@@ -123,6 +126,40 @@ class Embedded {
 }
 }}
 endnote
+
+
+class A {
+{static} int counter
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
+}
+note right of A::counter
+{{
+class Embedded {
+  + embedded : string
+  + embedded() : void
+}
+}}
+end note
+note right of A::start
+{{
+class Embedded {
+  + embedded : string
+  + embedded() : void
+}
+}}
+end note
+
+Markers -- Embedded
+GoalManager -l Markers
+GoalManager -- A
+
+
 
 note as Note1
 {{
