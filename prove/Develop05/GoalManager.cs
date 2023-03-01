@@ -20,35 +20,27 @@ public class GoalManager
         Console.Write("Which type of goal would you like to create? ");
         int choice = int.Parse(Console.ReadLine());
 
+        Console.Write("What is the name of your goal? ");
+        string name = Console.ReadLine();
+        Console.Write("What is a short description of it? ");
+        string description = Console.ReadLine();
+        Console.Write("What is the amount of points associated with this goal? ");
+        int basePoints = int.Parse(Console.ReadLine());
+       
         if (choice == 1)
         {
-            Tuple<string, string, int> userInput = GetUserInput();
-            string name = userInput.Item1;
-            string description = userInput.Item2;
-            int basePoints = userInput.Item3;
-
             SimpleGoal simpleGoal = new SimpleGoal(name, description, basePoints);
             _goals.Add(simpleGoal);
         }
 
         else if (choice == 2)
         {
-            Tuple<string, string, int> userInput = GetUserInput();
-            string name = userInput.Item1;
-            string description = userInput.Item2;
-            int basePoints = userInput.Item3;
-
             EternalGoal eternalGoal = new EternalGoal(name, description, basePoints);
             _goals.Add(eternalGoal);
         }
 
         else if (choice == 3)
         {
-            Tuple<string, string, int> userInput = GetUserInput();
-            string name = userInput.Item1;
-            string description = userInput.Item2;
-            int basePoints = userInput.Item3;
-
             // Get unique attributs for the checklist goal
             Console.Write("How many times does this goal need to be accomplished for a bonus? ");
             int timesRequired = int.Parse(Console.ReadLine());
@@ -58,11 +50,6 @@ public class GoalManager
             ChecklistGoal checklistGoal = new ChecklistGoal
                 (name, description, basePoints, bonusPoints, timesRequired);
             _goals.Add(checklistGoal);
-        }
-
-        else
-        {
-            Console.WriteLine("Incorrect choice");
         }
     }
 
@@ -148,7 +135,7 @@ public class GoalManager
         _level.Display(_pointTotal);
     }
 
-    // This method deserializes goal details, creates a new goal and adds it to _goals list
+    // This method deserializes goal details, creates a new goal and adds it to _goals list.
     // It is used by LoadGoals() method.
     private void AddGoal(string type, string details)
     {
@@ -180,17 +167,5 @@ public class GoalManager
             checklistGoal.SetTimesCompleted(int.Parse(parts[5]));
             _goals.Add(checklistGoal);
         }
-    }
-
-    // Prompt for common user input in one place
-    private Tuple<string, string, int> GetUserInput()
-    {
-        Console.Write("What is the name of your goal? ");
-        string name = Console.ReadLine();
-        Console.Write("What is a short description of it? ");
-        string description = Console.ReadLine();
-        Console.Write("What is the amount of points associated with this goal? ");
-        int basePoints = int.Parse(Console.ReadLine());
-        return new Tuple<string, string, int>(name, description, basePoints);
     }
 }

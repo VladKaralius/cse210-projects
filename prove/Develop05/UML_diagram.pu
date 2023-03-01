@@ -96,7 +96,6 @@ class GoalManager {
   + RecordEvent() : void
   + DisplayInfo() : void
   - AddGoal(type : string, details : string) : void
-  - GetUserInput() : Tuple<string, string, int>
 }
 
 GoalManager o-- Goal
