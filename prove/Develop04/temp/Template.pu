@@ -1,0 +1,279 @@
+@startuml UML_diagram
+
+'--Formatting options--
+hide circle
+hide empty members
+'skinparam classAttributeIconSize 0
+skinparam style strictuml
+'skinparam groupInheritance 2
+'skinparam linetype ortho
+'skinparam Nodesep 15
+'skinparam Ranksep 25
+'left to right direction
+
+'--Styling--
+'skinparam BackgroundColor White/LightGreen
+skinparam TitleFontSize 22
+
+<style>
+classDiagram {
+  class {
+    '-attributes and methods-
+    'FontSize 14
+    'FontColor black
+    'BackgroundColor #fefece
+    BackgroundColor #f0fff0
+    'RoundCorner 0
+    '-class name-
+    header {
+      'FontSize 12
+      'FontColor Black
+      FontStyle bold
+      BackgroundColor YellowGreen
+    }
+
+    ' Alternative class style 1
+    .gaming {
+      BackgroundColor Bisque
+      header {
+        BackgroundColor Orange
+      }
+    }
+
+    ' Alternative class style 2
+    .test {
+      BackgroundColor #eeeeee
+      header {
+        BackgroundColor #cccccc
+      }
+    }
+  }
+
+  note {
+    BackgroundColor Red
+    'LineColor White
+    Padding 200
+    Margin 200
+  }
+  legend {
+    FontSize 20
+  }
+</style>
+
+'--Header, title, caption--
+center header By Vladislovas Karalius, created with PlantUML, 2023-03-02
+title Unit 05 Develop: Eternal Quest Program (Polymorphism - Design Activity)
+caption <:warning:> Constructors without parameters are not shown in this diagram
+
+' Dummy class that explains visibility symbols
+class Markers #dddddd {
+Attributes
+..
+- private
+# protected
++ public
+{abstract} abstract
+{static} static
+--
+Methods
+..
+- private()
+# protected()
++ public()
+{abstract} abstract()
+{static} static()
+}
+
+'Goal -right[hidden]- Markers
+
+'--Main--
+class GoalManager {
+  - _goals : List<Goal>
+  - _pointTotal : int
+  - _level : Level
+  + GoalManager()
+  + CreateGoal() : void
+  + ListGoals() : void
+  + SaveGoals() : void
+  + LoadGoals() : void
+  + RecordEvent() : void
+  + DisplayInfo() : void
+  - AddGoal(type : string, details : string) : void
+  - GetUserInput() : Tuple<string, string, int>
+}
+
+class Level <<gaming>> {
+  - _increase : int = 100
+  - _progressBar : ProgressBar
+  + Level()
+  + LevelUp(pointTotal : int, pointsReceive : int) : void
+  + Display(pointTotal : int) : void
+  - PointsToLevel(points : int) : int
+  - LevelToPoints(level : int) : int
+}
+
+
+class Embedded {
+  + embedded : string
+  + embedded() : void
+}
+
+note as Note0
+{{
+class Embedded {
+  + embedded : string
+  + embedded() : void
+}
+}}
+endnote
+
+
+class A {
+{static} int counter
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
++void {abstract} start(int timeout)
+}
+note right of A::counter
+{{
+class Embedded {
+  + embedded : string
+  + embedded() : void
+}
+}}
+end note
+note right of A::start
+{{
+class Embedded {
+  + embedded : string
+  + embedded() : void
+}
+}}
+end note
+
+Markers -- Embedded
+GoalManager -l Markers
+GoalManager -- A
+
+
+
+note as Note1
+{{
+    start
+
+    while (count < max?)
+      :count = count + increment;
+    endwhile
+
+    stop
+}}
+end note
+
+
+'--Description--
+legend bottom
+https://forum.plantuml.net/11895/embed-sub-diagrams-all-type-especially-mindmap-type-diagram
+
+{{
+left to right direction
+class Embedded {
+  + embedded : string
+  + embedded() : void
+}
+Embedded <|-- Right1
+Embedded <|-- Right2
+
+}}
+
+
+{{
+salt
+{
+  Login    | "MyName   "
+  Password | "****     "
+  [Cancel] | [  OK   ]
+}
+}}
+
+{{mindmap
+* Debian
+** Ubuntu
+*** Linux Mint
+*** Kubuntu
+*** Lubuntu
+*** KDE Neon
+** LMDE
+** SolydXK
+** SteamOS
+** Raspbian with a very long name
+*** <s>Raspmbc</s> => OSMC
+*** <s>Raspyfi</s> => Volumio
+}}
+
+test test
+{{
+salt
+{#
+  | 7 | Application Layer  |= Length |= To |= From |= Segment |= Port |= Public Key |= Metadata |= Encrypted Raw Data |= CRC
+  | 6 | Presentation Layer |= Length |= To |= From |= Segment |= Port |= Public Key |= Encrypted Raw Data | *         |= CRC
+  | 5 | Session Layer      |= Length |= To |= From |= Segment |= Port |= Public Key |= Raw Data           | *         |= CRC
+  | 4 | Transport Layer    |= Length |= To |= From |= Segment |= Port |= Raw Data   | *                   | *         |= CRC
+  | 3 | Network Layer      |= Length |= To |= From |= Raw Data | *    | *           | *                   | *         |= CRC
+  | 2 | Datalink Layer     |= Length |= Raw Data | * | *       | *    | *           | *                   | *         |= CRC
+  | 1 | Physical Layer     |= Length |= Raw Data | * | *       | *    | *           | *                   | *         | *
+}
+}}
+
+{{uml
+Class test {
+test
+}
+}}
+
+
+{{
+digraph methods {
+    methods [shape=none, margin=0
+  label=<<font face="Arial"><table border='1' cellborder='1' cellspacing='0'>
+  <th>
+    <td><b>Override</b></td>
+    <td colspan="3"><b>Goal</b></td>
+  </th>
+  <th>
+    <td><b>Method</b></td>
+    <td><b>SimpleGoal</b></td>
+    <td width="180"><b>EternalGoal</b></td>
+    <td><b>ChecklistGoal</b></td>
+  </th>
+  <tr>
+    <td>CompleteGoal</td>
+    <td>Changes <i>_isComplete</i>  from <i>false</i>  to <i>true</i></td>
+    <td>Changes nothing</td>
+    <td>Increases <i>_timesCompleted</i>  by 1</td>
+  </tr>
+  <tr>
+    <td>IsComplete</td>
+    <td>Returns <i>_isComplete</i></td>
+    <td>Always returns <i>false</i></td>
+    <td><i>true</i>  if <i>_timesCompleted</i>  ==<i>_timesRequired</i>, else <i>false</i></td>
+  </tr>
+  <tr>
+    <td>GetInfo</td>
+    <td colspan="3">Returns goal specific string for display in a human-readable format</td>
+  </tr>
+  <tr>
+    <td>Serialize</td>
+    <td colspan="3">Returns goal specific string for saving into a file (with separators)</td>
+  </tr>
+</table></font>>
+  ];
+}
+}}
+
+endlegend
+
+@enduml
