@@ -8,7 +8,6 @@ class Program
         Random random = new Random();
         CultureInfo enUSCulture = new CultureInfo("en-US");
         
-        List<LectureEvent> lectureEvents = new List<LectureEvent>();
         List<Event> events = new List<Event>();
                 
         int choice = 0;
@@ -63,27 +62,31 @@ class Program
                     // Create different type of events.
                     if (i < 2)
                     {
-                    string speakerName = sampleData.GetNextName();
-                    int capacity = random.Next(4, 40) * 5;
-                    LectureEvent lectureEvent = new LectureEvent(title, description, dateText, timeText,
-                        speakerName, capacity);
-                    // Add event address.
-                    lectureEvent.SetAddress(streetAddress, city, state, country);
-                    lectureEvents.Add(lectureEvent);                        
+                        string speakerName = sampleData.GetNextName();
+                        int capacity = random.Next(4, 40) * 5;
+                        LectureEvent lectureEvent = new LectureEvent(title, description, dateText,
+                            timeText, speakerName, capacity);
+                        // Add event address.
+                        lectureEvent.SetAddress(streetAddress, city, state, country);
+                        events.Add(lectureEvent);                        
                     }
                     else if (i < 4)
                     {
-                    Event event_ = new Event(title, description, dateText, timeText);
-                    // Add event address.
-                    event_.SetAddress(streetAddress, city, state, country);
-                    events.Add(event_);
+                        string responseEmail = sampleData.GetNextEmail();
+                        ReceptionEvent receptionEvent = new ReceptionEvent(title, description, dateText,
+                            timeText, responseEmail);
+                        // Add event address.
+                        receptionEvent.SetAddress(streetAddress, city, state, country);
+                        events.Add(receptionEvent);
                     }
                     else
                     {
-                    Event event_ = new Event(title, description, dateText, timeText);
-                    // Add event address.
-                    event_.SetAddress(streetAddress, city, state, country);
-                    events.Add(event_);
+                        string weatherForecast = sampleData.GetNextWeatherForecast();
+                        OutdoorEvent outdoorEvent = new OutdoorEvent(title, description, dateText,
+                            timeText, weatherForecast);
+                        // Add event address.
+                        outdoorEvent.SetAddress(streetAddress, city, state, country);
+                        events.Add(outdoorEvent);
                     }
                 }
 
@@ -93,27 +96,23 @@ class Program
             else if (choice == 2)
             {
                 Console.WriteLine();
-
-                foreach (LectureEvent lectureEvent in lectureEvents)
-                {
-                    Console.WriteLine(lectureEvent.GetStandardDetails() + "\n");
-                }
-                
+               
                 foreach (Event event_ in events)
                 {
                     Console.WriteLine(event_.GetStandardDetails() + "\n");
                 }
+
+                Console.WriteLine();
             }
 
             else if (choice == 3)
             {
                 Console.WriteLine();
 
-                foreach (LectureEvent lectureEvent in lectureEvents)
+                foreach (Event event_ in events)
                 {
-                    Console.WriteLine(lectureEvent.GetFullDetails() + "\n");
+                    Console.WriteLine(event_.GetFullDetails() + "\n");
                 }   
-                Console.WriteLine("Not implemented");
 
                 Console.WriteLine();
             }
@@ -122,11 +121,6 @@ class Program
             {
                 Console.WriteLine();
                 
-                foreach (LectureEvent lectureEvent in lectureEvents)
-                {
-                    Console.WriteLine(lectureEvent.GetShortDescription());
-                }                
-                                
                 foreach (Event event_ in events)
                 {
                     Console.WriteLine(event_.GetShortDescription());

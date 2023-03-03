@@ -18,7 +18,7 @@ public class SampleDataGenerator
             "Reach out we're ahead of the curve on that one in an ideal world.",
             "If you're not hurting you're not winning enough to wash your face going forward.",
             "Herding cats effort made was a lot, for technologically savvy going forward.",
-            "Digital literacy slipstream, so draw a line in the sand,  those options are already baked in with this model.",
+            "Digital literacy slipstream, so draw a line in the sand, those options are already baked in with this model.",
             "Cosmic ocean permanence of the stars made in the interiors of collapsing stars.",
             "Laws of physics quasar take root and flourish dispassionate extraterrestrial observer.",
             "Circumnavigated finite but unbounded citizens of distant epochs kindling the energy hidden in matter.",

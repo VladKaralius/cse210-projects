@@ -10,11 +10,11 @@ public class LectureEvent : Event
         _capacity = capacity;
     }
 
-    public string GetFullDetails()
+    public override string GetFullDetails()
     {
         string fullDetails = GetStandardDetails();
         string type = GetEventType();
-        fullDetails += $"\n{type}: speaker {_speakerName}, capacity {_capacity} seats.";
+        fullDetails += $"\n{type}. Speaker {_speakerName}, capacity {_capacity} seats.";
         return fullDetails;
     }
 }

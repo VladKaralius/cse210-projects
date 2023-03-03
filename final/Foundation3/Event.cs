@@ -1,4 +1,4 @@
-public class Event
+public abstract class Event
 {
     protected string _title;
     protected string _description;
@@ -34,6 +34,8 @@ public class Event
         string type = GetEventType();
         return $"{_date,10} - {type,-15} - {_title}";
     }
+
+    public abstract string GetFullDetails();
 
     protected string GetEventType()
     {

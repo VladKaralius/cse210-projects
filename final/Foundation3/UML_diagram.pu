@@ -62,7 +62,7 @@ header By Vladislovas Karalius, created with PlantUML, 2023-03-16
 title Final Project - Program 3: Inheritance with Event Planning
 
 '--Main--
-class Event {
+abstract class Event {
   # _title : string
   # _description : string
   # _date : string
@@ -72,6 +72,7 @@ class Event {
   + SetAddress(streetAddress : string, city : string\nstate : string, country : string)
   + GetStandardDetails() : string
   + GetShortDescription() : string
+  + {abstract} GetFullDetails() : string
   # GetEventType() : string
 }
 
@@ -88,19 +89,19 @@ class LectureEvent extends Event {
 - _speakerName : string
 - _capacity : int
 + LectureEvent(title : string, description : string,\ndate : string, time : string, address : string\nspeakerName :string, capacity : int)
-+ GetFullDetails() : string
++ <<override>> GetFullDetails() : string
 }
 
 class ReceptionEvent extends Event {
 - _responseEmail : string
 + ReceptionEvent(title : string, description : string,\ndate : string, time : string, address : string\nresponseEmail : string)
-+ GetFullDetails() : string
++ <<override>> GetFullDetails() : string
 }
 
 class OutdoorEvent extends Event {
 - _weatherForecast : string
 + OutdoorEvent(title : string, description : string,\ndate : string, time : string, address : string\nweatherForecast : string)
-+ GetFullDetails() : string
++ <<override>> GetFullDetails() : string
 }
 
 class SampleDataGenerator <<auxiliary>> {
