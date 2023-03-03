@@ -134,7 +134,7 @@ abstract class Goal {
 
 class SimpleGoal extends Goal {
   - _isComplete : bool
-  + Goal(name : string, description : string,\n  basePoints : int)
+  + SimpleGoal(name : string, description : string,\n  basePoints : int)
   + <<override>> CompleteGoal() : int
   + <<override>> IsComplete() : bool
   + <<override>> GetInfo() : string
@@ -143,7 +143,7 @@ class SimpleGoal extends Goal {
 }
 
 class EternalGoal extends Goal {
-  + Goal(name : string, description : string,\n  basePoints : int)
+  + EternalGoal(name : string, description : string,\n  basePoints : int)
   + <<override>> CompleteGoal() : int
   + <<override>> IsComplete() : bool
   + <<override>> GetInfo() : string
@@ -154,7 +154,7 @@ class ChecklistGoal extends Goal {
   - _bonusPoints : int
   - _timeRequired : int
   - _timesCompleted : int
-  + Goal(name : string, description : string,\n  basePoints : int, bonusPoints : int,\n  timesRequired : int)
+  + ChecklistGoal(name : string, description : string,\n  basePoints : int, bonusPoints : int,\n  timesRequired : int)
   + <<override>> CompleteGoal() : int
   + <<override>> IsComplete() : bool
   + <<override>> GetInfo() : string
