@@ -48,7 +48,7 @@ class Program
                     string country;
                     // About one address in four will be from USA.
                     // Use real state name for USA and imaginary for other countries.
-                    if (random.Next(0, 2) == 0)
+                    if (random.Next(0, 4) == 0)
                     {
                         state = sampleData.GetNextStateUSA();
                         country = "USA";
@@ -101,8 +101,6 @@ class Program
                 {
                     Console.WriteLine(event_.GetStandardDetails() + "\n");
                 }
-
-                Console.WriteLine();
             }
 
             else if (choice == 3)
@@ -113,8 +111,6 @@ class Program
                 {
                     Console.WriteLine(event_.GetFullDetails() + "\n");
                 }   
-
-                Console.WriteLine();
             }
 
             else if (choice == 4)
