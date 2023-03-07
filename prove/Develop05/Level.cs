@@ -1,11 +1,12 @@
 public class Level
 {
     private int _increase = 100;
-    // First level requires 100 points, second - 200, third - 300, and so on, each increasing by 100.
-    // Total points required can be calculated using Gauss formula:
-    // sum = (n / 2) * (first_number + last_number), where n is the number of integers.
-    // Then we need to multiply it by 100. Since we always start with 1, we can simplify it:
-    // points = level * (1 + level) / 2 * 100
+    /* First level requires 100 points, second - 200, third - 300, and so on, each increasing by 100.
+    Total points required can be calculated using Gauss formula:
+    sum = (n / 2) * (first_number + last_number), where n is the number of integers.
+    Then we need to multiply it by 100. Since we always start with 1, we can simplify it:
+    points = level * (1 + level) / 2 * 100
+    */
 
     private ProgressBar _progressBar;
 

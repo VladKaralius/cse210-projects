@@ -87,7 +87,6 @@ public class GoalManager
        
         _goals.Clear();
        _pointTotal = int.Parse(lines[0]);
-        //lines = lines.Skip(1).ToArray();
         foreach (string line in lines.Skip(1))
         {
             string[] parts = line.Split("~:~");
@@ -126,7 +125,6 @@ public class GoalManager
 
         _pointTotal += pointsReceived;
         Console.WriteLine($"You now have {_pointTotal} points.");
-
     }
 
     public void DisplayInfo()
