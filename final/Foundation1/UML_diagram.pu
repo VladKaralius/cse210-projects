@@ -107,21 +107,21 @@ class Comment {
 
 Video o- Comment
 
-class SampleDataGenerator <<auxiliary>> {
-  - _titles : string[]
-  - _currentTitleIndex : int = 0
-  - _names : string[]
-  - _currentNamesIndex : int = 0
-  - _texts : string[]
-  - _currentTextsIndex : int = 0
-  + SampleDataGenerator()
-  + GetNextTitle() : string
-  + GetNextName() : string
-  + GetNextText() : string
-  - Shuffle() : void
-}
+' class SampleDataGenerator <<auxiliary>> {
+'   - _titles : string[]
+'   - _currentTitleIndex : int = 0
+'   - _names : string[]
+'   - _currentNamesIndex : int = 0
+'   - _texts : string[]
+'   - _currentTextsIndex : int = 0
+'   + SampleDataGenerator()
+'   + GetNextTitle() : string
+'   + GetNextName() : string
+'   + GetNextText() : string
+'   - Shuffle() : void
+' }
 
-Video .[hidden]. SampleDataGenerator
+' Video .[hidden]. SampleDataGenerator
 
 '--Description--
 ' legend bottom
