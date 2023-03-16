@@ -104,50 +104,43 @@ class OutdoorEvent extends Event {
 + <<override>> GetFullDetails() : string
 }
 
-class SampleDataGenerator <<auxiliary>> {
-  - _titles : string[]
-  - _currentTitlesIndex : int = 0
-  - _descriptions : string[]
-  - _currentDescriptionsIndex : int = 0
-  - _emails : string[]
-  - _curentEmailsIndex : int = 0
-  - _weatherForecasts : string[]
-  - _currentWeatherForecastsIndex : int = 0
-  - _names : string[]
-  - _currentNamesIndex : int = 0
-  - _countries : string[]
-  - _currentCountriesIndex : int = 0
-  - _states : string[]
-  - _currentStatesIndex : int = 0
-  - _statesUSA : string[]
-  - _currentStatesUSAIndex : int = 0
-  - _cities : string[]
-  - _currentCitiesIndex : int = 0
-  - _streets : string[]
-  - _currentStreetsIndex : int = 0
-  + GetNextTitle() : string
-  + GetNextDescription() : string
-  + GetNextEmail() : string
-  + GetNextWeatherForecast() : string
-  + GetNextName() : string
-  + GetNextCountry() : string
-  + GetNextState() : string
-  + GetNextStateUSA() : string
-  + GetNextStreet() : string
-  - Shuffle() : void
-}
+' class SampleDataGenerator <<auxiliary>> {
+'   - _titles : string[]
+'   - _currentTitlesIndex : int = 0
+'   - _descriptions : string[]
+'   - _currentDescriptionsIndex : int = 0
+'   - _emails : string[]
+'   - _curentEmailsIndex : int = 0
+'   - _weatherForecasts : string[]
+'   - _currentWeatherForecastsIndex : int = 0
+'   - _names : string[]
+'   - _currentNamesIndex : int = 0
+'   - _countries : string[]
+'   - _currentCountriesIndex : int = 0
+'   - _states : string[]
+'   - _currentStatesIndex : int = 0
+'   - _statesUSA : string[]
+'   - _currentStatesUSAIndex : int = 0
+'   - _cities : string[]
+'   - _currentCitiesIndex : int = 0
+'   - _streets : string[]
+'   - _currentStreetsIndex : int = 0
+'   + GetNextTitle() : string
+'   + GetNextDescription() : string
+'   + GetNextEmail() : string
+'   + GetNextWeatherForecast() : string
+'   + GetNextName() : string
+'   + GetNextCountry() : string
+'   + GetNextState() : string
+'   + GetNextStateUSA() : string
+'   + GetNextStreet() : string
+'   - Shuffle() : void
+' }
 
-note as Note1
-I did not use polymorphism here.
-As I uderstand, we should focus
-purely on inheritance in this
-program and leave the polymorphism
-for the next task.
-endnote
+
 
 Event .> Address
-Event .l[hidden] Note1
-LectureEvent .[hidden]. SampleDataGenerator
+'LectureEvent .[hidden]. SampleDataGenerator
 
 
 '--Description--

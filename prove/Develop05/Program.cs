@@ -1,5 +1,15 @@
 using System;
 
+/* _Showing Creativity and Exceeding Requirements_
+To exceed the core requirements I added the leveling system.
+First level requires 100 points, second - 200, third - 300,
+and so on, each increasing by 100. A message is displayed
+when a new level is reached.
+The current level and points needed to reach the next level are
+displayed below the total points using a different color.
+Also, I added a progress bar that shows your progress to the
+next level. */
+
 class Program
 {
     static void Main(string[] args)
